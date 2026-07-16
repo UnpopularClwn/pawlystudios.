@@ -1,0 +1,17 @@
+.cta-block {
+  text-align: center;
+  padding: 100px 0;
+  border-top: 1px solid var(--line);
+}
+
+.cta-block h2 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  max-width: 20ch;
+  margin: 0 auto 18px;
+}
+
+.cta-block p {
+  color: var(--steel);
+  max-width: 46ch;
+  margin: 0 auto 32px;
+}

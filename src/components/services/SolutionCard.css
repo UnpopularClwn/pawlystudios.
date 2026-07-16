@@ -1,0 +1,55 @@
+.solution-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scroll-margin-top: 96px;
+}
+
+.solution-card .tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+}
+
+.solution-card h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  max-width: 24ch;
+}
+
+.solution-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--steel);
+  max-width: 68ch;
+}
+
+.solution-covers {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.solution-covers ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  color: var(--steel);
+  font-size: 14px;
+}
+
+.solution-covers li::before {
+  content: '▸ ';
+  color: var(--amber);
+}
+
+.solution-card .btn {
+  align-self: flex-start;
+}

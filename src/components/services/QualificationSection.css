@@ -1,0 +1,52 @@
+.qualification-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.qualification-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  background: var(--panel);
+}
+
+.qualification-card.good {
+  border-color: rgba(232, 163, 61, 0.4);
+}
+
+.qualification-card h3 {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.qualification-card.good h3 {
+  color: var(--amber);
+}
+
+.qualification-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--steel);
+  font-size: 15px;
+}
+
+.qualification-card li::before {
+  content: '— ';
+  color: var(--steel);
+}
+
+.qualification-card.good li::before {
+  content: '✓ ';
+  color: var(--amber);
+}
+
+@media (max-width: 720px) {
+  .qualification-grid {
+    grid-template-columns: 1fr;
+  }
+}

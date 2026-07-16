@@ -1,0 +1,348 @@
+# Portfolio Website Content Brief
+
+## Site Overview
+
+**Purpose:** Cold call credibility and portfolio showcase. When a prospect Googles Paul after a call, this site confirms he is legit and shows proof of work. All content is written to the business owner, not to other service providers.
+
+**Positioning:** Marketing and operations for home service businesses. Matches LinkedIn profile exactly.
+
+**Tone:** Conversational, direct, short sentences. Sounds like Paul talking to a business owner on a cold call. Every section leads with the business owner's problem. The solution follows naturally. Never reads like a service menu.
+
+**Pages:** Home, Services, Portfolio, Contact
+
+**Domain:** [name].vercel.app (temporary, upgrade to .com after first paying client)
+
+**Tech:** Vite + React, deployed on Vercel
+
+---
+
+## Page 1: Home
+
+### Hero Section
+
+**Headline:**
+You run the jobs. I handle the rest.
+
+**Subheadline:**
+You did not start your business to spend your nights catching up on emails, posting on Instagram, and figuring out why your website looks broken on a phone.
+
+**CTA Button:**
+Let's Talk
+
+**Supporting line below CTA:**
+Currently working with roofing and home service companies in Tampa, FL.
+
+---
+
+### Problem Section
+
+**Section headline:**
+Sound familiar?
+
+**Body copy:**
+
+You are booked because of referrals and word of mouth. That is great. But your website looks like it was built in 2014. Your Instagram has 12 posts and the last one was four months ago. Your Google listing still has your old phone number. And when a customer Googles your company name, the first thing they see does not look like a business they want to trust with a $10,000 job.
+
+Meanwhile, the other guy down the street has a clean website, posts his work every week, and responds to every Google review. He is getting calls you do not even know about.
+
+You know this is a problem. You have known for a while. But you are out running jobs from 7am to 5pm and by the time you get home, the last thing you want to do is figure out how to post a reel.
+
+---
+
+### How It Works Section
+
+**Section headline:**
+Here is how this works.
+
+**Body copy:**
+
+I do not show up with a package and tell you what you need. I ask questions first. What is falling through the cracks. What is taking up your time. What you have tried before and why it did not stick.
+
+Then I figure out the one or two things that would actually make a difference for your business and I handle them. Maybe it is your social media. Maybe it is your website. Maybe it is the systems behind the scenes that keep everything from falling apart. Every business is different.
+
+You keep running jobs. I keep everything else moving.
+
+---
+
+### Proof Section (links to Portfolio page)
+
+**Section headline:**
+I do not just talk about fixing problems. I build the fix.
+
+**Body copy:**
+
+I have managed social media for 30+ clients from strategy to posting to reporting. I built a client portal from scratch that replaced a project management tool nobody wanted to use. I automated a daily process that used to take 3 hours and cut it down to 20 minutes.
+
+**CTA:**
+See the work →
+
+---
+
+### About Section (Brief)
+
+**Section headline:**
+Who is this guy?
+
+**Body copy:**
+
+I have spent five years working remotely with US businesses. I started in customer support handling 120+ interactions a day. Moved into executive assistance. Ended up building the systems, SOPs, and automations that teams actually ran on.
+
+I use AI every day. Not for gimmicks. I use Claude and ChatGPT to build faster, solve problems quicker, and deliver work that used to take hours.
+
+Based in the Philippines. Working with US businesses.
+
+Outside work, I brew my own coffee, follow F1, and fly the A320NEO on the flight sim.
+
+---
+
+### Final CTA Section
+
+**Headline:**
+If stuff keeps falling through the cracks, let's fix it.
+
+**Subheadline:**
+No pitch. No pressure. Just a conversation about what is not getting done.
+
+**CTA Button:**
+Get In Touch
+
+---
+
+## Page 2: Services
+
+### Page headline:
+The stuff that keeps getting pushed to the bottom of your list.
+
+### Page intro:
+You did not start your business to manage an Instagram account, redesign your website, or build a spreadsheet to track your estimates. But somebody has to do it. Here is what I take off your plate.
+
+---
+
+### Service 1: Social Media
+
+**Headline:**
+Your customers are checking your Instagram before they call you.
+
+**Body copy:**
+
+When a homeowner needs a roofer, they Google your company. They check your reviews. Then they look at your Instagram or Facebook page. If your last post was three months ago or your page looks dead, they move on to the next guy.
+
+You do great work. The before and after photos alone would get attention. But you are on a roof all day and posting never happens.
+
+I handle it. I plan the content, create the graphics, edit the videos, schedule the posts, and send you a report every month so you know what is working. You do the work. I make sure people see it.
+
+**What this covers:**
+Content strategy, graphic design, short-form video editing, scheduling and posting, profile optimization, monthly performance reports.
+
+---
+
+### Service 2: Websites
+
+**Headline:**
+What does your website look like on a phone right now?
+
+**Body copy:**
+
+Go ahead and pull it up. Does it load fast? Does it look clean? Can a customer find your phone number in 3 seconds? Can they see your work?
+
+If the answer is no, you are losing jobs to businesses with a better website. Not because they do better work. Because they look more trustworthy online.
+
+I build clean, fast websites that show your work and make it easy for customers to contact you. No templates that look like everyone else. Built for your business, works on every device, loads fast even on a job site with bad signal.
+
+**What this covers:**
+Custom website design and development, mobile-friendly, fast loading, contact forms, service pages, project gallery, Google-ready.
+
+---
+
+### Service 3: Operations and Systems
+
+**Headline:**
+How much time do you spend catching up after work every day?
+
+**Body copy:**
+
+You get home at 5pm and then the real work starts. Returning calls you missed during the day. Following up on estimates that went out last week. Figuring out which jobs are scheduled for tomorrow. Texting your crew about changes.
+
+If your process lives in text messages, memory, and sticky notes, things are going to slip. Estimates go cold. Callbacks pile up. Customers stop waiting and call someone else.
+
+I build simple systems that keep everything organized. Trackers, workflows, SOPs, and automations so you spend less time catching up and more time on jobs that make you money.
+
+**What this covers:**
+SOP creation, workflow design, task tracking systems, CRM setup and automation (GoHighLevel, HubSpot, Notion), process documentation, follow-up systems.
+
+---
+
+### Service 4: Custom Tools
+
+**Headline:**
+What if the tool your business needs does not exist yet?
+
+**Body copy:**
+
+You have tried the software. Monday, Asana, Trello, whatever someone told you to use. It is either too complicated, too expensive, or does not fit how your business actually works. So you stopped using it and went back to doing everything manually.
+
+I build custom tools that fit your business. Not someone else's template. Yours. Client portals where customers approve work with a swipe. Dashboards that show you everything in one place. Automated reports that used to take hours to put together.
+
+I built a client portal from scratch that replaced Monday.com for a team that hated using it. It is live and running right now.
+
+**What this covers:**
+Custom web-based tools, client portals, approval workflows, automated reporting dashboards, built with React and Supabase.
+
+---
+
+### Bottom of Services page
+
+**Body copy:**
+
+Every business is different. I do not quote prices without understanding your situation first. Tell me what is not getting done and we will figure out the right fit.
+
+**CTA Button:**
+Let's Talk About Your Business
+
+---
+
+## Page 3: Portfolio / My Work
+
+### Page headline:
+Proof, not promises.
+
+### Page intro:
+Here is work I have actually done. Not mockups. Not concepts. Real projects for real businesses.
+
+---
+
+### Project 1: Social Media Content
+
+**Project title:**
+Social Media — Graphics and Content for 30+ Clients
+
+**Description:**
+Built the social media service workflow from scratch for 30 to 40 clients. This was not just posting. It was the entire pipeline. Strategy, content pillars, graphic design, scheduling, posting, and monthly reporting. Created the SOPs, approval process, and team workflow that made it possible to manage this volume consistently.
+
+**What to show:**
+3-6 graphics. Show variety. Different styles, different content types.
+
+**Tags:** Social Media, Graphic Design, Content Strategy
+
+---
+
+### Project 2: Set Sail Client Portal
+
+**Project title:**
+Set Sail — A Client Portal That Replaced Monday.com
+
+**Description:**
+The team was using Monday.com to manage client work. Clients hated it. It was hard to navigate, approvals took too long, and nobody wanted to log in. So I built the replacement.
+
+Set Sail is a web-based client portal with interactive swipe-to-approve content reviews, automated performance reports, content workflow management, task tracking, and team workload visibility. Built with Claude Code, React, and Supabase. Deployed on Vercel. Live and in testing.
+
+**What to show:**
+Screenshots of the portal (redacted where needed). Show the approval interface, dashboard, and reporting view. If possible, do a short screen recording walkthrough.
+
+**Tags:** Web Development, React, Supabase, AI-Built, Client Portal
+
+---
+
+### Future projects
+
+Leave space in the design to add more work. Every cold call client becomes a case study. Before and after social media growth, website redesigns, system implementations. Each one makes the portfolio stronger.
+
+---
+
+## Page 4: Contact
+
+### Page headline:
+What is not getting done in your business right now?
+
+### Page intro:
+No pitch. No pressure. Just tell me what is taking up your time and I will tell you if I can help.
+
+---
+
+### Contact form fields:
+
+- Your name
+- Business name
+- Email
+- Phone (optional)
+- "What is the biggest thing on your plate right now that you wish someone else handled?" (open text field)
+
+---
+
+### Below the form:
+
+**Body copy:**
+
+I will get back to you within 24 hours. If you would rather just talk, text me at [your number] or connect with me on LinkedIn.
+
+**LinkedIn link:** linkedin.com/in/nino-paul-cabiles
+
+---
+
+## Keywords to Weave In Naturally
+
+These are not for SEO ranking. They are for making sure the content speaks the same language business owners use when they describe their problems.
+
+**Problem-based phrases business owners actually say:**
+- "I do not have time to post on social media"
+- "My website looks outdated"
+- "I am losing jobs to competitors online"
+- "Estimate follow-ups keep falling through the cracks"
+- "I spend my evenings catching up on admin work"
+- "Nobody answers the phone when I am on a job"
+- "I need someone to handle the business side"
+- "I tried [tool] and it did not work for us"
+
+**Service-related keywords (use naturally, not stuffed):**
+- social media management for contractors
+- home service business marketing
+- website for roofing company
+- small business operations support
+- virtual assistant for contractors
+- GoHighLevel automation
+- client portal for small business
+
+---
+
+## Meta Titles and Descriptions
+
+### Home
+**Title:** Paul Cabiles — You Run the Jobs. I Handle the Rest.
+**Description:** Marketing, social media, websites, and operations for home service businesses that are too busy to do it themselves.
+
+### Services
+**Title:** Services — The Stuff That Keeps Getting Pushed to the Bottom of Your List
+**Description:** Social media, websites, operations systems, and custom tools for small businesses and contractors who are too busy running jobs to handle the rest.
+
+### Portfolio
+**Title:** Portfolio — Proof, Not Promises
+**Description:** Real work for real businesses. Social media content, client portals, and operations systems built and delivered.
+
+### Contact
+**Title:** Contact — What Is Not Getting Done in Your Business?
+**Description:** No pitch. No pressure. Tell me what is taking up your time and I will tell you if I can help.
+
+---
+
+## Design Notes
+
+- Clean, minimal. No stock photos of handshakes or office workers.
+- Dark background with light text or light background with dark text. Pick one and commit.
+- Your profile photo somewhere on the Home page. Same one from LinkedIn.
+- Mobile-first. Most prospects will check this on their phone.
+- Fast. No heavy animations or videos on load. A business owner on a job site with spotty service needs it to load in under 2 seconds.
+- No chat widgets, popups, or cookie banners. Keep it clean.
+- Service sections should feel like conversations, not brochures.
+
+---
+
+## Content Rules
+
+- Every section starts with the business owner's problem. The solution comes second.
+- Write the way Paul talks. Short sentences. Direct. No fluff.
+- Address the reader as "you" throughout. Never talk about "clients" or "businesses" in the third person.
+- No em dashes, semicolons, or colons in body copy.
+- No buzzwords. No "synergy," "leverage," "cutting-edge," "results-driven."
+- No stock phrases. No "I am passionate about helping businesses grow."
+- Every sentence should pass the test: would a business owner read this and think "that is exactly my problem"?
+- Do not use emojis anywhere on the site.
