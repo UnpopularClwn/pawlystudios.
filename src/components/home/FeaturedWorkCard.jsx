@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import BrowserFrame from '../media/BrowserFrame.jsx'
 import './FeaturedWorkCard.css'
 
 export default function FeaturedWorkCard({ project }) {
@@ -7,7 +8,9 @@ export default function FeaturedWorkCard({ project }) {
   return (
     <article className="featured-card">
       {image ? (
-        <img src={image.src} alt={image.alt} loading="lazy" width="640" height="480" />
+        <div className="featured-card-media">
+          <BrowserFrame src={image.src} alt={image.alt} />
+        </div>
       ) : (
         <div className="featured-card-placeholder mono">Screenshot coming soon</div>
       )}

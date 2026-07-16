@@ -1,9 +1,14 @@
+import MediaGallery from '../media/MediaGallery.jsx'
+import useGsapReveal from '../../hooks/useGsapReveal.js'
 import './CaseStudySection.css'
 
-export default function CaseStudySection({ project }) {
+export default function CaseStudySection({ project, index }) {
+  const headerRef = useGsapReveal({ preset: 'f1', selector: '.case-study-number, .tag, h2, .case-study-summary', y: 14 })
+
   return (
     <article className="case-study" id={project.slug}>
-      <header className="case-study-header">
+      <header className="case-study-header" ref={headerRef}>
+        <span className="case-study-number mono">{String(index + 1).padStart(2, '0')}</span>
         <div className="tag">{project.tag}</div>
         <h2 className="display">{project.title}</h2>
         <p className="case-study-summary">{project.summary}</p>
@@ -11,11 +16,7 @@ export default function CaseStudySection({ project }) {
       </header>
 
       {project.media.length > 0 ? (
-        <div className="case-study-media">
-          {project.media.map((item) => (
-            <img key={item.src} src={item.src} alt={item.alt} loading="lazy" width="480" height="600" />
-          ))}
-        </div>
+        <MediaGallery items={project.media} />
       ) : (
         <div className="case-study-media-placeholder mono">{project.mediaPlaceholder}</div>
       )}

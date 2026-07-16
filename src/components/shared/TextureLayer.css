@@ -1,0 +1,22 @@
+.texture-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 15%, var(--glow), transparent 45%),
+    radial-gradient(circle at 82% 70%, var(--glow), transparent 40%),
+    radial-gradient(circle, var(--text-primary) 0.6px, transparent 0.6px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    3px 3px;
+  opacity: var(--texture-opacity);
+  transition: opacity 700ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .texture-layer {
+    transition: none;
+  }
+}

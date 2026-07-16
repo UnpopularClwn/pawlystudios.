@@ -64,12 +64,12 @@ export default function ContactForm() {
     return (
       <div className="form-message unavailable" role="alert">
         <p>
-          The form is not connected to email yet, so I could not send this. Please reach me directly
-          on{' '}
+          The form is not connected to email yet, so I could not send this. Email me directly at{' '}
+          <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or reach me on{' '}
           <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
             LinkedIn
-          </a>{' '}
-          in the meantime.
+          </a>
+          .
         </p>
       </div>
     )

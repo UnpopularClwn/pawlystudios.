@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
+import useGsapReveal from '../../hooks/useGsapReveal.js'
 import './Hero.css'
 
 export default function Hero() {
+  const copyRef = useGsapReveal({ preset: 'flight', y: 16 })
+
   return (
-    <header className="hero">
+    <header className="hero" data-theme="precision">
       <div className="wrap hero-grid">
-        <div className="hero-copy">
+        <div className="hero-copy" ref={copyRef}>
           <h1 className="display">
             You run the jobs. <span className="em">I handle the rest.</span>
           </h1>

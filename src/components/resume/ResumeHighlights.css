@@ -1,0 +1,27 @@
+.resume-highlights {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 28px;
+}
+
+.resume-highlights-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+
+.resume-highlights ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--steel);
+  font-size: 15px;
+}
+
+.resume-highlights li::before {
+  content: '▸ ';
+  color: var(--amber);
+}

@@ -1,9 +1,11 @@
-// NEEDS YOUR INPUT: replace placeholder values with real, verified contact details.
+// Email and phone sourced from assets/AI-Forward Executive Assistant.docx (Paul's real resume,
+// found in the project during Session 2.3). WhatsApp assumes the same number is WhatsApp-enabled —
+// confirm before relying on it publicly.
 export const CONTACT = {
   linkedin: 'https://www.linkedin.com/in/nino-paul-cabiles',
-  email: null, // NEEDS YOUR INPUT: real inbox for form notifications and mailto fallback
-  whatsapp: null, // NEEDS YOUR INPUT: real WhatsApp number, e.g. 'https://wa.me/1XXXXXXXXXX'
-  resumeUrl: null, // NEEDS YOUR INPUT: path to a real resume PDF placed in /public
+  email: 'ninopaul.cabiles@gmail.com',
+  whatsapp: 'https://wa.me/639060558493', // NEEDS YOUR INPUT: confirm this number is WhatsApp-enabled
+  resumeUrl: null, // NEEDS YOUR INPUT: a clean PDF export of the resume, placed in /public/documents
   location: 'Based in the Philippines · Working with US home service businesses',
   serviceArea: 'Currently working with roofing and home service companies in Tampa, FL.',
 }

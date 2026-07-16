@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import Seo from '../components/shared/Seo.jsx'
 import Hero from '../components/home/Hero.jsx'
 import CredibilityStrip from '../components/home/CredibilityStrip.jsx'
@@ -8,10 +9,14 @@ import FeaturedWork from '../components/home/FeaturedWork.jsx'
 import AboutSection from '../components/home/AboutSection.jsx'
 import TrustedPartnerCard from '../components/home/TrustedPartnerCard.jsx'
 import CTASection from '../components/shared/CTASection.jsx'
+import useScrollTheme from '../hooks/useScrollTheme.js'
 
 export default function HomePage() {
+  const containerRef = useRef(null)
+  useScrollTheme(containerRef)
+
   return (
-    <>
+    <div ref={containerRef}>
       <Seo
         title="Paul Cabiles — You Run the Jobs. I Handle the Rest."
         description="Marketing, social media, websites, and operations for home service businesses. You are too busy running jobs to deal with the rest. I take it off your plate."
@@ -26,6 +31,6 @@ export default function HomePage() {
       <AboutSection />
       <TrustedPartnerCard />
       <CTASection />
-    </>
+    </div>
   )
 }

@@ -1,6 +1,7 @@
 export const SERVICES = [
   {
     slug: 'social-media',
+    variant: 'split',
     tag: 'Social Media',
     headline: 'Your customers check your Instagram before they call you.',
     body: [
@@ -20,6 +21,7 @@ export const SERVICES = [
   },
   {
     slug: 'websites',
+    variant: 'full-width',
     tag: 'Websites',
     headline: 'Pull up your website on your phone. What do you see?',
     body: [
@@ -38,6 +40,7 @@ export const SERVICES = [
   },
   {
     slug: 'operations-systems',
+    variant: 'workflow',
     tag: 'Operations and Systems',
     headline: 'How many hours do you spend catching up after work every night?',
     body: [
@@ -56,6 +59,7 @@ export const SERVICES = [
   },
   {
     slug: 'custom-tools',
+    variant: 'compact',
     tag: 'Custom Tools',
     headline: 'The software you bought is collecting dust. I know.',
     body: [

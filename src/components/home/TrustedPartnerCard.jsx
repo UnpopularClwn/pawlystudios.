@@ -6,7 +6,7 @@ export default function TrustedPartnerCard() {
   const hasPartnerName = Boolean(TRUSTED_PARTNER.name)
 
   return (
-    <section aria-label="Trusted partner">
+    <section aria-label="Trusted partner" data-theme="personal">
       <div className="wrap">
         <SectionHeading title="Some problems need a specialist." />
         <div className="partner-card">

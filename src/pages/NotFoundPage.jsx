@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/shared/Seo.jsx'
 import PageHero from '../components/shared/PageHero.jsx'
+import usePageTheme from '../hooks/usePageTheme.js'
 
 export default function NotFoundPage() {
+  usePageTheme('precision')
+
   return (
     <>
       <Seo

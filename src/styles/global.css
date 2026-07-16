@@ -1,16 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  --ink: #10151c;
-  --panel: #161d26;
-  --panel-2: #1b2430;
-  --line: rgba(237, 231, 218, 0.12);
-  --bone: #ede7da;
-  --steel: #97a3b2;
-  --amber: #e8a33d;
-  --amber-deep: #b97722;
+  /* Semantic theme tokens — overridden per [data-active-theme]. See docs/visual-identity.md. */
+  --page-bg: #10151c;
+  --surface: #161d26;
+  --surface-raised: #1b2430;
+  --text-primary: #ede7da;
+  --text-muted: #97a3b2;
+  --accent: #e8a33d;
+  --accent-soft: #b97722;
+  --theme-line: rgba(237, 231, 218, 0.12);
+  --glow: rgba(232, 163, 61, 0.15);
+  --texture-opacity: 0.035;
+
+  /* Legacy aliases — every existing component reads these, so theme changes propagate
+     without touching component CSS. Do not use --ink/--bone/etc. in new code; use the
+     semantic tokens above instead. */
+  --ink: var(--page-bg);
+  --panel: var(--surface);
+  --panel-2: var(--surface-raised);
+  --bone: var(--text-primary);
+  --steel: var(--text-muted);
+  --amber: var(--accent);
+  --amber-deep: var(--accent-soft);
+  --line: var(--theme-line);
+
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --maxw: 1120px;
+}
+
+/* ---------- Visual identity themes ----------
+   precision (hero)      — F1 + flight sim: near-black, crisp, amber accent (base default)
+   problem  (problem)    — worksite realism: flatter charcoal, higher contrast, less decoration
+   systems  (how it works, services, resume) — cooler blue-black, structured
+   proof    (proof, featured work, portfolio) — dark graphite, brighter amber/copper
+   personal (about, trusted partner, contact) — coffee: warm charcoal, cream text, copper
+*/
+:root[data-active-theme='problem'] {
+  --page-bg: #0d1015;
+  --surface: #14171c;
+  --surface-raised: #191d23;
+  --text-primary: #f5f1e8;
+  --text-muted: #8a94a3;
+  --theme-line: rgba(245, 241, 232, 0.1);
+  --glow: rgba(232, 163, 61, 0.08);
+}
+
+:root[data-active-theme='systems'] {
+  --page-bg: #0c131c;
+  --surface: #121b26;
+  --surface-raised: #17212e;
+  --text-primary: #e7ecf2;
+  --text-muted: #8fa0b3;
+  --theme-line: rgba(231, 236, 242, 0.12);
+  --glow: rgba(111, 179, 217, 0.12);
+}
+
+:root[data-active-theme='proof'] {
+  --page-bg: #14141a;
+  --surface: #1c1c22;
+  --surface-raised: #212129;
+  --text-primary: #f0ece2;
+  --text-muted: #9a978f;
+  --accent: #f0a83d;
+  --accent-soft: #c98a3a;
+  --theme-line: rgba(240, 236, 226, 0.12);
+  --glow: rgba(240, 168, 61, 0.18);
+}
+
+:root[data-active-theme='personal'] {
+  --page-bg: #1a1410;
+  --surface: #211a15;
+  --surface-raised: #271f19;
+  --text-primary: #f3e9d8;
+  --text-muted: #b0a08c;
+  --accent-soft: #a8672f;
+  --theme-line: rgba(243, 233, 216, 0.12);
+  --glow: rgba(232, 163, 61, 0.14);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition:
+      background-color 700ms ease,
+      color 700ms ease;
+  }
 }
 
 * {

@@ -14,13 +14,29 @@
   `src/lib/submitContactForm.js` behind a clear "not configured" placeholder.
 - Documentation set (this file, decision records, status, test plan) and a short root `CLAUDE.md`.
 
-## Phase 2 — Real Contact Delivery and Missing Assets (next session)
+## Phase 2 — Content Brief Replacement (Session 2.2, complete)
+
+- Replaced all public-facing copy with `docs/Content Brief v2` throughout Home, Services,
+  Portfolio, Contact.
+- Restructured the homepage to the brief's exact section order and voice.
+- Built `docs/content-claims.md` and `docs/content-voice.md` as living verification/voice records.
+
+## Phase 2.3 — Resume Page and Visual Identity (this session, complete)
+
+- Added `/resume` with a native PDF viewer, verified-claims summary, and honest fallback state.
+- Built a five-theme, scroll-aware visual identity system and a small reusable GSAP motion system.
+- Added CSS-only media render frames for real project screenshots.
+- Found the real resume document in project assets and resolved the email/phone Needs Your Input
+  items from Sessions 1.1–2.2. See `docs/visual-identity.md` and `docs/content-claims.md`.
+
+## Phase 2.4 — Remaining Contact and Asset Gaps (next session)
 
 - Wire `submitContactForm` to a real provider once Paul chooses one (Formspree, a Vercel serverless
   function + email service, or a GoHighLevel webhook).
 - Add real Set Sail screenshots or a screen recording to the Set Sail case study.
-- Add a real resume PDF and link it from the Contact page.
-- Add real WhatsApp number and email address.
+- Export a clean PDF from the existing `.docx` resume and wire `resumeUrl` in
+  `src/data/contact.js` — every resume link on the site activates automatically once this is set.
+- Confirm the WhatsApp number is correct and enabled.
 - Add real Trusted Partner details (name, photo, specialty copy, links).
 
 ## Phase 3 — Individual Case Study Pages and Growth

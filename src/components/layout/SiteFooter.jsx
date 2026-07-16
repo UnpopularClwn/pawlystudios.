@@ -18,15 +18,11 @@ export default function SiteFooter() {
         <nav className="footer-links" aria-label="Footer">
           <Link to="/services">Services</Link>
           <Link to="/portfolio">Portfolio</Link>
+          <Link to="/resume">Resume</Link>
           <Link to="/contact">Contact</Link>
           <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          {CONTACT.resumeUrl && (
-            <a href={CONTACT.resumeUrl} target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-          )}
         </nav>
 
         <p className="footer-meta mono">© {year} Paul Cabiles · Based in the Philippines, working with US businesses</p>

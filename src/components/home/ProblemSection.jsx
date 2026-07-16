@@ -1,11 +1,14 @@
 import SectionHeading from '../shared/SectionHeading.jsx'
+import useGsapReveal from '../../hooks/useGsapReveal.js'
 
 export default function ProblemSection() {
+  const copyRef = useGsapReveal({ preset: 'flight', y: 18 })
+
   return (
-    <section aria-label="Sound familiar">
+    <section aria-label="Sound familiar" data-theme="problem">
       <div className="wrap">
         <SectionHeading title="Sound familiar?" />
-        <div style={{ maxWidth: '70ch', color: 'var(--steel)', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div ref={copyRef} style={{ maxWidth: '70ch', color: 'var(--steel)', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <p>You are booked. Referrals keep the phone ringing. Good.</p>
           <p>
             But pull up your website on your phone right now. Does it look like a business someone

@@ -3,9 +3,12 @@ import PageHero from '../components/shared/PageHero.jsx'
 import CaseStudySection from '../components/portfolio/CaseStudySection.jsx'
 import MoreWorkNotice from '../components/portfolio/MoreWorkNotice.jsx'
 import CTASection from '../components/shared/CTASection.jsx'
+import usePageTheme from '../hooks/usePageTheme.js'
 import { PROJECTS } from '../data/projects.js'
 
 export default function PortfolioPage() {
+  usePageTheme('proof')
+
   return (
     <>
       <Seo
@@ -16,8 +19,8 @@ export default function PortfolioPage() {
       <PageHero title="Proof." lede="Not mockups. Not concepts. Work that is live." />
       <section aria-label="Case studies">
         <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-          {PROJECTS.map((project) => (
-            <CaseStudySection key={project.slug} project={project} />
+          {PROJECTS.map((project, index) => (
+            <CaseStudySection key={project.slug} project={project} index={index} />
           ))}
           <MoreWorkNotice />
         </div>

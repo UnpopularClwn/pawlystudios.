@@ -1,13 +1,16 @@
+import { Link } from 'react-router-dom'
 import SectionHeading from '../shared/SectionHeading.jsx'
-import { CONTACT } from '../../data/contact.js'
+import useGsapReveal from '../../hooks/useGsapReveal.js'
 import './AboutSection.css'
 
 export default function AboutSection() {
+  const copyRef = useGsapReveal({ preset: 'coffee', selector: 'img, .about-copy', y: 16 })
+
   return (
-    <section id="about" aria-label="About Paul">
+    <section id="about" aria-label="About Paul" data-theme="personal">
       <div className="wrap">
         <SectionHeading title="Who is this guy?" />
-        <div className="about-inner">
+        <div className="about-inner" ref={copyRef}>
           <img
             src="/images/paul-headshot-about.png"
             alt="Paul Cabiles"
@@ -36,13 +39,9 @@ export default function AboutSection() {
               I also brew my own coffee, follow F1 every race weekend, and have 400+ hours flying the
               A320NEO on the sim. Just so you know I am a real person.
             </p>
-            {CONTACT.resumeUrl ? (
-              <a className="about-resume-link mono" href={CONTACT.resumeUrl} target="_blank" rel="noopener noreferrer">
-                View my resume &rarr;
-              </a>
-            ) : (
-              <p className="about-resume-link mono pending">Resume coming soon</p>
-            )}
+            <Link className="about-resume-link mono" to="/resume">
+              View my resume &rarr;
+            </Link>
           </div>
         </div>
       </div>

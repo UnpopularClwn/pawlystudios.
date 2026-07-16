@@ -3,9 +3,12 @@ import PageHero from '../components/shared/PageHero.jsx'
 import SolutionCard from '../components/services/SolutionCard.jsx'
 import QualificationSection from '../components/services/QualificationSection.jsx'
 import CTASection from '../components/shared/CTASection.jsx'
+import usePageTheme from '../hooks/usePageTheme.js'
 import { SERVICES } from '../data/services.js'
 
 export default function ServicesPage() {
+  usePageTheme('systems')
+
   return (
     <>
       <Seo
@@ -19,8 +22,8 @@ export default function ServicesPage() {
       />
       <section aria-label="Solutions">
         <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {SERVICES.map((service) => (
-            <SolutionCard key={service.slug} service={service} />
+          {SERVICES.map((service, index) => (
+            <SolutionCard key={service.slug} service={service} index={index} />
           ))}
         </div>
       </section>

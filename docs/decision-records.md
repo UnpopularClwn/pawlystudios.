@@ -52,8 +52,29 @@ widgets or popups.
 
 ## Site Architecture
 
-Routes: `/`, `/services`, `/portfolio`, `/contact`. Data-driven services and projects so future case
-studies and solution categories don't require a redesign.
+Routes: `/`, `/services`, `/portfolio`, `/resume`, `/contact`. Data-driven services and projects so
+future case studies and solution categories don't require a redesign.
+
+## Session 2.3 Visual Identity and Resume Update
+
+- **GSAP was reintroduced, deliberately and narrowly.** Session 1.1 dropped GSAP because it arrived
+  bundled with Three.js and heavy ScrollTrigger reveals in the original mockup, for a positioning
+  (Executive Assistant) that no longer applies. That was a decision about a specific bundle for a
+  specific context, not a permanent ban on GSAP. Session 2.3's brief explicitly asked for a
+  restrained GSAP motion system, so it was added on its own — no Three.js, no smooth-scroll
+  replacement library, no cursor followers. See `docs/visual-identity.md` for the full scope of
+  what was and was not built.
+- **A five-theme, scroll-aware color system** now drives section-to-section and page-to-page
+  visual identity (`precision`, `problem`, `systems`, `proof`, `personal`), implemented as CSS
+  custom property overrides keyed to a single `data-active-theme` attribute on `<html>`. This is
+  additive to the existing dark navy/amber design tokens from Session 1.1, not a replacement — the
+  base `precision` theme's values match the original tokens exactly.
+- **A `/resume` route was added**, with links from the navbar, About section, Contact page, and
+  footer, per this session's requirements. See "Needs Your Input" in
+  `docs/implementation-status.md` for the one remaining blocker (no PDF file exists yet).
+- **Services page cards were varied by layout**, not by adding fabricated per-service imagery. Four
+  distinct CSS structural treatments (`split`, `full-width`, `workflow`, `compact`) replace the
+  previous identical-card repetition, keeping every service section built from real copy only.
 
 ## Session 2.2 Content Authority Update
 

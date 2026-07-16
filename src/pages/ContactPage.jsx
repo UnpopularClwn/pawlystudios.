@@ -2,9 +2,12 @@ import Seo from '../components/shared/Seo.jsx'
 import PageHero from '../components/shared/PageHero.jsx'
 import ContactForm from '../components/contact/ContactForm.jsx'
 import ContactMethod from '../components/contact/ContactMethod.jsx'
+import usePageTheme from '../hooks/usePageTheme.js'
 import { CONTACT } from '../data/contact.js'
 
 export default function ContactPage() {
+  usePageTheme('personal')
+
   return (
     <>
       <Seo
@@ -35,11 +38,7 @@ export default function ContactPage() {
             }}
           >
             <ContactMethod label="LINKEDIN" href={CONTACT.linkedin} />
-            <ContactMethod
-              label="RESUME"
-              href={CONTACT.resumeUrl}
-              unavailableNote="Resume download coming soon."
-            />
+            <ContactMethod label="RESUME" to="/resume" />
             <ContactMethod
               label="WHATSAPP"
               href={CONTACT.whatsapp}

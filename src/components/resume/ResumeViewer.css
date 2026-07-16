@@ -1,0 +1,68 @@
+.resume-status {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+}
+
+.resume-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.resume-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.resume-embed {
+  height: min(80vh, 900px);
+  min-height: 480px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.resume-embed object,
+.resume-embed iframe {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.resume-embed p {
+  padding: 24px;
+  color: var(--steel);
+}
+
+.resume-viewer-empty {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  color: var(--steel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.resume-viewer-empty .btn {
+  margin-top: 4px;
+}
+
+@media (max-width: 720px) {
+  .resume-embed {
+    height: 60vh;
+    min-height: 380px;
+  }
+}

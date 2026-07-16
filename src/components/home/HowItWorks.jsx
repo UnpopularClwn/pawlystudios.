@@ -1,11 +1,14 @@
 import SectionHeading from '../shared/SectionHeading.jsx'
+import useGsapReveal from '../../hooks/useGsapReveal.js'
 
 export default function HowItWorks() {
+  const copyRef = useGsapReveal({ preset: 'flight', y: 18 })
+
   return (
-    <section aria-label="How it works">
+    <section aria-label="How it works" data-theme="systems">
       <div className="wrap">
         <SectionHeading title="Here is how this works." />
-        <div style={{ maxWidth: '70ch', color: 'var(--steel)', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div ref={copyRef} style={{ maxWidth: '70ch', color: 'var(--steel)', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <p>I do not show up with a package. I ask questions first.</p>
           <p>
             What is falling through the cracks. What takes up your time after hours. What you have
