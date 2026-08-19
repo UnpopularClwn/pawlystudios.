@@ -1,0 +1,142 @@
+.pricing-intro {
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+
+.pricing-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  list-style: none;
+}
+
+.pricing-offer {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 28px;
+  background: var(--color-lime-wash);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pricing-offer:hover {
+    border-color: var(--color-sage);
+  }
+}
+
+.pricing-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 58px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.pricing-number {
+  order: 2;
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: var(--weight-body-medium);
+  color: var(--text-muted);
+}
+
+.pricing-title {
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  text-wrap: balance;
+}
+
+.pricing-label {
+  margin: 26px 0 12px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.625rem, 1.4rem + 0.8vw, 2rem);
+  font-weight: var(--weight-heading);
+  line-height: 1.1;
+  color: var(--text-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.pricing-description {
+  max-width: 42ch;
+  margin-bottom: 30px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.pricing-cta {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .pricing-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-offer:last-child {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 0.85fr) minmax(280px, 1.15fr);
+    grid-template-areas:
+      'header header'
+      'label description'
+      'cta description';
+    column-gap: 40px;
+  }
+
+  .pricing-offer:last-child .pricing-card-header {
+    grid-area: header;
+  }
+
+  .pricing-offer:last-child .pricing-label {
+    grid-area: label;
+  }
+
+  .pricing-offer:last-child .pricing-description {
+    grid-area: description;
+    align-self: start;
+    margin-top: 26px;
+  }
+
+  .pricing-offer:last-child .pricing-cta {
+    grid-area: cta;
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-intro {
+    margin-bottom: 36px;
+  }
+
+  .pricing-list {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-offer,
+  .pricing-offer:last-child {
+    display: flex;
+    grid-column: auto;
+  }
+
+  .pricing-offer:last-child .pricing-description {
+    align-self: auto;
+    margin-top: 0;
+  }
+
+  .pricing-offer {
+    padding: 24px 20px;
+  }
+
+  .pricing-card-header {
+    min-height: 0;
+  }
+
+  .pricing-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -12,7 +12,7 @@ function registerSplitText() {
 }
 
 // One-time page-load entrance for the hero: panel, eyebrow, heading (split by
-// line), lead, supporting copy, and CTA reveal in a short overlapping sequence.
+// line), lead, supporting copy, CTA, and artwork in a short sequence.
 // Fully skipped under prefers-reduced-motion — final state renders instantly.
 export default function useHeroEntrance() {
   const rootRef = useRef(null)
@@ -27,7 +27,8 @@ export default function useHeroEntrance() {
     const lead = root.querySelector('[data-hero="lead"]')
     const support = root.querySelector('[data-hero="support"]')
     const cta = root.querySelector('[data-hero="cta"]')
-    const targets = [panel, eyebrow, heading, lead, support, cta].filter(Boolean)
+    const visual = root.querySelector('[data-hero="visual"]')
+    const targets = [panel, eyebrow, heading, lead, support, cta, visual].filter(Boolean)
 
     if (prefersReducedMotion()) {
       gsap.set(targets, { opacity: 1, y: 0, clearProps: 'transform' })
@@ -38,29 +39,37 @@ export default function useHeroEntrance() {
 
     let split
     const ctx = gsap.context(() => {
-      split = new SplitText(heading, { type: 'lines', linesClass: 'hero-heading-line' })
-
-      split.lines.forEach((line) => {
-        const mask = document.createElement('span')
-        mask.style.display = 'block'
-        mask.style.overflow = 'hidden'
-        line.parentNode.insertBefore(mask, line)
-        mask.appendChild(line)
+      const compact = window.matchMedia('(max-width: 640px)').matches
+      split = new SplitText(heading, {
+        type: 'lines',
+        linesClass: 'hero-heading-line',
+        mask: 'lines',
       })
 
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-      tl.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6 })
-        .fromTo(eyebrow, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, '-=0.35')
+      tl.fromTo(panel, { y: compact ? 6 : 10 }, { y: 0, duration: compact ? 0.28 : 0.4 })
+        .fromTo(
+          eyebrow,
+          { opacity: 0.45, y: compact ? 5 : 8 },
+          { opacity: 1, y: 0, duration: compact ? 0.22 : 0.3 },
+          '<0.05',
+        )
         .fromTo(
           split.lines,
-          { yPercent: 110, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 0.6, stagger: 0.08 },
-          '-=0.15',
+          { yPercent: compact ? 12 : 18 },
+          { yPercent: 0, duration: compact ? 0.3 : 0.42, stagger: compact ? 0.03 : 0.05 },
+          '<0.02',
         )
-        .fromTo(lead, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.25')
-        .fromTo(support, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.3')
-        .fromTo(cta, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, '-=0.25')
+        .fromTo(lead, { opacity: 0.4, y: 9 }, { opacity: 1, y: 0, duration: 0.32 }, '-=0.2')
+        .fromTo(support, { opacity: 0.35, y: 8 }, { opacity: 1, y: 0, duration: 0.32 }, '-=0.18')
+        .fromTo(cta, { opacity: 0.4, y: 7 }, { opacity: 1, y: 0, duration: 0.28 }, '-=0.16')
+        .fromTo(
+          visual,
+          { opacity: 0, y: compact ? 10 : 16, scale: 0.98 },
+          { opacity: 1, y: 0, scale: 1, duration: compact ? 0.32 : 0.48 },
+          '-=0.08',
+        )
     }, root)
 
     return () => {

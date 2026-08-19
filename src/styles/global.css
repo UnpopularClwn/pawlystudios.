@@ -146,3 +146,10 @@ textarea:focus-visible,
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
+
+.hero-panel :focus-visible,
+.support-panel :focus-visible,
+.section--pine :focus-visible {
+  outline-color: var(--color-white);
+  outline-width: 3px;
+}

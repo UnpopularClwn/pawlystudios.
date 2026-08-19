@@ -1,0 +1,220 @@
+.process-intro {
+  max-width: 620px;
+  margin-bottom: 64px;
+}
+
+.process-heading {
+  margin-bottom: 16px;
+}
+
+.process-lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ---------- Roadmap shell ---------- */
+.roadmap {
+  position: relative;
+  --roadmap-node-col: 40px;
+  --roadmap-gap: 24px;
+  --roadmap-line-x: 19px;
+}
+
+.roadmap-track-wrap {
+  position: relative;
+}
+
+.roadmap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Scrubbed Lime progress path, behind the node column. */
+.roadmap-line {
+  position: absolute;
+  left: var(--roadmap-line-x);
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  z-index: 0;
+}
+
+.roadmap-line-base,
+.roadmap-line-fill {
+  position: absolute;
+  inset: 0;
+}
+
+.roadmap-line-base {
+  background: var(--color-mist);
+}
+
+.roadmap-line-fill {
+  background: var(--color-lime);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+/* ---------- Step ---------- */
+.roadmap-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--roadmap-node-col) 1fr;
+  column-gap: var(--roadmap-gap);
+  padding-bottom: 56px;
+}
+
+.roadmap-step:last-child {
+  padding-bottom: 0;
+}
+
+.roadmap-node {
+  grid-column: 1;
+  width: var(--roadmap-node-col);
+  height: var(--roadmap-node-col);
+  position: relative;
+}
+
+.roadmap-node-base,
+.roadmap-node-fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.roadmap-node-base {
+  width: 16px;
+  height: 16px;
+  background: var(--color-sage);
+  border: 2px solid var(--color-mist);
+}
+
+.roadmap-node-fill {
+  width: 8px;
+  height: 8px;
+  background: var(--color-lime-deep);
+  box-shadow: 0 0 0 4px var(--color-lime-wash);
+}
+
+.roadmap-content {
+  grid-column: 2;
+}
+
+.roadmap-step-number {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-medium);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.roadmap-step-title {
+  margin: 0 0 8px;
+}
+
+.roadmap-step-detail {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-medium);
+  font-size: 12px;
+  color: var(--text-heading);
+  background: var(--color-lime-wash);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  margin-bottom: 10px;
+}
+
+.roadmap-step-copy {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+
+/* Turnover (final step) carries slightly stronger emphasis. */
+.roadmap-step:last-child .roadmap-node-base {
+  width: 20px;
+  height: 20px;
+}
+
+.roadmap-step:last-child .roadmap-node-fill {
+  width: 11px;
+  height: 11px;
+  box-shadow: 0 0 0 6px var(--color-lime-wash), 0 0 18px 2px rgba(198, 231, 158, 0.55);
+}
+
+.roadmap-step:last-child .roadmap-content {
+  background: var(--color-lime-wash);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+}
+
+/* ---------- Optional ongoing-support branch ---------- */
+.roadmap-support {
+  position: relative;
+  margin-top: 48px;
+  margin-left: calc(var(--roadmap-node-col) + var(--roadmap-gap));
+  max-width: 52ch;
+  background: var(--color-white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 28px;
+}
+
+.roadmap-support::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--roadmap-line-x) - var(--roadmap-node-col) - var(--roadmap-gap));
+  top: -32px;
+  height: 32px;
+  border-left: 2px dashed var(--color-lime-deep);
+}
+
+.roadmap-support-label {
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-medium);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.roadmap-support-copy {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+/* ---------- Tablet: slightly tighter rhythm ---------- */
+@media (max-width: 860px) {
+  .roadmap-step {
+    padding-bottom: 44px;
+  }
+}
+
+/* ---------- Mobile: simpler proportions, path stays on the left ---------- */
+@media (max-width: 560px) {
+  .roadmap {
+    --roadmap-node-col: 32px;
+    --roadmap-gap: 16px;
+    --roadmap-line-x: 15px;
+  }
+
+  .roadmap-step {
+    padding-bottom: 36px;
+  }
+
+  .roadmap-step:last-child .roadmap-content {
+    padding: 16px 18px;
+  }
+}

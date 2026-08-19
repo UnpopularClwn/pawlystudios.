@@ -1,0 +1,347 @@
+.setsail-hero-experience {
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+}
+
+.setsail-hero-preview {
+  overflow: hidden;
+  background: var(--color-pine-deep);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-md);
+}
+
+.setsail-hero-preview-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+}
+
+.setsail-hero-preview-eyebrow {
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: var(--weight-body-medium);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+}
+
+.setsail-hero-preview-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--color-white);
+}
+
+.setsail-hero-preview-type {
+  flex: 0 0 auto;
+  font-size: 10px;
+  color: var(--color-sage);
+}
+
+.setsail-hero-preview-image {
+  overflow: hidden;
+  margin: 0 10px;
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+}
+
+.setsail-hero-preview-image img {
+  width: 100%;
+  height: auto;
+}
+
+.setsail-explore-trigger {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: transparent;
+  border: 0;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.setsail-explore-trigger span {
+  color: var(--color-lime);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .setsail-explore-trigger:hover span {
+    transform: translate(2px, -2px);
+  }
+}
+
+.setsail-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: clamp(16px, 3vw, 44px);
+  background: rgba(14, 42, 37, 0.78);
+  border: 0;
+}
+
+.setsail-dialog::backdrop {
+  background: transparent;
+}
+
+.setsail-dialog-panel {
+  position: relative;
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  color: var(--text-body);
+  box-shadow: 0 8px 24px rgba(14, 42, 37, 0.24);
+}
+
+.setsail-dialog-close {
+  position: sticky;
+  z-index: 1;
+  top: 16px;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  margin: 16px 16px -60px auto;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-mist);
+  border-radius: 50%;
+  color: var(--color-pine);
+  cursor: pointer;
+}
+
+.setsail-dialog-close span {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.setsail-dialog-content {
+  padding: clamp(32px, 5vw, 72px);
+}
+
+.setsail-dialog-header {
+  max-width: 760px;
+  padding-right: 52px;
+  margin-bottom: 42px;
+}
+
+.setsail-dialog-eyebrow {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: var(--weight-body-medium);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-pine-soft);
+}
+
+.setsail-dialog-header h2 {
+  margin-bottom: 16px;
+}
+
+.setsail-dialog-header > p:last-child {
+  max-width: 62ch;
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  color: var(--text-secondary);
+}
+
+.setsail-dialog-primary-image,
+.setsail-dialog-gallery figure {
+  overflow: hidden;
+  border: 1px solid var(--color-mist);
+  border-radius: var(--radius-sm);
+}
+
+.setsail-dialog-primary-image img,
+.setsail-dialog-gallery img {
+  width: 100%;
+  height: auto;
+}
+
+.setsail-dialog-story {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  padding: 64px 0;
+  border-bottom: 1px solid var(--color-mist);
+}
+
+.setsail-dialog-story h3,
+.setsail-dialog-experience-grid h3,
+.setsail-dialog-stack h3 {
+  margin-bottom: 12px;
+}
+
+.setsail-dialog-story p {
+  color: var(--text-secondary);
+}
+
+.setsail-dialog-experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  padding: 64px 0;
+}
+
+.setsail-dialog-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.setsail-dialog-list li {
+  padding: 7px 11px;
+  background: var(--color-lime-wash);
+  border-radius: var(--radius-pill);
+  color: var(--text-heading);
+  font-size: 13px;
+}
+
+.setsail-dialog-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.setsail-dialog-gallery figcaption {
+  padding: 12px 14px;
+  background: var(--color-white);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.setsail-dialog-stack {
+  padding-top: 64px;
+}
+
+.setsail-dialog-stack-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.setsail-dialog-stack-groups h4 {
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--text-heading);
+}
+
+.setsail-dialog-stack-groups p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 960px) {
+  .setsail-hero-experience {
+    max-width: 280px;
+  }
+
+  .setsail-hero-preview-header {
+    display: block;
+    padding: 14px;
+  }
+
+  .setsail-hero-preview-type {
+    display: none;
+  }
+
+  .setsail-dialog-story,
+  .setsail-dialog-stack-groups {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 720px) {
+  .setsail-hero-experience {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .setsail-hero-preview-header {
+    display: flex;
+    padding: 12px 14px;
+  }
+
+  .setsail-hero-preview-title {
+    font-size: 16px;
+  }
+
+  .setsail-hero-preview-image {
+    height: 72px;
+  }
+
+  .setsail-hero-preview-image img {
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+  }
+
+  .setsail-explore-trigger {
+    min-height: 46px;
+    padding: 9px 14px;
+  }
+
+  .setsail-dialog {
+    padding: 0;
+  }
+
+  .setsail-dialog-panel {
+    min-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .setsail-dialog-content {
+    padding: 28px 16px 48px;
+  }
+
+  .setsail-dialog-header {
+    padding-right: 48px;
+    margin-bottom: 28px;
+  }
+
+  .setsail-dialog-story,
+  .setsail-dialog-experience-grid,
+  .setsail-dialog-stack-groups,
+  .setsail-dialog-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .setsail-dialog-story,
+  .setsail-dialog-experience-grid {
+    gap: 28px;
+    padding: 40px 0;
+  }
+
+  .setsail-dialog-experience-grid {
+    gap: 36px;
+  }
+
+  .setsail-dialog-stack {
+    padding-top: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .setsail-dialog,
+  .setsail-dialog-panel,
+  .setsail-dialog-content {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

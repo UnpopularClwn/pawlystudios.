@@ -23,20 +23,27 @@ export default function useReveal({ preset = 'default', selector = ':scope > *',
     registerGsap()
     const { duration, ease, stagger } = MOTION[preset] ?? MOTION.default
 
+    // Mobile gets the same motion language at a smaller, faster scale rather
+    // than desktop distances shrunk uniformly — see global motion pass notes.
+    const isCompact = window.matchMedia('(max-width: 640px)').matches
+    const effectiveY = isCompact ? Math.round(y * 0.6) : y
+    const effectiveDuration = isCompact ? +(duration * 0.85).toFixed(2) : duration
+    const effectiveStagger = isCompact ? +(stagger * 0.7).toFixed(2) : stagger
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         targets,
-        { opacity: 0, y, scale: fromScale },
+        { opacity: 0, y: effectiveY, scale: fromScale },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration,
+          duration: effectiveDuration,
           ease,
-          stagger,
+          stagger: effectiveStagger,
           scrollTrigger: {
             trigger: el,
-            start: 'top 82%',
+            start: 'top 78%',
             once: true,
           },
         },

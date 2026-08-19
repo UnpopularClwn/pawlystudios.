@@ -21,9 +21,15 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .btn:hover {
+  .btn:hover:not(:disabled) {
     transform: translateY(var(--hover-lift));
   }
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .btn--primary {

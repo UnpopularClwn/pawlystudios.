@@ -1,0 +1,90 @@
+.services-intro {
+  max-width: 620px;
+  margin-bottom: 72px;
+}
+
+.services-heading {
+  margin-bottom: 16px;
+}
+
+.services-lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.services-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 56px minmax(180px, 320px) 1fr;
+  grid-template-areas: 'num title desc';
+  align-items: baseline;
+  column-gap: 24px;
+  padding-block: 32px;
+  margin-inline: -16px;
+  padding-inline: 16px;
+  border-top: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+.services-list li.service-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+
+.service-row:hover {
+  background-color: var(--color-lime-wash);
+  border-color: var(--color-sage);
+}
+
+.service-number {
+  grid-area: num;
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-medium);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.service-title {
+  grid-area: title;
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  margin: 0;
+}
+
+.service-description {
+  grid-area: desc;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+
+/* ---------- Tablet: let title/description shift out of the 3-column grid ---------- */
+@media (max-width: 860px) {
+  .service-row {
+    grid-template-columns: 40px 1fr;
+    grid-template-areas:
+      'num title'
+      '.   desc';
+    row-gap: 8px;
+  }
+}
+
+/* ---------- Mobile: fully stacked ---------- */
+@media (max-width: 560px) {
+  .service-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'num'
+      'title'
+      'desc';
+    row-gap: 6px;
+    padding-block: 24px;
+  }
+}

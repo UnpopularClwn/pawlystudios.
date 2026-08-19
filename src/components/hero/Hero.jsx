@@ -1,7 +1,7 @@
 import Container from '../shared/Container.jsx'
-import Button from '../shared/Button.jsx'
 import HeroMotion from './HeroMotion.jsx'
-import HeroVisual from './HeroVisual.jsx'
+import HeroCta from './HeroCta.jsx'
+import SetSailExperience from './SetSailExperience.jsx'
 import './Hero.css'
 
 export default function Hero() {
@@ -28,14 +28,11 @@ export default function Hero() {
                 ongoing maintenance.
               </p>
               <div className="hero-cta" data-hero="cta">
-                <Button href="#contact" arrow>
-                  Start a Project
-                </Button>
+                <HeroCta />
               </div>
             </div>
-            <div className="hero-visual-wrap">
-              <HeroVisual />
-            </div>
+
+            <SetSailExperience />
           </div>
         </HeroMotion>
       </Container>

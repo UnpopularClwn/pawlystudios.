@@ -1,38 +1,100 @@
-// SetSail MVP — Featured Build section content.
+// SetSail Client Portal — Featured Build section content.
 //
-// Do not populate any field below with invented facts, metrics, technologies,
-// or claims. Every value here must come from the PM/client. Fields left `null`
-// or empty render an honest "pending" state in the UI instead of fabricated
-// content — see components/projects/setsail/.
-//
-// See "Needs Your Input" in project docs once populated.
+// Approved PM copy and sanitized screenshots. Assets live in public/images
+// and are referenced directly — do not duplicate or move them.
 export const setsail = {
-  name: 'SetSail MVP',
+  eyebrow: 'Featured Build',
+  name: 'SetSail Client Portal',
 
-  // One or two sentence description of what SetSail is. Pending approved copy.
-  description: null,
+  description:
+    'A client-first web app built for an organic social media agency after their clients found Monday.com difficult to use. SetSail gives clients a simpler place to review content, approve work, follow onboarding, and understand what is happening with their social media.',
 
-  // Data-driven category tags (e.g. "Web App", "MVP"). Pending PM input —
-  // do not invent. Render nothing until this has real entries.
-  tags: [],
+  build: {
+    label: 'Built from start to finish',
+    copy:
+      'I handled the project from planning and product structure through frontend, backend, authentication, database security, testing, and deployment.',
+    stack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Vercel'],
+  },
 
-  // Compact build-details blocks: { label, value }. `value: null` renders a
-  // pending state for that specific line rather than the whole block.
-  buildDetails: [
-    { label: 'What it is', value: null },
-    { label: 'What Paul built', value: null },
-    { label: 'Build type', value: null },
-    { label: 'Key functionality', value: null },
-  ],
-
-  // Screenshot slots. `src: null` renders an intentional empty development
-  // state (never a fabricated mockup). `aspect` controls the frame's shape.
   screenshots: {
-    primary: { id: 'primary', label: 'Primary interface', alt: null, aspect: 'wide', src: null },
+    primary: {
+      id: 'primary',
+      label: 'SetSail client dashboard',
+      alt: 'SetSail client dashboard showing approvals, onboarding progress, reporting, content status, and client actions.',
+      src: '/images/SCR-20260819-puhk.png',
+      width: 1906,
+      height: 969,
+    },
     supporting: [
-      { id: 'supporting-1', label: 'Interface detail', alt: null, aspect: 'wide', src: null },
-      { id: 'supporting-2', label: 'Interface detail', alt: null, aspect: 'wide', src: null },
-      { id: 'supporting-3', label: 'Mobile view', alt: null, aspect: 'mobile', src: null },
+      {
+        id: 'supporting-1',
+        heading: 'Content approval without the back-and-forth.',
+        copy: 'Clients can review upcoming content, approve posts, or request revisions from one place.',
+        label: 'SetSail content approval screen',
+        alt: 'SetSail content approval screen showing a social media post review with approve and request revision actions.',
+        src: '/images/SCR-20260819-puve.png',
+        width: 1920,
+        height: 968,
+      },
+      {
+        id: 'supporting-2',
+        heading: 'One view across every client.',
+        copy: 'The agency team can track onboarding, approvals, intake, upcoming work, and client status without jumping between separate tools.',
+        label: 'SetSail agency overview',
+        alt: 'SetSail agency dashboard showing client counts, onboarding status, pending approvals, intake, and upcoming work.',
+        src: '/images/SCR-20260819-pwkj.png',
+        width: 1920,
+        height: 968,
+      },
+    ],
+  },
+
+  details: {
+    intro:
+      'A client-first web app built for an organic social media agency after their clients found Monday.com difficult to use.',
+    problem:
+      'The agency was using Monday.com for content management, but their clients found it difficult to use.',
+    solution:
+      "SetSail was built around the agency's actual workflow so clients could review content, approve work, follow onboarding, and understand what was happening with their social media.",
+    contribution:
+      'I handled the project from planning and product structure through frontend, backend, authentication, database security, testing, and deployment.',
+    clientExperience: [
+      'Today dashboard',
+      'Upcoming content',
+      'Content approvals',
+      'Social health KPIs',
+      'Lifecycle status',
+      'Onboarding',
+      'Notifications',
+    ],
+    agencyExperience: [
+      'Content management',
+      'Reporting',
+      'Intake',
+      'Client updates',
+      'Client status',
+      'Task visibility',
+    ],
+    stack: [
+      {
+        label: 'Application',
+        items: ['React', 'TypeScript', 'Vite'],
+      },
+      {
+        label: 'Data and security',
+        items: [
+          'Supabase',
+          'PostgreSQL',
+          'Supabase Auth',
+          'Row Level Security',
+          'Supabase Storage',
+          'RPC / PostgreSQL functions',
+        ],
+      },
+      {
+        label: 'Services and delivery',
+        items: ['Supabase Edge Functions', 'Deno', 'Vercel', 'GitHub'],
+      },
     ],
   },
 
