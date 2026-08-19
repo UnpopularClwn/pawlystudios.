@@ -1,0 +1,65 @@
+:root {
+  /* ---------- Color: surfaces ---------- */
+  --color-pine: #183a33;
+  --color-pine-deep: #0e2a25;
+  --color-pine-soft: #22483f;
+  --color-lime: #c6e79e;
+  --color-lime-deep: #aeda7e;
+  --color-lime-soft: #e6f3d4;
+  --color-lime-wash: #f1f7e8;
+  --color-sage: #c9d2ce;
+  --color-mist: #e7eae8;
+  --color-sand: #f9f9f9;
+  --color-white: #ffffff;
+
+  /* ---------- Color: text ---------- */
+  --text-heading: #183a33;
+  --text-body: #333333;
+  --text-secondary: #5a5f5c;
+  --text-muted: #7c8480;
+
+  /* ---------- Typography ---------- */
+  /* --font-general-sans / --font-inter are injected by next/font in app/layout.js */
+  --font-heading: var(--font-general-sans), 'Segoe UI', system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+
+  --weight-heading: 500;
+  --weight-body: 400;
+  --weight-body-medium: 500;
+
+  /* Fluid scale: clamp(min, viewport-relative, max) around the desktop reference sizes. */
+  --text-h1: clamp(2.25rem, 1.35rem + 3.7vw, 4.125rem); /* ~36px -> 66px */
+  --text-h2: clamp(1.75rem, 1.25rem + 2vw, 2.8125rem); /* ~28px -> 45px */
+  --text-h3: clamp(1.125rem, 1.03rem + 0.4vw, 1.25rem); /* ~18px -> 20px */
+  --text-body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 0.9375rem); /* ~15px */
+
+  --tracking-tight: -0.02em;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1180px;
+  --text-max: 720px;
+  --container-pad: 24px;
+
+  /* ---------- Radii ---------- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadow (pine-tinted, never pure black) ---------- */
+  --shadow-sm: 0 2px 8px rgba(24, 58, 51, 0.06);
+  --shadow-md: 0 8px 24px rgba(24, 58, 51, 0.1);
+  --shadow-lg: 0 16px 48px rgba(24, 58, 51, 0.14);
+
+  /* ---------- Card ---------- */
+  --card-bg: var(--color-white);
+  --card-border: var(--color-mist);
+  --card-padding: 32px;
+  --card-padding-mobile: 20px;
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.5s;
+  --hover-lift: -3px;
+}

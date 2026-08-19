@@ -13,12 +13,9 @@ export function prefersReducedMotion() {
   return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-// Named motion presets. Timing bands map to the site's three influences:
-// F1 (fast/precise), flight sim (smooth/controlled), coffee (slow/soft).
 export const MOTION = {
-  f1: { duration: 0.28, ease: 'power3.out', stagger: 0.06 },
-  flight: { duration: 0.5, ease: 'power2.out', stagger: 0.1 },
-  coffee: { duration: 0.7, ease: 'power1.out', stagger: 0.14 },
+  default: { duration: 0.5, ease: 'power2.out', stagger: 0.08 },
+  slow: { duration: 0.7, ease: 'power1.out', stagger: 0.12 },
 }
 
 export { gsap, ScrollTrigger }
