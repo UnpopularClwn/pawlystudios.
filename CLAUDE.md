@@ -2,16 +2,25 @@
 
 ## Current Checkpoint
 
-Development is paused after completing the one-page portfolio and its production foundation. This project folder is
-the only source of truth. Do not create a duplicate app or experimental copy.
+Development is paused at the approved final-QA checkpoint for the one-page `pawlystudios.` portfolio. The visible
+experience is complete; launch configuration remains intentionally pending. This project folder is the only source
+of truth. Do not create a duplicate app or experimental copy.
 
 Read `docs/implementation-status.md` before resuming. Older briefs, plans, and decision records are preserved under
 `docs/archive/` for history; current code and the status document take precedence when they conflict.
 
 ## Page Architecture
 
-Hero → SetSail Featured Build → What I Build → Process Roadmap → Ongoing Support → Pricing → Tools I Use → Contact →
-Footer.
+Hero → SetSail Featured Build / Folder → Services → Process Roadmap → Ongoing Support → Pricing → Website Maintenance → Tools I Use → About / ProfileCard → Contact → Footer.
+
+## Brand and Contact Identity
+
+- Runtime brand: `pawlystudios.`
+- Person behind the brand: Paul Cabiles.
+- Approved runtime logo: `public/logos/portfolio logo transparent.svg`.
+- Email: `ninopaul.cabiles@gmail.com`
+- WhatsApp: `https://wa.me/qr/ON77VWUSLF3MF1`
+- LinkedIn: `https://www.linkedin.com/in/nino-paul-cabiles`
 
 ## Tech Stack and Boundaries
 
@@ -23,15 +32,19 @@ Footer.
 
 ## Latest Approved Implementation
 
-- The Hero is a wide contained Pine panel with locked copy, a real sanitized SetSail dashboard preview, and an
-  accessible Explore Project trigger.
-- Explore Project opens a native-dialog SetSail experience with GSAP geometry animation, focus containment and
-  restoration, scroll locking, Escape and close-button behavior, responsive layouts, and reduced-motion handling.
-- The main SetSail section remains visible and crawlable with approved copy and three real sanitized screenshots. The
-  dialog is secondary and must not replace the homepage proof surface.
-- Pricing uses three equal Lime-wash cards. Tools uses local logos in a continuous marquee with a static
-  reduced-motion fallback.
-- Contact and Footer share approved destinations from `src/data/contact.js`:
+- The Hero is a wide contained Pine panel with locked copy, a visible `pawlystudios.` logo plate, no unnecessary
+  right-side preview, and a Contact CTA.
+- The crawlable Featured Build pairs approved SetSail copy with an interactive Folder containing three real sanitized
+  screenshots. Opening the Folder reveals the single Explore Project action.
+- Explore Project opens the reusable native-dialog SetSail experience with GSAP geometry animation, focus containment
+  and restoration, scroll locking, Escape and close-button behavior, responsive layouts, and reduced-motion handling.
+- Pricing is data-driven with Starter, Pro, and Max cards. Dollar values remain explicit development placeholders.
+- Website Maintenance is a separate optional ongoing offer after Pricing; it is not a fourth build tier.
+- Tools uses local logos in a continuous marquee with a static reduced-motion fallback.
+- About keeps its copy server-rendered and isolates its lightweight ProfileCard tilt and Contact action in a small
+  client component with reduced-motion support.
+- Contact is form-only. Footer renders the alternate contact destinations as accessible icon-only links sourced from
+  `src/data/contact.js`:
   - Email: `ninopaul.cabiles@gmail.com`
   - WhatsApp: `https://wa.me/qr/ON77VWUSLF3MF1`
   - LinkedIn: `https://www.linkedin.com/in/nino-paul-cabiles`
@@ -39,6 +52,8 @@ Footer.
   `NOT_CONFIGURED`; never fake success.
 - Baseline security headers are configured. Strict CSP remains a launch review item.
 - `SITE_IS_LAUNCHED` is `false`; the site remains noindex.
+- Final visual, responsive, accessibility, motion, content, and implementation QA passed at 1920, 1440, 1024, 768,
+  and 375 pixels. Tests, lint, production build, production dependency audit, and whitespace validation passed.
 
 ## Resume Rules
 
@@ -52,9 +67,15 @@ Footer.
 
 ## Pending Launch Work
 
-Configure real inquiry delivery and rate limiting; choose the production domain; finalize metadata, Open Graph image,
-schema, sitemap, and CSP; run final performance/Lighthouse and SEO/GEO/AEO audits; complete launch QA; then switch
-`SITE_IS_LAUNCHED` to `true` and enable indexing.
+- Select and configure a real inquiry delivery provider.
+- Add provider credentials through the approved server-side environment setup.
+- Add rate limiting tied to the real delivery path.
+- Choose the production domain and configure `metadataBase`.
+- Finalize the production SEO title, meta description, Open Graph image, JSON-LD/schema, and sitemap.
+- Complete CSP review.
+- Run the Lighthouse/performance launch pass and final SEO/GEO/AEO audit.
+- Complete production deployment QA.
+- Only after explicit launch approval, switch `SITE_IS_LAUNCHED` to `true` and enable indexing.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

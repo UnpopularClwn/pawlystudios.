@@ -1,7 +1,8 @@
+import Image from 'next/image'
 import Container from '../shared/Container.jsx'
 import HeroMotion from './HeroMotion.jsx'
 import HeroCta from './HeroCta.jsx'
-import SetSailExperience from './SetSailExperience.jsx'
+import { logo, BRAND_NAME } from '../../data/brand.js'
 import './Hero.css'
 
 export default function Hero() {
@@ -10,7 +11,19 @@ export default function Hero() {
       <Container>
         <HeroMotion>
           <div className="hero-panel" data-hero="panel">
+            <span className="hero-motif" aria-hidden="true" />
+
             <div className="hero-copy">
+              <span className="hero-brand-plate" data-hero="brand">
+                <Image
+                  src={logo.src}
+                  alt={BRAND_NAME}
+                  width={logo.width}
+                  height={logo.height}
+                  className="hero-brand"
+                  priority
+                />
+              </span>
               <p className="hero-eyebrow" data-hero="eyebrow">
                 WEBSITE DEVELOPMENT
               </p>
@@ -31,8 +44,6 @@ export default function Hero() {
                 <HeroCta />
               </div>
             </div>
-
-            <SetSailExperience />
           </div>
         </HeroMotion>
       </Container>

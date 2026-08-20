@@ -15,7 +15,6 @@ function ToolList({ items, duplicate = false }) {
             alt=""
             width={44}
             height={44}
-            loading="eager"
             className="tools-logo"
           />
           <span>{item}</span>

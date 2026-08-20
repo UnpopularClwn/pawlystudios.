@@ -7,7 +7,7 @@ import './Services.css'
 
 export default function ServicesSection() {
   return (
-    <Section background="white" className="services-section" aria-label="What I build">
+    <Section background="white" className="services-section" aria-label="What I build" id="services">
       <Reveal as="div" className="services-intro" preset="content">
         <SectionEyebrow>What I Build</SectionEyebrow>
         <h2 className="services-heading">From simple websites to more custom builds.</h2>

@@ -1,7 +1,7 @@
 .contact-grid {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 64px;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(48px, 7vw, 88px);
   align-items: start;
 }
 
@@ -17,24 +17,6 @@
   font-size: 16px;
   line-height: 1.7;
   color: var(--text-body);
-}
-
-.contact-direct-links {
-  list-style: none;
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.contact-direct-links a {
-  font-weight: var(--weight-body-medium);
-  color: var(--text-heading);
-  text-underline-offset: 3px;
-}
-
-.contact-direct-links a:hover {
-  text-decoration: underline;
 }
 
 /* ---------- Form surface ---------- */

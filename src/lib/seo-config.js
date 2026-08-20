@@ -1,3 +1,5 @@
+import { BRAND_NAME } from '../data/brand.js'
+
 // Central place for site-identity constants the Metadata API and future
 // JSON-LD (see lib/schema.js) both read from.
 //
@@ -6,7 +8,7 @@
 // NODE_ENV alone — `next build` sets NODE_ENV=production for local builds too.
 export const SITE_IS_LAUNCHED = false
 
-export const SITE_NAME = 'Paul Cabiles'
+export const SITE_NAME = BRAND_NAME
 export const SITE_DESCRIPTION =
   'Website design and development for businesses that need a fast, functional site and ongoing support after launch.'
 

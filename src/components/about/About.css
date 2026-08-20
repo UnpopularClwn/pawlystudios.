@@ -1,0 +1,43 @@
+.about-section {
+  overflow: hidden;
+  background: var(--color-pine-deep);
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+  align-items: center;
+  gap: clamp(48px, 9vw, 128px);
+}
+
+.about-copy .section-eyebrow {
+  color: var(--color-lime);
+}
+
+.about-copy h2 {
+  margin-bottom: 24px;
+}
+
+.about-supporting {
+  max-width: 56ch;
+  color: var(--color-lime-wash);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.about-profile-card {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 820px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-profile-card {
+    justify-content: center;
+  }
+}

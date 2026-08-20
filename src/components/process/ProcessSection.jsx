@@ -8,7 +8,7 @@ import './Process.css'
 
 export default function ProcessSection() {
   return (
-    <Section background="sand" className="process-section" aria-label="How it works">
+    <Section background="sand" className="process-section" aria-label="How it works" id="process">
       <Reveal as="div" className="process-intro" preset="content">
         <SectionEyebrow>How It Works</SectionEyebrow>
         <h2 className="process-heading">From the first questions to a website you own.</h2>

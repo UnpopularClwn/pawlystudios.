@@ -1,50 +1,59 @@
 # Implementation Status
 
-Last updated: 2026-08-19 (paused development checkpoint)
+Last updated: 2026-08-21 (approved final-QA pause checkpoint)
 
 ## Current Page Architecture
 
 The one-page portfolio is rendered in this order:
 
 1. Hero
-2. SetSail Featured Build
-3. What I Build
+2. Featured Build / SetSail Folder
+3. Services
 4. Process Roadmap
 5. Ongoing Support
 6. Pricing
-7. Tools I Use
-8. Contact
-9. Footer
+7. Website Maintenance
+8. Tools I Use
+9. About / ProfileCard
+10. Contact
+11. Footer
 
 The project uses the Next.js App Router, server components by default, and isolated client components only for
-browser behavior such as GSAP motion, Hero anchor scrolling, the inquiry form, and the expandable SetSail dialog.
+browser behavior such as GSAP motion, anchor scrolling, the SetSail Folder/dialog, ProfileCard tilt, Footer navigation,
+and the inquiry form.
 
 ## Complete
 
 - Next.js App Router migration.
 - Reusable design-system foundation with shared tokens, containers, sections, buttons, typography, and surfaces.
 - GSAP motion system with restrained reveal presets, animation cleanup, and reduced-motion handling.
-- Hero redesign with the approved copy, wide contained Pine panel, real SetSail preview, Contact CTA, and responsive
-  desktop/tablet/mobile composition.
-- Accessible expandable SetSail project dialog using GSAP, native dialog semantics, focus containment and restoration,
-  Escape/close-button behavior, body scroll locking, and reduced-motion behavior.
-- Crawlable SetSail Featured Build section with approved project copy and three real sanitized screenshots.
+- Hero redesign with approved copy, `pawlystudios.` logo plate, wide contained Pine panel, Contact CTA, restrained
+  motif, and no unnecessary right-side preview.
+- Crawlable SetSail Featured Build with approved project copy and an accessible Folder interaction containing three
+  real sanitized screenshots.
+- Reusable SetSail project dialog using GSAP, native dialog semantics, focus containment and restoration,
+  Escape/close-button behavior, body scroll locking, responsive layouts, and reduced-motion behavior.
 - SetSail natural image ratios and responsive `next/image` sizing.
 - What I Build editorial services presentation without false click affordances.
 - Six-step Process Roadmap.
 - Ongoing Support section and optional post-launch support positioning.
 - Removal of the rejected diffuse Lime support-card glow.
-- Pricing section with three equal Lime-wash cards and approved structural pricing copy.
+- Data-driven Starter, Pro, and Max Pricing cards with clearly marked development-placeholder prices.
+- Separate Website Maintenance offer with ownership messaging and a Contact CTA.
 - Tools I Use section with local logo assets, continuous marquee, and static reduced-motion fallback.
 - Contact section and inquiry form UI.
 - Client and server validation, shared field limits, project-type allowlist, malformed-payload handling, and honeypot.
-- Footer.
-- Approved Email, WhatsApp, and LinkedIn direct-contact destinations.
+- About/ProfileCard section with server-rendered approved copy, Paul's approved portrait, visible transparent-logo plate,
+  restrained desktop tilt, mobile/reduced-motion fallback, and Contact anchor.
+- Footer with the `pawlystudios.` identity and accessible icon-only Email, WhatsApp, and LinkedIn links.
+- Contact form as the only primary Contact-section interaction; alternate destinations remain in Footer.
 - Accessibility fixes for muted-text contrast, dark-surface focus visibility, dialog interaction, keyboard operation,
   semantic structure, and responsive behavior.
 - Security-header baseline: `X-Content-Type-Options`, `Referrer-Policy`, and `X-Frame-Options`.
 - Dependency lockfile cleanup for the indirect `nanoid` advisory.
 - Development indexing gate remains disabled through `SITE_IS_LAUNCHED = false`.
+- Final visual, responsive, accessibility, motion, performance, content, and implementation QA passed at 1920, 1440,
+  1024, 768, and 375 pixels with no console, hydration, or horizontal-overflow errors.
 
 ## Current Contact Details
 
@@ -52,22 +61,25 @@ browser behavior such as GSAP motion, Hero anchor scrolling, the inquiry form, a
 - WhatsApp: `https://wa.me/qr/ON77VWUSLF3MF1`
 - LinkedIn: `https://www.linkedin.com/in/nino-paul-cabiles`
 
-These values are centralized in `src/data/contact.js` and shared by Contact and Footer.
+These values are centralized in `src/data/contact.js` and rendered as accessible icon-only links in Footer. Contact
+remains form-only.
 
 ## Intentionally Pending
 
 - Real inquiry delivery provider.
+- Provider credentials.
 - Rate limiting tied to the real submission endpoint.
 - Production domain.
 - `metadataBase`.
-- Final production title and meta description.
+- Final production SEO title.
+- Final meta description.
 - Open Graph image.
 - Final JSON-LD/schema.
-- Sitemap review and finalization.
-- Strict CSP review.
-- Lighthouse/performance final pass.
+- Sitemap finalization.
+- CSP review.
+- Lighthouse/performance launch pass.
 - Final SEO/GEO/AEO audit.
-- Final launch QA.
+- Production deployment QA.
 - Switching `SITE_IS_LAUNCHED` to `true`.
 - Enabling indexing.
 

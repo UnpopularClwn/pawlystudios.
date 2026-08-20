@@ -1,81 +1,3 @@
-.setsail-hero-experience {
-  width: 100%;
-  max-width: 430px;
-  justify-self: end;
-}
-
-.setsail-hero-preview {
-  overflow: hidden;
-  background: var(--color-pine-deep);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius-md);
-}
-
-.setsail-hero-preview-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 18px;
-}
-
-.setsail-hero-preview-eyebrow {
-  margin-bottom: 4px;
-  font-size: 10px;
-  font-weight: var(--weight-body-medium);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--color-lime);
-}
-
-.setsail-hero-preview-title {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  line-height: 1.25;
-  color: var(--color-white);
-}
-
-.setsail-hero-preview-type {
-  flex: 0 0 auto;
-  font-size: 10px;
-  color: var(--color-sage);
-}
-
-.setsail-hero-preview-image {
-  overflow: hidden;
-  margin: 0 10px;
-  background: var(--color-white);
-  border-radius: var(--radius-sm);
-}
-
-.setsail-hero-preview-image img {
-  width: 100%;
-  height: auto;
-}
-
-.setsail-explore-trigger {
-  display: flex;
-  width: 100%;
-  min-height: 52px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 18px;
-  background: transparent;
-  border: 0;
-  color: var(--color-white);
-  cursor: pointer;
-}
-
-.setsail-explore-trigger span {
-  color: var(--color-lime);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .setsail-explore-trigger:hover span {
-    transform: translate(2px, -2px);
-  }
-}
-
 .setsail-dialog {
   position: fixed;
   inset: 0;
@@ -246,19 +168,6 @@
 }
 
 @media (max-width: 960px) {
-  .setsail-hero-experience {
-    max-width: 280px;
-  }
-
-  .setsail-hero-preview-header {
-    display: block;
-    padding: 14px;
-  }
-
-  .setsail-hero-preview-type {
-    display: none;
-  }
-
   .setsail-dialog-story,
   .setsail-dialog-stack-groups {
     grid-template-columns: 1fr;
@@ -267,36 +176,6 @@
 }
 
 @media (max-width: 720px) {
-  .setsail-hero-experience {
-    width: 100%;
-    max-width: none;
-    justify-self: stretch;
-  }
-
-  .setsail-hero-preview-header {
-    display: flex;
-    padding: 12px 14px;
-  }
-
-  .setsail-hero-preview-title {
-    font-size: 16px;
-  }
-
-  .setsail-hero-preview-image {
-    height: 72px;
-  }
-
-  .setsail-hero-preview-image img {
-    height: 100%;
-    object-fit: cover;
-    object-position: left top;
-  }
-
-  .setsail-explore-trigger {
-    min-height: 46px;
-    padding: 9px 14px;
-  }
-
   .setsail-dialog {
     padding: 0;
   }

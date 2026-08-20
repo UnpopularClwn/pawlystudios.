@@ -22,13 +22,14 @@ export default function useHeroEntrance() {
     if (!root) return undefined
 
     const panel = root.querySelector('[data-hero="panel"]')
+    const brand = root.querySelector('[data-hero="brand"]')
     const eyebrow = root.querySelector('[data-hero="eyebrow"]')
     const heading = root.querySelector('[data-hero="heading"]')
     const lead = root.querySelector('[data-hero="lead"]')
     const support = root.querySelector('[data-hero="support"]')
     const cta = root.querySelector('[data-hero="cta"]')
-    const visual = root.querySelector('[data-hero="visual"]')
-    const targets = [panel, eyebrow, heading, lead, support, cta, visual].filter(Boolean)
+    const motif = root.querySelector('[data-hero="motif"]')
+    const targets = [panel, brand, eyebrow, heading, lead, support, cta, motif].filter(Boolean)
 
     if (prefersReducedMotion()) {
       gsap.set(targets, { opacity: 1, y: 0, clearProps: 'transform' })
@@ -49,7 +50,17 @@ export default function useHeroEntrance() {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
       tl.fromTo(panel, { y: compact ? 6 : 10 }, { y: 0, duration: compact ? 0.28 : 0.4 })
-        .fromTo(
+
+      if (brand) {
+        tl.fromTo(
+          brand,
+          { opacity: 0, y: compact ? 5 : 8 },
+          { opacity: 1, y: 0, duration: compact ? 0.22 : 0.3 },
+          '<0.05',
+        )
+      }
+
+      tl.fromTo(
           eyebrow,
           { opacity: 0.45, y: compact ? 5 : 8 },
           { opacity: 1, y: 0, duration: compact ? 0.22 : 0.3 },
@@ -64,12 +75,10 @@ export default function useHeroEntrance() {
         .fromTo(lead, { opacity: 0.4, y: 9 }, { opacity: 1, y: 0, duration: 0.32 }, '-=0.2')
         .fromTo(support, { opacity: 0.35, y: 8 }, { opacity: 1, y: 0, duration: 0.32 }, '-=0.18')
         .fromTo(cta, { opacity: 0.4, y: 7 }, { opacity: 1, y: 0, duration: 0.28 }, '-=0.16')
-        .fromTo(
-          visual,
-          { opacity: 0, y: compact ? 10 : 16, scale: 0.98 },
-          { opacity: 1, y: 0, scale: 1, duration: compact ? 0.32 : 0.48 },
-          '-=0.08',
-        )
+
+      if (motif) {
+        tl.fromTo(motif, { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.1')
+      }
     }, root)
 
     return () => {

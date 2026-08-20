@@ -1,26 +1,59 @@
+// Development placeholders only. Replace these labels when production pricing is approved.
 export const pricing = {
   eyebrow: 'Pricing',
-  heading: 'A starting point for your project.',
-  offers: [
+  heading: 'Choose the build that fits your project.',
+  lead:
+    'Start with the level that matches what you need now. If the scope changes, we can adjust before the build begins.',
+  tiers: [
     {
-      number: '01',
-      title: 'Website Build',
-      pricingLabel: 'Custom pricing',
-      description: 'For new business websites, redesigns, landing pages, and other website builds.',
+      name: 'Starter',
+      pricingLabel: 'Starting at $X,XXX',
+      isPricePlaceholder: true,
+      description: 'For smaller business websites that need a clear, professional online presence.',
+      features: [
+        'Up to 5 core pages',
+        'Responsive website build',
+        'Contact form',
+        'Essential on-page SEO setup',
+        'Basic content setup',
+        'Launch and turnover',
+      ],
+      ctaLabel: 'Start a Project',
+      tone: 'light',
     },
     {
-      number: '02',
-      title: 'Custom Development',
-      pricingLabel: 'Custom pricing',
+      name: 'Pro',
+      pricingLabel: 'Starting at $X,XXX',
+      isPricePlaceholder: true,
       description:
-        'For portals, dashboards, integrations, and builds that need functionality beyond a standard website.',
+        'For businesses that need more pages, more flexibility, and more custom functionality.',
+      features: [
+        'Expanded page structure',
+        'Custom page sections',
+        'Advanced forms or integrations',
+        'Essential on-page SEO setup',
+        'Responsive and performance QA',
+        'Launch and turnover',
+      ],
+      ctaLabel: 'Start a Project',
+      tone: 'pine',
     },
     {
-      number: '03',
-      title: 'Ongoing Support',
-      pricingLabel: 'Monthly',
+      name: 'Max',
+      pricingLabel: 'Custom quote',
+      isPricePlaceholder: true,
       description:
-        'For businesses that want me to stay involved after launch with new pages, content updates, site changes, and maintenance.',
+        'For portals, dashboards, custom workflows, and builds that go beyond a standard website.',
+      features: [
+        'Custom web application or portal',
+        'Authentication or protected areas where needed',
+        'Database or integration work where needed',
+        'Custom workflows and functionality',
+        'QA and launch support',
+        'Turnover and documentation',
+      ],
+      ctaLabel: 'Start a Project',
+      tone: 'outlined',
     },
   ],
 }

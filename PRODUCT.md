@@ -1,0 +1,63 @@
+# Product
+
+## Register
+
+`pawlystudios.` — the portfolio brand for Paul Cabiles.
+
+## Users
+
+Roofing and home-service business owners checking `pawlystudios.` and Paul Cabiles after an introduction or cold call. They need quick proof that Paul is credible, practical, and capable of building useful websites and business systems.
+
+## Product Purpose
+
+Confirm Paul's credibility, show real work, explain the available project and support options, and make it easy to start a direct conversation without presenting Paul as an agency or full-time virtual assistant.
+
+## Brand Personality
+
+Direct, capable, and personal. The experience should feel calm, specific, and human.
+
+## Anti-references
+
+Generic agency templates, corporate consultant copy, AI-influencer language, fake proof, stock-photo portfolios, intrusive popups, and overbuilt interactions that hide the work or slow the page down.
+
+## Design Principles
+
+- Show real work and real assets.
+- Put the visitor's problem before the solution.
+- Keep Paul's voice short, direct, and specific.
+- Use interaction to support credibility, never to obscure it.
+- Keep the contact path honest and easy to find.
+
+## Accessibility & Inclusion
+
+Preserve semantic HTML, keyboard access, visible focus, readable contrast, responsive layouts, and useful reduced-motion alternatives. Meaningful content must remain available without animation, WebGL, or client-side JavaScript.
+
+## Approved Page Architecture
+
+1. Hero
+2. Featured Build / SetSail Folder
+3. Services
+4. Process Roadmap
+5. Ongoing Support
+6. Pricing
+7. Website Maintenance
+8. Tools I Use
+9. About / ProfileCard
+10. Contact
+11. Footer
+
+The SetSail Folder reveals one Explore Project action that opens the reusable SetSail dialog. Pricing contains the
+Starter, Pro, and Max initial-build tiers. Website Maintenance is a separate optional continuing relationship. The
+About section pairs server-rendered copy with Paul's ProfileCard. Contact is form-only; Footer contains accessible
+icon links for Email, WhatsApp, and LinkedIn.
+
+## Approved Contact Details
+
+- Email: `ninopaul.cabiles@gmail.com`
+- WhatsApp: `https://wa.me/qr/ON77VWUSLF3MF1`
+- LinkedIn: `https://www.linkedin.com/in/nino-paul-cabiles`
+
+## Current Delivery and Launch State
+
+Inquiry delivery is not configured and must continue to fail safely with `NOT_CONFIGURED`. `SITE_IS_LAUNCHED` remains
+`false`; indexing and production launch work are intentionally pending. Final visual and implementation QA has passed.
