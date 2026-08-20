@@ -2,9 +2,10 @@
 
 ## Current Checkpoint
 
-Development is in launch-readiness preparation for the approved one-page `pawlystudios.` portfolio. The visible
-experience is complete; domain, delivery, deployment, and launch activation remain intentionally pending. This
-project folder is the only source of truth. Do not create a duplicate app or experimental copy.
+Development is paused at the approved pre-launch deployment checkpoint for the one-page `pawlystudios.` portfolio.
+The visible experience and first Vercel production deployment are complete; custom-domain work, inquiry delivery,
+commercial pricing, and launch activation remain intentionally pending. This project folder is the only source of
+truth. Do not create a duplicate app or experimental copy.
 
 Read `docs/implementation-status.md` before resuming. Older briefs, plans, and decision records are preserved under
 `docs/archive/` for history; current code and the status document take precedence when they conflict.
@@ -61,6 +62,21 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 - Final visual, responsive, accessibility, motion, content, and implementation QA passed at 1920, 1440, 1024, 768,
   and 375 pixels. Tests, lint, production build, production dependency audit, and whitespace validation passed.
 
+## Deployment Checkpoint
+
+- GitHub: `https://github.com/UnpopularClwn/pawlystudios..git`
+- Branch: `main`; Vercel production branch: `main`.
+- Vercel project: `pawlystudios`.
+- Pre-launch production URL: `https://pawlystudios.vercel.app` (not a final custom domain).
+- The GitHub repository is connected to Vercel; pushes to `main` trigger production deployments and non-main/PR work
+  can create preview deployments.
+- Hosted QA passed on desktop, tablet, and mobile with no console, hydration, asset, font, or horizontal-overflow
+  errors. Security headers and the honest unconfigured-form response were verified.
+- Lighthouse baseline: Performance 96, Accessibility 100, Best Practices 96, SEO 66 (expected while noindex is
+  active), LCP 2.7 s, CLS 0, and TBT 90 ms.
+- No custom domain or delivery environment variables are configured. `metadataBase`, absolute canonical metadata,
+  sitemap, and JSON-LD publication remain unset. The page emits `noindex, nofollow` and schema remains unpublished.
+
 ## Resume Rules
 
 - Do not fabricate contact details, client identities, business claims, metrics, testimonials, or domains.
@@ -73,21 +89,20 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 
 ## Pending Launch Work
 
-- Add the Git remote and push the approved checkpoint.
-- Select the production host and domain.
-- Configure `metadataBase` and the absolute canonical URL.
-- Create and approve the Open Graph image.
-- Replace development-placeholder pricing with approved production values or non-price labels.
-- Decide whether SetSail should publish SoftwareApplication schema.
-- Publish the sitemap URL after the production domain exists.
-- Select and configure a real inquiry delivery provider.
-- Add provider credentials through the approved server-side environment setup.
-- Add rate limiting tied to the real delivery path.
-- Decide and verify HSTS behavior on the production host.
-- Complete CSP review and deployed-policy testing.
-- Run Lighthouse against deployed production and complete the final SEO/GEO/AEO audit.
-- Complete production deployment QA.
-- Only after explicit launch approval, switch `SITE_IS_LAUNCHED` to `true` and enable indexing.
+- Domain and metadata: obtain/approve a custom domain; decide whether the Vercel URL should temporarily back absolute
+  metadata; then configure `metadataBase`, the absolute canonical, sitemap, absolute JSON-LD IDs, final schema
+  publication, and an approved Open Graph image. SetSail SoftwareApplication schema remains deferred.
+- Form delivery: select a provider; add server-only credentials; configure sender, recipient, and reply-to; implement
+  the provider call and rate limiting; define retention/spam policy; and test success, failure, rejection, and
+  throttling. Until then, keep `NOT_CONFIGURED`.
+- Commercial content: replace Starter, Pro, Max, and Website Maintenance placeholders with approved prices or
+  approved non-price labels.
+- Final security: verify HSTS with the final HTTPS/custom-domain behavior, preserve the current headers, and review CSP
+  with report-only testing first where practical.
+- Final QA: rerun Lighthouse on the final configuration; complete SEO, GEO/AEO, accessibility, metadata, robots,
+  sitemap, schema, social-preview, production-form, and desktop/tablet/mobile regression checks.
+- Final launch: only after explicit approval, switch `SITE_IS_LAUNCHED` to `true`, remove `noindex, nofollow`, publish
+  the sitemap and final schema, enable indexing, and verify the live search directives.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

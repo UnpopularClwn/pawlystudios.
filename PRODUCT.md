@@ -60,7 +60,13 @@ icon links for Email, WhatsApp, and LinkedIn.
 ## Current Delivery and Launch State
 
 Inquiry delivery is not configured and must continue to fail safely with `NOT_CONFIGURED`. `SITE_IS_LAUNCHED` remains
-`false`; indexing and production launch work are intentionally pending. Final visual and implementation QA has passed.
+`false`; indexing and final launch work are intentionally pending. Final visual and implementation QA has passed.
+
+The approved `main` branch is connected from `https://github.com/UnpopularClwn/pawlystudios..git` to the Vercel
+project `pawlystudios`. The pre-launch production deployment is available at `https://pawlystudios.vercel.app`; this
+is not a final custom domain. Hosted desktop, tablet, mobile, interaction, form, asset, console, and security-header QA
+passed. The Lighthouse baseline is Performance 96, Accessibility 100, Best Practices 96, SEO 66 (expected while
+noindex is active), LCP 2.7 seconds, CLS 0, and TBT 90 milliseconds.
 
 The approved browser title is `Custom Website Development for Businesses | pawlystudios.` The approved meta
 description is `pawlystudios. builds responsive business websites, custom web experiences, and practical ongoing
@@ -72,6 +78,9 @@ Current security preparation keeps the existing nosniff, strict-origin referrer,
 conservative camera, microphone, and geolocation Permissions Policy; and disables the Next.js signature. HSTS and CSP
 remain pending production-host review.
 
-Still pending: Git remote, production host/domain, `metadataBase`, absolute canonical, Open Graph image, approved
-production pricing labels, SetSail schema decision, sitemap launch URL, inquiry provider and rate limiting, HSTS, CSP,
-deployed Lighthouse, final SEO/GEO/AEO audit, launch approval, switching `SITE_IS_LAUNCHED` to `true`, and indexing.
+Still pending: a custom domain; a decision on temporary absolute metadata using the Vercel URL; `metadataBase`;
+absolute canonical and JSON-LD IDs; sitemap and final schema publication; Open Graph image; approved production prices
+or non-price labels; SetSail SoftwareApplication schema decision; inquiry provider, server-only credentials, delivery
+call, rate limiting, and retention/spam policy; final-domain HSTS verification; CSP review; final Lighthouse and
+SEO/GEO/AEO/accessibility/metadata/robots/sitemap/schema/social/form/responsive QA; launch approval; switching
+`SITE_IS_LAUNCHED` to `true`; and enabling indexing.

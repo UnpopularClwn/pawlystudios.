@@ -1,6 +1,6 @@
 # Implementation Status
 
-Last updated: 2026-08-21 (launch-readiness preparation checkpoint)
+Last updated: 2026-08-21 (pre-launch Vercel deployment checkpoint)
 
 ## Current Page Architecture
 
@@ -61,6 +61,14 @@ and the inquiry form.
 - Development indexing gate remains disabled through `SITE_IS_LAUNCHED = false`.
 - Final visual, responsive, accessibility, motion, performance, content, and implementation QA passed at 1920, 1440,
   1024, 768, and 375 pixels with no console, hydration, or horizontal-overflow errors.
+- GitHub repository `https://github.com/UnpopularClwn/pawlystudios..git` is synchronized on `main` and connected to
+  the Vercel project `pawlystudios`; `main` is the production branch and preview deployments are enabled for non-main
+  branches and pull requests.
+- The first pre-launch production deployment is Ready at `https://pawlystudios.vercel.app`. The Next.js preset,
+  install/build, hosted assets and fonts, SetSail Folder/dialog, ProfileCard, inquiry validation, Footer destinations,
+  security headers, reduced motion, and desktop/tablet/mobile layouts were verified in production.
+- Production Lighthouse baseline: Performance 96, Accessibility 100, Best Practices 96, SEO 66 (expected because
+  `noindex` is active), LCP 2.7 seconds, CLS 0, and TBT 90 milliseconds.
 
 ## Current Contact Details
 
@@ -73,25 +81,39 @@ remains form-only.
 
 ## Intentionally Pending
 
-- Real inquiry delivery provider.
-- Provider credentials.
-- Rate limiting tied to the real submission endpoint.
-- Git remote.
-- Production host/domain.
-- `metadataBase`.
-- Absolute canonical URL.
-- Open Graph image.
-- Approved production pricing values or non-price labels.
+### Launch and domain
+
+- Custom domain; the PM does not currently have one.
+- Decision on whether `https://pawlystudios.vercel.app` should temporarily back absolute production metadata.
+- `metadataBase`, absolute canonical, sitemap, absolute JSON-LD IDs, final schema publication, and Open Graph image.
 - SoftwareApplication schema decision for SetSail.
-- Sitemap launch URL.
-- HSTS review.
-- CSP review.
-- Lighthouse against deployed production.
-- Final SEO/GEO/AEO audit.
-- Production deployment QA.
+
+### Form delivery
+
+- Inquiry provider and server-only credentials.
+- Sender, recipient, and reply-to configuration.
+- Provider delivery call and rate limiting.
+- Retention/spam policy.
+- Success, failure, rejection, and throttling tests.
+
+### Commercial content
+
+- Approved Starter, Pro, Max, and Website Maintenance prices or approved non-price labels.
+
+### Final security and QA
+
+- HSTS verification after final HTTPS/custom-domain behavior is known. Vercel currently supplies HSTS on its own
+  domain; the application has not added a separate HSTS policy.
+- CSP review, preferably report-only first, while preserving the current verified headers.
+- Lighthouse on the final launch configuration plus SEO, GEO/AEO, accessibility, metadata, robots, sitemap, schema,
+  social-preview, production-form, and desktop/tablet/mobile regression QA.
+
+### Final launch
+
 - Explicit launch approval.
 - Switching `SITE_IS_LAUNCHED` to `true`.
-- Enabling indexing.
+- Removing `noindex, nofollow`, enabling indexing, publishing the sitemap and final schema, and verifying production
+  search directives.
 
 ## Important Project Rules
 
@@ -108,7 +130,6 @@ remains form-only.
 
 ## Not Launch Ready
 
-The visible portfolio experience and its validation/security foundation are complete, but production delivery and
-launch configuration are intentionally unfinished. The inquiry form still returns `NOT_CONFIGURED`; the production
-domain and domain-dependent launch metadata are unset; and indexing must remain disabled until final launch approval
-and QA.
+The visible portfolio and pre-launch Vercel deployment are complete, but launch configuration is intentionally
+unfinished. The inquiry form still returns `NOT_CONFIGURED`; no custom domain exists; domain-dependent metadata,
+sitemap, and schema publication remain unset; and indexing must stay disabled until final launch approval and QA.
