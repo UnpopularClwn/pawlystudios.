@@ -1,6 +1,7 @@
 'use client'
 
 import { prefersReducedMotion } from '../../lib/motion.js'
+import { logo } from '../../data/brand.js'
 import ProfileCard from './ProfileCard.jsx'
 
 export default function ProfileCardExperience() {
@@ -22,7 +23,7 @@ export default function ProfileCardExperience() {
         handle="pawlystudios"
         contactText="Start a Project"
         avatarUrl="/images/paul-headshot-about.png"
-        iconUrl="/logos/portfolio%20logo%20transparent.svg"
+        iconUrl={logo.src}
         showUserInfo={false}
         enableTilt
         enableMobileTilt={false}

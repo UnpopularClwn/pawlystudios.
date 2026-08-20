@@ -61,3 +61,17 @@ icon links for Email, WhatsApp, and LinkedIn.
 
 Inquiry delivery is not configured and must continue to fail safely with `NOT_CONFIGURED`. `SITE_IS_LAUNCHED` remains
 `false`; indexing and production launch work are intentionally pending. Final visual and implementation QA has passed.
+
+The approved browser title is `Custom Website Development for Businesses | pawlystudios.` The approved meta
+description is `pawlystudios. builds responsive business websites, custom web experiences, and practical ongoing
+support, from planning through launch and handoff.` Person, WebSite, and Service schema are prepared server-side but
+must not render until the production URL exists and launch is approved. SetSail SoftwareApplication schema remains a
+separate launch decision.
+
+Current security preparation keeps the existing nosniff, strict-origin referrer, and frame-denial headers; adds a
+conservative camera, microphone, and geolocation Permissions Policy; and disables the Next.js signature. HSTS and CSP
+remain pending production-host review.
+
+Still pending: Git remote, production host/domain, `metadataBase`, absolute canonical, Open Graph image, approved
+production pricing labels, SetSail schema decision, sitemap launch URL, inquiry provider and rate limiting, HSTS, CSP,
+deployed Lighthouse, final SEO/GEO/AEO audit, launch approval, switching `SITE_IS_LAUNCHED` to `true`, and indexing.

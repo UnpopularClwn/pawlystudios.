@@ -76,7 +76,7 @@ function ProfileCardComponent({
         <div className="profile-card-surface" aria-hidden="true" />
         {iconUrl && (
           <span className="profile-card-logo-plate" aria-hidden="true">
-            <Image className="profile-card-logo" src={iconUrl} alt="" width={64} height={64} />
+            <Image className="profile-card-logo" src={iconUrl} alt="" width={64} height={64} sizes="36px" />
           </span>
         )}
         <div className="profile-card-details" aria-hidden="true">

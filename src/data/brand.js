@@ -4,10 +4,11 @@
 // itself presents as pawlystudios.
 export const BRAND_NAME = 'pawlystudios.'
 
-// Approved transparent runtime asset. Keep the source unchanged and control
-// contrast through the surface behind it.
+// Pixel-exact lossless runtime derivative of the approved transparent SVG.
+// Keep the SVG unchanged as the source asset and control contrast through the
+// surface behind the runtime image.
 export const logo = {
-  src: '/logos/portfolio logo transparent.svg',
-  width: 1500,
-  height: 1500,
+  src: '/logos/pawlystudios-logo.webp',
+  width: 256,
+  height: 256,
 }

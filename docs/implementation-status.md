@@ -1,6 +1,6 @@
 # Implementation Status
 
-Last updated: 2026-08-21 (approved final-QA pause checkpoint)
+Last updated: 2026-08-21 (launch-readiness preparation checkpoint)
 
 ## Current Page Architecture
 
@@ -49,7 +49,14 @@ and the inquiry form.
 - Contact form as the only primary Contact-section interaction; alternate destinations remain in Footer.
 - Accessibility fixes for muted-text contrast, dark-surface focus visibility, dialog interaction, keyboard operation,
   semantic structure, and responsive behavior.
-- Security-header baseline: `X-Content-Type-Options`, `Referrer-Policy`, and `X-Frame-Options`.
+- Approved Metadata API title: `Custom Website Development for Businesses | pawlystudios.`
+- Approved meta description: `pawlystudios. builds responsive business websites, custom web experiences, and
+  practical ongoing support, from planning through launch and handoff.`
+- Server-side Person, WebSite, and Service schema builder, gated until both production URL and launch approval exist.
+- App Router robots metadata preserving the existing pre-launch crawl behavior without a sitemap URL.
+- Security-header baseline: `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, and a conservative
+  `Permissions-Policy`; the Next.js signature is disabled.
+- Pixel-exact lossless runtime logo derivative and favicon generated from the unchanged approved transparent SVG.
 - Dependency lockfile cleanup for the indirect `nanoid` advisory.
 - Development indexing gate remains disabled through `SITE_IS_LAUNCHED = false`.
 - Final visual, responsive, accessibility, motion, performance, content, and implementation QA passed at 1920, 1440,
@@ -69,17 +76,20 @@ remains form-only.
 - Real inquiry delivery provider.
 - Provider credentials.
 - Rate limiting tied to the real submission endpoint.
-- Production domain.
+- Git remote.
+- Production host/domain.
 - `metadataBase`.
-- Final production SEO title.
-- Final meta description.
+- Absolute canonical URL.
 - Open Graph image.
-- Final JSON-LD/schema.
-- Sitemap finalization.
+- Approved production pricing values or non-price labels.
+- SoftwareApplication schema decision for SetSail.
+- Sitemap launch URL.
+- HSTS review.
 - CSP review.
-- Lighthouse/performance launch pass.
+- Lighthouse against deployed production.
 - Final SEO/GEO/AEO audit.
 - Production deployment QA.
+- Explicit launch approval.
 - Switching `SITE_IS_LAUNCHED` to `true`.
 - Enabling indexing.
 
@@ -100,4 +110,5 @@ remains form-only.
 
 The visible portfolio experience and its validation/security foundation are complete, but production delivery and
 launch configuration are intentionally unfinished. The inquiry form still returns `NOT_CONFIGURED`; the production
-domain and launch metadata are unset; and indexing must remain disabled until final launch approval and QA.
+domain and domain-dependent launch metadata are unset; and indexing must remain disabled until final launch approval
+and QA.

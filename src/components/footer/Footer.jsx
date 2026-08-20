@@ -31,6 +31,7 @@ export default function Footer() {
                   alt=""
                   width={logo.width}
                   height={logo.height}
+                  sizes="24px"
                   className="footer-logo"
                 />
               </span>

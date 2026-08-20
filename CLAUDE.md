@@ -2,9 +2,9 @@
 
 ## Current Checkpoint
 
-Development is paused at the approved final-QA checkpoint for the one-page `pawlystudios.` portfolio. The visible
-experience is complete; launch configuration remains intentionally pending. This project folder is the only source
-of truth. Do not create a duplicate app or experimental copy.
+Development is in launch-readiness preparation for the approved one-page `pawlystudios.` portfolio. The visible
+experience is complete; domain, delivery, deployment, and launch activation remain intentionally pending. This
+project folder is the only source of truth. Do not create a duplicate app or experimental copy.
 
 Read `docs/implementation-status.md` before resuming. Older briefs, plans, and decision records are preserved under
 `docs/archive/` for history; current code and the status document take precedence when they conflict.
@@ -17,7 +17,8 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 
 - Runtime brand: `pawlystudios.`
 - Person behind the brand: Paul Cabiles.
-- Approved runtime logo: `public/logos/portfolio logo transparent.svg`.
+- Approved logo source: `public/logos/portfolio logo transparent.svg`.
+- Pixel-exact optimized runtime logo: `public/logos/pawlystudios-logo.webp`.
 - Email: `ninopaul.cabiles@gmail.com`
 - WhatsApp: `https://wa.me/qr/ON77VWUSLF3MF1`
 - LinkedIn: `https://www.linkedin.com/in/nino-paul-cabiles`
@@ -50,7 +51,12 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
   - LinkedIn: `https://www.linkedin.com/in/nino-paul-cabiles`
 - The inquiry form has client/server validation and a honeypot, but no delivery provider. It must continue to report
   `NOT_CONFIGURED`; never fake success.
-- Baseline security headers are configured. Strict CSP remains a launch review item.
+- Approved SEO title and meta description are configured through the native Metadata API.
+- Server-rendered Person, WebSite, and Service schema architecture is prepared but remains gated off until a real
+  production URL exists and launch is approved. SetSail SoftwareApplication schema remains pending.
+- Baseline security headers and a conservative Permissions Policy are configured; the Next.js signature is disabled.
+  HSTS and CSP remain launch review items.
+- `src/app/robots.js` preserves pre-launch crawling behavior without publishing a sitemap URL.
 - `SITE_IS_LAUNCHED` is `false`; the site remains noindex.
 - Final visual, responsive, accessibility, motion, content, and implementation QA passed at 1920, 1440, 1024, 768,
   and 375 pixels. Tests, lint, production build, production dependency audit, and whitespace validation passed.
@@ -67,13 +73,19 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 
 ## Pending Launch Work
 
+- Add the Git remote and push the approved checkpoint.
+- Select the production host and domain.
+- Configure `metadataBase` and the absolute canonical URL.
+- Create and approve the Open Graph image.
+- Replace development-placeholder pricing with approved production values or non-price labels.
+- Decide whether SetSail should publish SoftwareApplication schema.
+- Publish the sitemap URL after the production domain exists.
 - Select and configure a real inquiry delivery provider.
 - Add provider credentials through the approved server-side environment setup.
 - Add rate limiting tied to the real delivery path.
-- Choose the production domain and configure `metadataBase`.
-- Finalize the production SEO title, meta description, Open Graph image, JSON-LD/schema, and sitemap.
-- Complete CSP review.
-- Run the Lighthouse/performance launch pass and final SEO/GEO/AEO audit.
+- Decide and verify HSTS behavior on the production host.
+- Complete CSP review and deployed-policy testing.
+- Run Lighthouse against deployed production and complete the final SEO/GEO/AEO audit.
 - Complete production deployment QA.
 - Only after explicit launch approval, switch `SITE_IS_LAUNCHED` to `true` and enable indexing.
 

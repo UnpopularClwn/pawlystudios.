@@ -20,6 +20,7 @@ export default function Hero() {
                   alt={BRAND_NAME}
                   width={logo.width}
                   height={logo.height}
+                  sizes="(max-width: 480px) 22px, 26px"
                   className="hero-brand"
                   priority
                 />
