@@ -7,7 +7,7 @@ export const pricing = {
   tiers: [
     {
       name: 'Starter',
-      pricingLabel: 'Starting at $X,XXX',
+      pricingLabel: 'Starting price coming soon',
       isPricePlaceholder: true,
       description: 'For smaller business websites that need a clear, professional online presence.',
       features: [
@@ -23,7 +23,7 @@ export const pricing = {
     },
     {
       name: 'Pro',
-      pricingLabel: 'Starting at $X,XXX',
+      pricingLabel: 'Starting price coming soon',
       isPricePlaceholder: true,
       description:
         'For businesses that need more pages, more flexibility, and more custom functionality.',

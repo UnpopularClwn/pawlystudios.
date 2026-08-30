@@ -60,7 +60,8 @@ icon links for Email, WhatsApp, and LinkedIn.
 ## Current Delivery and Launch State
 
 Inquiry delivery is not configured and must continue to fail safely with `NOT_CONFIGURED`. `SITE_IS_LAUNCHED` remains
-`false`; indexing and final launch work are intentionally pending. Final visual and implementation QA has passed.
+`false`; indexing and final launch work are intentionally pending. All useful launch-readiness work not dependent on
+the custom domain or inquiry provider has passed implementation and production-style browser QA.
 
 The approved `main` branch is connected from `https://github.com/UnpopularClwn/pawlystudios..git` to the Vercel
 project `pawlystudios`. The pre-launch production deployment is available at `https://pawlystudios.vercel.app`; this
@@ -74,13 +75,17 @@ support, from planning through launch and handoff.` Person, WebSite, and Service
 must not render until the production URL exists and launch is approved. SetSail SoftwareApplication schema remains a
 separate launch decision.
 
+A branded 1200 × 630 preview is generated at `/social-preview` from the approved logo and Pine/Lime identity. It stays
+detached from Open Graph and Twitter metadata until a custom domain exists, preventing Next.js from publishing a
+fabricated absolute image URL. Starter and Pro show `Starting price coming soon`, Max shows `Custom quote`, and Website
+Maintenance shows `Pricing available soon`; all remain explicitly marked as pending pricing in code.
+
 Current security preparation keeps the existing nosniff, strict-origin referrer, and frame-denial headers; adds a
 conservative camera, microphone, and geolocation Permissions Policy; and disables the Next.js signature. HSTS and CSP
 remain pending production-host review.
 
-Still pending: a custom domain; a decision on temporary absolute metadata using the Vercel URL; `metadataBase`;
-absolute canonical and JSON-LD IDs; sitemap and final schema publication; Open Graph image; approved production prices
-or non-price labels; SetSail SoftwareApplication schema decision; inquiry provider, server-only credentials, delivery
-call, rate limiting, and retention/spam policy; final-domain HSTS verification; CSP review; final Lighthouse and
-SEO/GEO/AEO/accessibility/metadata/robots/sitemap/schema/social/form/responsive QA; launch approval; switching
-`SITE_IS_LAUNCHED` to `true`; and enabling indexing.
+Still pending: a custom domain; `metadataBase`; absolute canonical and JSON-LD IDs; sitemap and final schema
+publication; attaching `/social-preview` to absolute Open Graph/Twitter metadata; approved production prices; the
+SetSail SoftwareApplication schema decision; inquiry provider, server-only credentials, delivery call, rate limiting,
+and retention/spam policy; final-domain HSTS verification; CSP review; final-domain Lighthouse and domain/provider
+QA; launch approval; switching `SITE_IS_LAUNCHED` to `true`; and enabling indexing.

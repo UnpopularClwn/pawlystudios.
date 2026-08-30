@@ -1,6 +1,6 @@
 # Implementation Status
 
-Last updated: 2026-08-21 (pre-launch Vercel deployment checkpoint)
+Last updated: 2026-08-30 (launch-readiness checkpoint)
 
 ## Current Page Architecture
 
@@ -38,7 +38,8 @@ and the inquiry form.
 - Six-step Process Roadmap.
 - Ongoing Support section and optional post-launch support positioning.
 - Removal of the rejected diffuse Lime support-card glow.
-- Data-driven Starter, Pro, and Max Pricing cards with clearly marked development-placeholder prices.
+- Data-driven Starter, Pro, and Max Pricing cards with neutral pending-pricing labels that cannot be mistaken for
+  published dollar prices and remain explicitly marked as placeholders in code.
 - Separate Website Maintenance offer with ownership messaging and a Contact CTA.
 - Tools I Use section with local logo assets, continuous marquee, and static reduced-motion fallback.
 - Contact section and inquiry form UI.
@@ -52,6 +53,8 @@ and the inquiry form.
 - Approved Metadata API title: `Custom Website Development for Businesses | pawlystudios.`
 - Approved meta description: `pawlystudios. builds responsive business websites, custom web experiences, and
   practical ongoing support, from planning through launch and handoff.`
+- Branded 1200 × 630 social preview generated at `/social-preview` from the approved logo and Pine/Lime palette. The
+  route is prepared but intentionally omitted from metadata until the custom domain supplies truthful absolute URLs.
 - Server-side Person, WebSite, and Service schema builder, gated until both production URL and launch approval exist.
 - App Router robots metadata preserving the existing pre-launch crawl behavior without a sitemap URL.
 - Security-header baseline: `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, and a conservative
@@ -69,6 +72,11 @@ and the inquiry form.
   security headers, reduced motion, and desktop/tablet/mobile layouts were verified in production.
 - Production Lighthouse baseline: Performance 96, Accessibility 100, Best Practices 96, SEO 66 (expected because
   `noindex` is active), LCP 2.7 seconds, CLS 0, and TBT 90 milliseconds.
+- Launch-readiness SEO/GEO/AEO audit found the title, description, single H1, section hierarchy, service coverage,
+  SetSail explanation, process, ownership, post-launch support, and project-start path clear without copy changes.
+- Production-style browser QA passed at 1440, 768, and 375 pixels plus `prefers-reduced-motion`: no horizontal
+  overflow, console errors, hydration errors, broken rendered images, or missing anchor targets; Folder/dialog,
+  ProfileCard, Pricing, Maintenance, form validation, safe unconfigured response, Footer, and focus restoration passed.
 
 ## Current Contact Details
 
@@ -84,9 +92,10 @@ remains form-only.
 ### Launch and domain
 
 - Custom domain; the PM does not currently have one.
-- Decision on whether `https://pawlystudios.vercel.app` should temporarily back absolute production metadata.
-- `metadataBase`, absolute canonical, sitemap, absolute JSON-LD IDs, final schema publication, and Open Graph image.
-- SoftwareApplication schema decision for SetSail.
+- `metadataBase`, absolute canonical, sitemap, absolute JSON-LD IDs, and final schema publication.
+- Attaching `/social-preview` to Open Graph/Twitter metadata after the custom domain exists.
+- SoftwareApplication schema decision for SetSail. It is semantically defensible for the actual client portal, but
+  publication should wait for a canonical project URL plus confirmed application category and browser/platform data.
 
 ### Form delivery
 
@@ -98,15 +107,15 @@ remains form-only.
 
 ### Commercial content
 
-- Approved Starter, Pro, Max, and Website Maintenance prices or approved non-price labels.
+- Approved Starter, Pro, Max, and Website Maintenance prices. Neutral non-price labels are live in the code meanwhile.
 
 ### Final security and QA
 
 - HSTS verification after final HTTPS/custom-domain behavior is known. Vercel currently supplies HSTS on its own
   domain; the application has not added a separate HSTS policy.
 - CSP review, preferably report-only first, while preserving the current verified headers.
-- Lighthouse on the final launch configuration plus SEO, GEO/AEO, accessibility, metadata, robots, sitemap, schema,
-  social-preview, production-form, and desktop/tablet/mobile regression QA.
+- Lighthouse on the final domain/configuration plus domain-dependent metadata, robots, sitemap, schema, social-card
+  crawler, and delivered-inquiry QA.
 
 ### Final launch
 

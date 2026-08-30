@@ -6,7 +6,7 @@ export const maintenance = {
     'If you want ongoing help, I can stay involved and handle the updates, fixes, and new work that come up after your site is live.',
   offer: {
     name: 'Ongoing Website Support',
-    pricingLabel: 'Starting at $XXX / month',
+    pricingLabel: 'Pricing available soon',
     isPricePlaceholder: true,
     features: [
       'Content updates',

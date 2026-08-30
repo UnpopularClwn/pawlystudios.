@@ -2,10 +2,11 @@
 
 ## Current Checkpoint
 
-Development is paused at the approved pre-launch deployment checkpoint for the one-page `pawlystudios.` portfolio.
-The visible experience and first Vercel production deployment are complete; custom-domain work, inquiry delivery,
-commercial pricing, and launch activation remain intentionally pending. This project folder is the only source of
-truth. Do not create a duplicate app or experimental copy.
+The one-page `pawlystudios.` portfolio is at its launch-readiness checkpoint. The visible experience, first Vercel
+production deployment, social-preview artwork, neutral pending-pricing labels, and all useful QA that does not require
+a custom domain or inquiry provider are complete. Custom-domain work, inquiry delivery, approved commercial prices,
+and launch activation remain intentionally pending. This project folder is the only source of truth. Do not create a
+duplicate app or experimental copy.
 
 Read `docs/implementation-status.md` before resuming. Older briefs, plans, and decision records are preserved under
 `docs/archive/` for history; current code and the status document take precedence when they conflict.
@@ -40,7 +41,8 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
   screenshots. Opening the Folder reveals the single Explore Project action.
 - Explore Project opens the reusable native-dialog SetSail experience with GSAP geometry animation, focus containment
   and restoration, scroll locking, Escape and close-button behavior, responsive layouts, and reduced-motion handling.
-- Pricing is data-driven with Starter, Pro, and Max cards. Dollar values remain explicit development placeholders.
+- Pricing is data-driven with Starter, Pro, and Max cards. Pending values use neutral non-price labels and remain
+  explicitly marked as placeholders in code.
 - Website Maintenance is a separate optional ongoing offer after Pricing; it is not a fourth build tier.
 - Tools uses local logos in a continuous marquee with a static reduced-motion fallback.
 - About keeps its copy server-rendered and isolates its lightweight ProfileCard tilt and Contact action in a small
@@ -53,6 +55,8 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 - The inquiry form has client/server validation and a honeypot, but no delivery provider. It must continue to report
   `NOT_CONFIGURED`; never fake success.
 - Approved SEO title and meta description are configured through the native Metadata API.
+- A branded 1200 × 630 social preview is generated at `/social-preview` with the approved logo and palette. It is not
+  attached to Open Graph/Twitter metadata until a custom domain can provide truthful absolute URLs.
 - Server-rendered Person, WebSite, and Service schema architecture is prepared but remains gated off until a real
   production URL exists and launch is approved. SetSail SoftwareApplication schema remains pending.
 - Baseline security headers and a conservative Permissions Policy are configured; the Next.js signature is disabled.
@@ -60,7 +64,8 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 - `src/app/robots.js` preserves pre-launch crawling behavior without publishing a sitemap URL.
 - `SITE_IS_LAUNCHED` is `false`; the site remains noindex.
 - Final visual, responsive, accessibility, motion, content, and implementation QA passed at 1920, 1440, 1024, 768,
-  and 375 pixels. Tests, lint, production build, production dependency audit, and whitespace validation passed.
+  and 375 pixels. The latest launch-readiness pass covered 1440, 768, 375, and reduced-motion modes. Tests, lint,
+  production build, production dependency audit, and whitespace validation passed.
 
 ## Deployment Checkpoint
 
@@ -89,18 +94,18 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 
 ## Pending Launch Work
 
-- Domain and metadata: obtain/approve a custom domain; decide whether the Vercel URL should temporarily back absolute
-  metadata; then configure `metadataBase`, the absolute canonical, sitemap, absolute JSON-LD IDs, final schema
-  publication, and an approved Open Graph image. SetSail SoftwareApplication schema remains deferred.
+- Domain and metadata: obtain/approve a custom domain, then configure `metadataBase`, the absolute canonical, sitemap,
+  absolute JSON-LD IDs, final schema publication, and attach `/social-preview` to Open Graph/Twitter metadata. Do not
+  use the Vercel URL as the permanent canonical. SetSail SoftwareApplication schema remains deferred.
 - Form delivery: select a provider; add server-only credentials; configure sender, recipient, and reply-to; implement
   the provider call and rate limiting; define retention/spam policy; and test success, failure, rejection, and
   throttling. Until then, keep `NOT_CONFIGURED`.
-- Commercial content: replace Starter, Pro, Max, and Website Maintenance placeholders with approved prices or
-  approved non-price labels.
+- Commercial content: replace the neutral Starter, Pro, Max, and Website Maintenance labels only when real prices are
+  approved.
 - Final security: verify HSTS with the final HTTPS/custom-domain behavior, preserve the current headers, and review CSP
   with report-only testing first where practical.
-- Final QA: rerun Lighthouse on the final configuration; complete SEO, GEO/AEO, accessibility, metadata, robots,
-  sitemap, schema, social-preview, production-form, and desktop/tablet/mobile regression checks.
+- Final QA: after domain/provider configuration, rerun Lighthouse and the domain-dependent metadata, robots, sitemap,
+  schema, social-card crawler, and delivered-inquiry checks.
 - Final launch: only after explicit approval, switch `SITE_IS_LAUNCHED` to `true`, remove `noindex, nofollow`, publish
   the sitemap and final schema, enable indexing, and verify the live search directives.
 
