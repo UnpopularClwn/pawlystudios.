@@ -31,7 +31,8 @@ export async function submitContactForm(payload) {
   if (typeof name !== 'string' || !name.trim()) errors.name = 'Name is required.'
   else if (name.length > contactFieldLimits.name) errors.name = `Name must be ${contactFieldLimits.name} characters or fewer.`
 
-  if (typeof email !== 'string' || !EMAIL_PATTERN.test(email)) errors.email = 'Enter a valid email address.'
+  if (typeof email !== 'string' || !email.trim()) errors.email = 'Email is required.'
+  else if (!EMAIL_PATTERN.test(email)) errors.email = 'Enter a valid email address.'
   else if (email.length > contactFieldLimits.email) {
     errors.email = `Email must be ${contactFieldLimits.email} characters or fewer.`
   }

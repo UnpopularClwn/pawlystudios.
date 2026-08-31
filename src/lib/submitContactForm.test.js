@@ -16,6 +16,7 @@ test('contact submissions fail safely until delivery is configured', async () =>
   assert.equal((await submitContactForm({ ...validPayload, name: 42 })).code, 'VALIDATION_ERROR')
   assert.equal((await submitContactForm({ ...validPayload, projectType: 'Anything' })).code, 'VALIDATION_ERROR')
   assert.equal((await submitContactForm({ ...validPayload, name: 'x'.repeat(101) })).code, 'VALIDATION_ERROR')
+  assert.equal((await submitContactForm({ ...validPayload, email: '' })).errors.email, 'Email is required.')
   assert.equal((await submitContactForm({ ...validPayload, hp_field: {} })).code, 'VALIDATION_ERROR')
   assert.deepEqual(await submitContactForm({ ...validPayload, hp_field: 'filled' }), { ok: true })
 })

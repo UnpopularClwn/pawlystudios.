@@ -232,7 +232,7 @@ export default function InquiryForm() {
       {(status === 'error' || status === 'unconfigured') && (
         <p className="form-error-banner" role="alert">
           {status === 'unconfigured'
-            ? 'Inquiry delivery is not configured yet. Please use the contact links in the footer for now.'
+            ? 'Online inquiries aren’t available yet. For now, contact me by email, WhatsApp, or LinkedIn using the links in the footer.'
             : 'Something went wrong while sending your inquiry. Please try again.'}
         </p>
       )}
