@@ -5,9 +5,9 @@ import SetSailFolder from './SetSailFolder.jsx'
 import { setsail } from '../../../data/setsail.js'
 import './SetSail.css'
 
-export default function SetSailSection() {
+export default function SetSailSection({ standalone = false }) {
   return (
-    <Section background="sand" className="setsail-section" aria-label="Featured build" id="work">
+    <Section background="sand" className="setsail-section" aria-labelledby="setsail-heading" id="work">
       <Reveal
         as="div"
         className="setsail-layout"
@@ -18,7 +18,15 @@ export default function SetSailSection() {
         <div className="setsail-copy">
           <div className="setsail-intro">
             <SectionEyebrow>{setsail.eyebrow}</SectionEyebrow>
-            <h2 className="setsail-heading">{setsail.name}</h2>
+            {standalone ? (
+              <h1 className="setsail-heading" id="setsail-heading">
+                {setsail.name}
+              </h1>
+            ) : (
+              <h2 className="setsail-heading" id="setsail-heading">
+                {setsail.name}
+              </h2>
+            )}
             <p className="setsail-description">{setsail.description}</p>
           </div>
 

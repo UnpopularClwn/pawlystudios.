@@ -1,5 +1,5 @@
 import Hero from '../components/hero/Hero.jsx'
-import SetSailSection from '../components/projects/setsail/SetSailSection.jsx'
+import FeaturedWorkPreview from '../components/home/FeaturedWorkPreview.jsx'
 import ServicesSection from '../components/services/ServicesSection.jsx'
 import ProcessSection from '../components/process/ProcessSection.jsx'
 import SupportSection from '../components/support/SupportSection.jsx'
@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <SetSailSection />
+      <FeaturedWorkPreview />
       <ServicesSection />
       <ProcessSection />
       <SupportSection />

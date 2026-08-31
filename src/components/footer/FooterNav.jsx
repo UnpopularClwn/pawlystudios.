@@ -34,7 +34,12 @@ export default function FooterNav() {
     <nav className="footer-nav" aria-label="Footer">
       <ul className="footer-nav-list">
         {FOOTER_NAV_LINKS.map((link) => {
-          const href = pathname === '/' || !link.href.startsWith('#') ? link.href : `/${link.href}`
+          const href =
+            pathname === '/' || !link.href.startsWith('#')
+              ? link.href
+              : link.href === '#work'
+                ? '/work'
+                : `/${link.href}`
 
           return (
             <li key={link.href}>
