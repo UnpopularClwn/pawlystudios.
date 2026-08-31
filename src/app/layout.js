@@ -1,4 +1,5 @@
 import { inter, generalSans } from './fonts.js'
+import SiteHeader from '../components/header/SiteHeader.jsx'
 import { SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_URL, SITE_IS_LAUNCHED } from '../lib/seo-config.js'
 import { buildLaunchSchema, serializeJsonLd } from '../lib/schema.js'
 import '../styles/global.css'
@@ -49,6 +50,7 @@ export default function RootLayout({ children }) {
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
+        <SiteHeader />
         <main id="main-content">{children}</main>
       </body>
     </html>

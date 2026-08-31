@@ -18,6 +18,7 @@
   text-transform: none;
 }
 
+.about-copy h1,
 .about-copy h2 {
   margin-bottom: 24px;
 }
@@ -28,6 +29,10 @@
   font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
   line-height: 1.7;
   text-wrap: pretty;
+}
+
+.about-route-cta {
+  margin-top: 28px;
 }
 
 .about-profile-card {

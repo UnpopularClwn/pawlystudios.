@@ -12,6 +12,7 @@ const FOOTER_NAV_LINKS = [
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
   { label: 'Pricing', href: '#pricing' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -39,6 +40,8 @@ export default function FooterNav() {
               ? link.href
               : link.href === '#work'
                 ? '/work'
+                : link.href === '#about'
+                  ? '/about'
                 : `/${link.href}`
 
           return (
