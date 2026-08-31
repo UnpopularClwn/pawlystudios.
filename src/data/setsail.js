@@ -28,8 +28,6 @@ export const setsail = {
     supporting: [
       {
         id: 'supporting-1',
-        heading: 'Content approval without the back-and-forth.',
-        copy: 'Clients can review upcoming content, approve posts, or request revisions from one place.',
         label: 'SetSail content approval screen',
         alt: 'SetSail content approval screen showing a social media post review with approve and request revision actions.',
         src: '/images/SCR-20260819-puve.png',
@@ -38,8 +36,6 @@ export const setsail = {
       },
       {
         id: 'supporting-2',
-        heading: 'One view across every client.',
-        copy: 'The agency team can track onboarding, approvals, intake, upcoming work, and client status without jumping between separate tools.',
         label: 'SetSail agency overview',
         alt: 'SetSail agency dashboard showing client counts, onboarding status, pending approvals, intake, and upcoming work.',
         src: '/images/SCR-20260819-pwkj.png',
@@ -97,8 +93,4 @@ export const setsail = {
       },
     ],
   },
-
-  // Only rendered when set — no dead buttons.
-  externalUrl: null,
-  ctaLabel: 'View Project',
 }

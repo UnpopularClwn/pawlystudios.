@@ -5,7 +5,6 @@
   --color-pine-soft: #22483f;
   --color-lime: #c6e79e;
   --color-lime-deep: #aeda7e;
-  --color-lime-soft: #e6f3d4;
   --color-lime-wash: #f1f7e8;
   --color-sage: #c9d2ce;
   --color-mist: #e7eae8;
@@ -52,10 +51,7 @@
   --shadow-lg: 0 16px 48px rgba(24, 58, 51, 0.14);
 
   /* ---------- Card ---------- */
-  --card-bg: var(--color-white);
   --card-border: var(--color-mist);
-  --card-padding: 32px;
-  --card-padding-mobile: 20px;
 
   /* ---------- Motion ---------- */
   --ease-standard: cubic-bezier(0.23, 1, 0.32, 1);

@@ -96,21 +96,6 @@ button {
   color: var(--color-white);
 }
 
-/* ---------- Card primitive ---------- */
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  padding: var(--card-padding);
-}
-
-@media (max-width: 640px) {
-  .card {
-    padding: var(--card-padding-mobile);
-  }
-}
-
 /* ---------- Accessibility utilities ---------- */
 .visually-hidden {
   position: absolute;

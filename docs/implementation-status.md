@@ -2,6 +2,8 @@
 
 Last updated: 2026-08-30 (launch-readiness checkpoint)
 
+Approved baseline commit: `beb1c883a39dd06647ce1509a9d7fb488dbdfd77`
+
 ## Current Page Architecture
 
 The one-page portfolio is rendered in this order:
