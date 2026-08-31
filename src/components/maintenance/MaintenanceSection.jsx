@@ -47,7 +47,7 @@ export default function MaintenanceSection() {
             ))}
           </ul>
 
-          <Button href="#contact" variant="primary" className="maintenance-cta">
+          <Button href="/contact" variant="primary" className="maintenance-cta">
             {offer.ctaLabel}
           </Button>
         </article>

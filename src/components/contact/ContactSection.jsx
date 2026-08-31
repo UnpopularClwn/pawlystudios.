@@ -4,13 +4,17 @@ import Reveal from '../shared/Reveal.jsx'
 import InquiryForm from './InquiryForm.jsx'
 import './Contact.css'
 
-export default function ContactSection() {
+export default function ContactSection({ standalone = false }) {
   return (
     <Section background="sand" className="contact-section" aria-label="Contact" id="contact">
       <div className="contact-grid">
         <Reveal as="div" className="contact-intro" preset="content">
           <SectionEyebrow>Ready to talk?</SectionEyebrow>
-          <h2 className="contact-heading">Have a website in mind? Tell me about it.</h2>
+          {standalone ? (
+            <h1 className="contact-heading">Have a project in mind? Tell me about it.</h1>
+          ) : (
+            <h2 className="contact-heading">Have a website in mind? Tell me about it.</h2>
+          )}
           <p className="contact-lead">
             Send me a few details about what you&rsquo;re looking to build. I&rsquo;ll take a look and we can
             figure out the right next step.

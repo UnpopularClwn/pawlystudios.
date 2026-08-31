@@ -2,6 +2,7 @@
 
 import { memo, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getProfileCardTilt } from '../../lib/profileCardTilt.js'
 import './ProfileCard.css'
 
@@ -19,8 +20,8 @@ function ProfileCardComponent({
   title,
   handle,
   contactText,
+  contactHref = '/contact',
   showUserInfo = true,
-  onContactClick,
 }) {
   const wrapperRef = useRef(null)
   const [tiltEnabled, setTiltEnabled] = useState(false)
@@ -94,9 +95,9 @@ function ProfileCardComponent({
         </div>
         <div className="profile-card-footer">
           {showUserInfo && <span aria-hidden="true">@{handle}</span>}
-          <a href="#contact" className="profile-card-contact" onClick={onContactClick}>
+          <Link href={contactHref} className="profile-card-contact">
             {contactText}
-          </a>
+          </Link>
         </div>
       </div>
     </article>

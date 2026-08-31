@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import './Button.css'
 
 export default function Button({
@@ -22,9 +23,9 @@ export default function Button({
 
   if (href) {
     return (
-      <a className={classes} href={href} {...rest}>
+      <Link className={classes} href={href} {...rest}>
         {content}
-      </a>
+      </Link>
     )
   }
 

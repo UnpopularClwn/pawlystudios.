@@ -37,7 +37,7 @@ export default function PricingSection() {
             </ul>
 
             <Button
-              href="#contact"
+              href="/contact"
               variant={tier.tone === 'pine' ? 'primary' : 'secondary'}
               className="pricing-cta"
             >
