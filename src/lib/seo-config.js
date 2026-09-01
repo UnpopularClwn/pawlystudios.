@@ -9,9 +9,9 @@ import { BRAND_NAME } from '../data/brand.js'
 export const SITE_IS_LAUNCHED = false
 
 export const SITE_NAME = BRAND_NAME
-export const SITE_TITLE = 'Custom Website Development for Businesses | pawlystudios.'
+export const SITE_TITLE = 'Web Development & AI Ad Creative | pawlystudios.'
 export const SITE_DESCRIPTION =
-  'pawlystudios. builds responsive business websites, custom web experiences, and practical ongoing support, from planning through launch and handoff.'
+  'pawlystudios. builds functional business websites and fully AI-generated ad creative for e-commerce brands and service businesses.'
 
 // Intentionally unset until a production domain is assigned — do not fabricate one.
 // Once known, set NEXT_PUBLIC_SITE_URL and read it here for `metadataBase`.

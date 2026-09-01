@@ -78,10 +78,10 @@ export async function GET() {
             letterSpacing: '-0.035em',
           }}
         >
-          Custom Website Development for Businesses
+          Web Development &amp; AI Ad Creative
         </div>
         <div style={{ display: 'flex', fontSize: '28px', color: '#c6e79e' }}>
-          Websites built for how your business works.
+          An independent studio for businesses.
         </div>
       </div>
     </div>,

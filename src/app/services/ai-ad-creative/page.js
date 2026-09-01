@@ -9,6 +9,8 @@ import Footer from '../../../components/footer/Footer.jsx'
 
 export const metadata = {
   title: 'AI Ad Creative',
+  description:
+    'Fully AI-generated advertising creative for e-commerce brands and service businesses, from concept through post-production.',
 }
 
 export default function AiAdCreativePage() {

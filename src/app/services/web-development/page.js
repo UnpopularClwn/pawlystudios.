@@ -10,6 +10,8 @@ import Footer from '../../../components/footer/Footer.jsx'
 
 export const metadata = {
   title: 'Web Development',
+  description:
+    'Custom business websites, landing pages, web portals, and ongoing website support, planned and built by pawlystudios.',
 }
 
 export default function WebDevelopmentPage() {
