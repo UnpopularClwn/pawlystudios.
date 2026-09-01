@@ -27,7 +27,7 @@ export default function FeaturedWorkPreview() {
           <SectionEyebrow>{setsail.eyebrow}</SectionEyebrow>
           <h2 id="featured-work-heading">{setsail.name}</h2>
           <p>{setsail.description}</p>
-          <Button href="/work" arrow>
+          <Button href="/services/web-development#work" arrow>
             View Project
           </Button>
         </div>

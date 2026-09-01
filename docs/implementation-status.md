@@ -21,14 +21,14 @@ form.
 
 ## Current Approved Routes
 
-- `/`, `/work`, `/services/web-development`, `/services/ai-ad-creative`, `/about`, and `/contact` are the approved
-  route architecture.
-- `/services/web-development` is the approved Web Development destination.
+- `/`, `/services/web-development`, `/services/ai-ad-creative`, `/about`, and `/contact` are the approved route
+  architecture.
+- `/services/web-development` is the approved Web Development destination and contains the full SetSail showcase.
 - `/services/ai-ad-creative` presents the approved advertising-only offer for e-commerce brands and service
   businesses, covering UGC-style ads, VSLs, animated ads, and static image ads.
 - The homepage now presents `pawlystudios.` at studio level and links equally to both approved service destinations.
 - The shared Header includes an accessible Services disclosure on desktop and inside the existing mobile navigation.
-- Footer navigation uses predictable route links for Work, both services, About, and Contact. Its umbrella tagline is
+- Footer navigation uses predictable route links for both services, About, and Contact. Its umbrella tagline is
   `Digital Experiences & Creative`.
 - Contact project types are now Web Development, AI Ad Creative, Website Maintenance, and Other / Not Sure Yet. The
   client form and server action read the same allowlist, while delivery remains intentionally unconfigured.
@@ -39,7 +39,7 @@ form.
 - The service routes reuse the existing design system, Footer, GSAP Reveal behavior, and reduced-motion handling. No
   dependencies were added.
 - Production build and browser QA passed at 1440, 768, and 375 pixels across `/`, `/services/web-development`,
-  `/services/ai-ad-creative`, `/work`, `/about`, and `/contact`, with no overflow, failed assets, console errors, or
+  `/services/ai-ad-creative`, `/about`, and `/contact`, with no overflow, failed assets, console errors, or
   hydration errors.
 
 ## Complete
@@ -154,7 +154,7 @@ remains form-only.
 - Keep GSAP as the main motion system.
 - Do not add Motion, Tailwind, shadcn/ui, or Motion Primitives as dependencies without a new approved requirement.
 - SetSail remains represented in the crawlable homepage Featured Work preview; the full project and expandable dialog
-  live at `/work`.
+  live at `/services/web-development#work`.
 - The client owns the finished website.
 - Ongoing support is optional.
 - Do not enable indexing without final launch approval.

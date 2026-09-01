@@ -16,8 +16,9 @@ Read `docs/implementation-status.md` before resuming. Older briefs, plans, and d
 Homepage: Brand Hero → Primary Services → Featured Work → About Preview → Final CTA → Footer.
 
 Detailed Web Development and AI Ad Creative content lives on their approved `/services/web-development` and
-`/services/ai-ad-creative` routes. Full Work, About, and Contact experiences live at `/work`, `/about`, and `/contact`.
-Shared navigation is Work, a Services disclosure for both service routes, About, Contact, and Start a Project.
+`/services/ai-ad-creative` routes. The Web Development route also contains the full SetSail showcase. About and
+Contact live at `/about` and `/contact`. Shared navigation is a Services disclosure for both service routes, About,
+Contact, and Start a Project.
 
 ## Brand and Contact Identity
 

@@ -8,7 +8,6 @@ import { BRAND_NAME, logo } from '../../data/brand.js'
 import Button from '../shared/Button.jsx'
 
 const NAV_LINKS = [
-  { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -101,17 +100,6 @@ function NavigationState({ pathname }) {
         id="primary-navigation-menu"
       >
         <ul className="site-navigation-links">
-          <li>
-            <Link
-              href={NAV_LINKS[0].href}
-              className="site-navigation-link"
-              aria-current={pathname === NAV_LINKS[0].href ? 'page' : undefined}
-              onClick={closeMenu}
-            >
-              {NAV_LINKS[0].label}
-            </Link>
-          </li>
-
           <li className="site-navigation-services" ref={servicesItemRef}>
             <button
               ref={servicesButtonRef}
@@ -147,7 +135,7 @@ function NavigationState({ pathname }) {
             </ul>
           </li>
 
-          {NAV_LINKS.slice(1).map((link) => (
+          {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}

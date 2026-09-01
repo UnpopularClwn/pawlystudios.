@@ -1,7 +1,7 @@
 import WebDevelopmentHero from '../../../components/services/web-development/WebDevelopmentHero.jsx'
 import WebDevelopmentCta from '../../../components/services/web-development/WebDevelopmentCta.jsx'
-import FeaturedWorkPreview from '../../../components/home/FeaturedWorkPreview.jsx'
 import ServicesSection from '../../../components/services/ServicesSection.jsx'
+import SetSailSection from '../../../components/projects/setsail/SetSailSection.jsx'
 import ProcessSection from '../../../components/process/ProcessSection.jsx'
 import MaintenanceSection from '../../../components/maintenance/MaintenanceSection.jsx'
 import PricingSection from '../../../components/pricing/PricingSection.jsx'
@@ -18,8 +18,8 @@ export default function WebDevelopmentPage() {
   return (
     <>
       <WebDevelopmentHero />
-      <FeaturedWorkPreview />
       <ServicesSection />
+      <SetSailSection />
       <ProcessSection />
       <MaintenanceSection />
       <PricingSection />

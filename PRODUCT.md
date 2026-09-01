@@ -43,13 +43,13 @@ Preserve semantic HTML, keyboard access, visible focus, readable contrast, respo
 5. Final CTA
 6. Footer
 
-Approved routes are `/`, `/work`, `/services/web-development`, `/services/ai-ad-creative`, `/about`, and `/contact`.
-The shared navigation is Work, a Services disclosure for the two service routes, About, Contact, and Start a Project.
+Approved routes are `/`, `/services/web-development`, `/services/ai-ad-creative`, `/about`, and `/contact`.
+The shared navigation is a Services disclosure for the two service routes, About, Contact, and Start a Project.
 
 Detailed Web Development content lives at `/services/web-development`. AI Ad Creative content lives at
-`/services/ai-ad-creative`. The homepage Featured Work links to the full SetSail project at `/work`; the full About
-experience lives at `/about`; the inquiry form lives at `/contact`. Footer contains accessible icon links for Email,
-WhatsApp, and LinkedIn.
+`/services/ai-ad-creative`. The full SetSail showcase lives with the Web Development service, and the homepage Featured
+Work links directly to `/services/web-development#work`; the full About experience lives at `/about`; the inquiry form
+lives at `/contact`. Footer contains accessible icon links for Email, WhatsApp, and LinkedIn.
 
 ## Approved Contact Details
 
