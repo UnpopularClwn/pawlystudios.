@@ -1,61 +1,54 @@
 'use server'
 
-import { contactFieldLimits, projectTypes } from '../data/contact.js'
+import { createHash } from 'node:crypto'
+import { headers } from 'next/headers'
+import { Resend } from 'resend'
+import { Ratelimit } from '@upstash/ratelimit'
+import { Redis } from '@upstash/redis'
+import { processContactForm } from './contactSubmission.js'
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+let resend
+let rateLimiter
 
-// Server-side submission boundary for the contact form. The client never
-// talks to a delivery provider directly — it calls this Server Action, which
-// is the only place a future provider's credentials would ever live (as
-// server-only env vars, never exposed to the client bundle).
-//
-// NEEDS YOUR INPUT: no delivery provider is configured yet. Pick one
-// (Formspree, a transactional email API, a serverless webhook, etc.),
-// provide its server-side credentials as env vars, and wire the send call
-// in below the validation block. Until then this intentionally reports
-// failure rather than faking success.
+function getDelivery() {
+  const apiKey = process.env.RESEND_API_KEY
+  const from = process.env.CONTACT_FROM_EMAIL
+  const to = process.env.CONTACT_TO_EMAIL
+  if (!apiKey || !from || !to) return null
+
+  resend ??= new Resend(apiKey)
+  return {
+    deliveryConfig: { from, to },
+    sendEmail: async (message) => {
+      const { data, error } = await resend.emails.send(message)
+      return !error && Boolean(data?.id)
+    },
+  }
+}
+
+async function getRateLimitCheck() {
+  const url = process.env.UPSTASH_REDIS_REST_URL
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN
+  if (!url || !token) return undefined
+
+  const requestHeaders = await headers()
+  const ip = requestHeaders.get('x-vercel-forwarded-for') || requestHeaders.get('x-forwarded-for')
+  if (!ip) return undefined
+
+  rateLimiter ??= new Ratelimit({
+    redis: new Redis({ url, token }),
+    limiter: Ratelimit.slidingWindow(5, '10 m'),
+    prefix: 'pawlystudios:contact',
+    analytics: false,
+  })
+  const identifier = createHash('sha256').update(ip.split(',')[0].trim()).digest('hex')
+  return async () => (await rateLimiter.limit(identifier)).success
+}
+
 export async function submitContactForm(payload) {
-  const data = payload && typeof payload === 'object' && !Array.isArray(payload) ? payload : {}
-  const { name, email, company, projectType, details, hp_field: honeypot = '' } = data
-
-  if (typeof honeypot !== 'string' || honeypot.length > contactFieldLimits.honeypot) {
-    return { ok: false, code: 'VALIDATION_ERROR', errors: { form: 'Invalid submission.' } }
-  }
-
-  // Silently succeed for bots that fill the honeypot — never reveal the trap.
-  if (honeypot.trim()) {
-    return { ok: true }
-  }
-
-  const errors = {}
-  if (typeof name !== 'string' || !name.trim()) errors.name = 'Name is required.'
-  else if (name.length > contactFieldLimits.name) errors.name = `Name must be ${contactFieldLimits.name} characters or fewer.`
-
-  if (typeof email !== 'string' || !email.trim()) errors.email = 'Email is required.'
-  else if (!EMAIL_PATTERN.test(email)) errors.email = 'Enter a valid email address.'
-  else if (email.length > contactFieldLimits.email) {
-    errors.email = `Email must be ${contactFieldLimits.email} characters or fewer.`
-  }
-
-  if (typeof company !== 'undefined' && typeof company !== 'string') errors.company = 'Enter a valid company name.'
-  else if (company?.length > contactFieldLimits.company) {
-    errors.company = `Company must be ${contactFieldLimits.company} characters or fewer.`
-  }
-
-  if (typeof projectType !== 'string' || !projectTypes.includes(projectType)) {
-    errors.projectType = 'Select a project type.'
-  }
-
-  if (typeof details !== 'string' || !details.trim()) errors.details = 'Tell me a little about the project.'
-  else if (details.length > contactFieldLimits.details) {
-    errors.details = `Project details must be ${contactFieldLimits.details} characters or fewer.`
-  }
-
-  if (Object.keys(errors).length > 0) {
-    return { ok: false, code: 'VALIDATION_ERROR', errors }
-  }
-
-  // No delivery provider configured — do not fabricate a success response.
-  // ponytail: rate limiting belongs at the real provider boundary, add it when delivery is configured.
-  return { ok: false, code: 'NOT_CONFIGURED' }
+  const delivery = getDelivery()
+  return processContactForm(payload, {
+    ...delivery,
+    rateLimit: delivery ? await getRateLimitCheck() : undefined,
+  })
 }

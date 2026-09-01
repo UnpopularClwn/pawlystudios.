@@ -34,7 +34,7 @@ function validate(fields) {
 export default function InquiryForm() {
   const [fields, setFields] = useState(INITIAL_FIELDS)
   const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState('idle') // idle | submitting | success | error | unconfigured
+  const [status, setStatus] = useState('idle') // idle | submitting | success | error | unconfigured | rate-limited
   const fieldRefs = useRef({})
 
   const setField = (name, value) => setFields((prev) => ({ ...prev, [name]: value }))
@@ -66,6 +66,8 @@ export default function InquiryForm() {
         else setStatus('error')
       } else if (result.code === 'NOT_CONFIGURED') {
         setStatus('unconfigured')
+      } else if (result.code === 'RATE_LIMITED') {
+        setStatus('rate-limited')
       } else {
         setStatus('error')
       }
@@ -229,9 +231,11 @@ export default function InquiryForm() {
         )}
       </div>
 
-      {(status === 'error' || status === 'unconfigured') && (
+      {(status === 'error' || status === 'unconfigured' || status === 'rate-limited') && (
         <p className="form-error-banner" role="alert">
-          {status === 'unconfigured'
+          {status === 'rate-limited'
+            ? 'Too many attempts. Please wait a few minutes and try again.'
+            : status === 'unconfigured'
             ? 'Online inquiries aren’t available yet. For now, contact me by email, WhatsApp, or LinkedIn using the links in the footer.'
             : 'Something went wrong while sending your inquiry. Please try again.'}
         </p>
