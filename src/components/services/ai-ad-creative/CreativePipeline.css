@@ -42,7 +42,15 @@
 }
 
 .creative-pipeline-title {
+  margin-bottom: 10px;
   font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+}
+
+.creative-pipeline-description {
+  max-width: 25ch;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 @media (max-width: 960px) {

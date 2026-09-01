@@ -27,7 +27,28 @@ export const creativeTypes = [
   },
 ]
 
-export const creativePipeline = ['Concept', 'Creative Direction', 'Generation', 'Editing', 'Post-Production']
+export const creativePipeline = [
+  {
+    title: 'Concept',
+    description: 'Turn the selected direction into an ad concept built around the offer.',
+  },
+  {
+    title: 'Creative Direction',
+    description: 'Define the hook, narrative, visual approach, and overall direction.',
+  },
+  {
+    title: 'Generation',
+    description: 'Produce the visual or video elements using the appropriate AI workflow.',
+  },
+  {
+    title: 'Editing',
+    description: 'Shape the generated material into cohesive advertising creative.',
+  },
+  {
+    title: 'Post-Production',
+    description: 'Finish the piece and prepare the creative for delivery.',
+  },
+]
 
 export const adAudiences = [
   {
@@ -43,8 +64,8 @@ export const adAudiences = [
 export const workingTogether = {
   heading: 'Bring the offer, not a finished script.',
   lead:
-    'You bring the product or service and the advertising goal. I handle the creative direction and execution from concept through post-production as a solo operator.',
-  note: 'You do not need a finished script or creative concept before we begin.',
+    'You bring the product or service and what you’re trying to promote. I handle the research, creative direction, and production from there.',
+  note: 'You don’t need to arrive with a finished script, hook, or ad concept. The work stays directly with me as a solo operator.',
 }
 
 export const portfolio = {

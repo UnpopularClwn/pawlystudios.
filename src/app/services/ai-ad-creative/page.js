@@ -1,5 +1,7 @@
 import AiAdCreativeHero from '../../../components/services/ai-ad-creative/AiAdCreativeHero.jsx'
 import CreativeTypes from '../../../components/services/ai-ad-creative/CreativeTypes.jsx'
+import OrganicToPaidSection from '../../../components/services/ai-ad-creative/OrganicToPaidSection.jsx'
+import CreativeStrategySection from '../../../components/services/ai-ad-creative/CreativeStrategySection.jsx'
 import CreativePipeline from '../../../components/services/ai-ad-creative/CreativePipeline.jsx'
 import AudienceSection from '../../../components/services/ai-ad-creative/AudienceSection.jsx'
 import WorkingTogether from '../../../components/services/ai-ad-creative/WorkingTogether.jsx'
@@ -18,6 +20,8 @@ export default function AiAdCreativePage() {
     <>
       <AiAdCreativeHero />
       <CreativeTypes />
+      <OrganicToPaidSection />
+      <CreativeStrategySection />
       <CreativePipeline />
       <AudienceSection />
       <WorkingTogether />
