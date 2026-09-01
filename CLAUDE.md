@@ -3,8 +3,8 @@
 ## Current Checkpoint
 
 The multi-page `pawlystudios.` portfolio is at its architecture-integration checkpoint. The visible experience, first Vercel
-production deployment, social-preview artwork, neutral pending-pricing labels, and all useful QA that does not require
-a custom domain or inquiry provider are complete. Custom-domain work, inquiry delivery, approved commercial prices,
+production deployment, social-preview artwork, and all useful QA that does not require a custom domain or inquiry
+provider are complete. Custom-domain work, inquiry delivery, approved commercial prices,
 and launch activation remain intentionally pending. This project folder is the only source of truth. Do not create a
 duplicate app or experimental copy.
 
@@ -48,9 +48,8 @@ Contact, and Start a Project.
   screenshots. Opening the Folder reveals the single Explore Project action.
 - Explore Project opens the reusable native-dialog SetSail experience with GSAP geometry animation, focus containment
   and restoration, scroll locking, Escape and close-button behavior, responsive layouts, and reduced-motion handling.
-- Pricing is data-driven with Starter, Pro, and Max cards. Pending values use neutral non-price labels and remain
-  explicitly marked as placeholders in code.
-- Website Maintenance is a separate optional ongoing offer after Pricing; it is not a fourth build tier.
+- Web Development pricing is intentionally absent until the commercial offer is finalized.
+- Website Maintenance remains a separate optional ongoing offer without a published price.
 - Tools uses local logos in a continuous marquee with a static reduced-motion fallback.
 - The homepage uses a lightweight About preview; `/about` keeps its copy server-rendered and isolates its ProfileCard
   tilt and Contact action in a small client component with reduced-motion support.
@@ -108,8 +107,7 @@ Contact, and Start a Project.
 - Form delivery: select a provider; add server-only credentials; configure sender, recipient, and reply-to; implement
   the provider call and rate limiting; define retention/spam policy; and test success, failure, rejection, and
   throttling. Until then, keep `NOT_CONFIGURED`.
-- Commercial content: replace the neutral Starter, Pro, Max, and Website Maintenance labels only when real prices are
-  approved.
+- Commercial content: add Web Development and Website Maintenance pricing only when real prices are approved.
 - Final security: verify HSTS with the final HTTPS/custom-domain behavior, preserve the current headers, and review CSP
   with report-only testing first where practical.
 - Final QA: after domain/provider configuration, rerun Lighthouse and the domain-dependent metadata, robots, sitemap,

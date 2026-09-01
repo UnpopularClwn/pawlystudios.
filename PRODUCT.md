@@ -76,8 +76,8 @@ remains a separate launch decision.
 
 A branded 1200 × 630 preview is generated at `/social-preview` from the approved logo and Pine/Lime identity. It stays
 detached from Open Graph and Twitter metadata until a custom domain exists, preventing Next.js from publishing a
-fabricated absolute image URL. Starter and Pro show `Starting price coming soon`, Max shows `Custom quote`, and Website
-Maintenance shows `Pricing available soon`; all remain explicitly marked as pending pricing in code.
+fabricated absolute image URL. Web Development and Website Maintenance pricing are intentionally not published while
+the commercial offer remains pending.
 
 Current security preparation keeps the existing nosniff, strict-origin referrer, and frame-denial headers; adds a
 conservative camera, microphone, and geolocation Permissions Policy; and disables the Next.js signature. HSTS and CSP

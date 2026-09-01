@@ -4,7 +4,6 @@ import ServicesSection from '../../../components/services/ServicesSection.jsx'
 import SetSailSection from '../../../components/projects/setsail/SetSailSection.jsx'
 import ProcessSection from '../../../components/process/ProcessSection.jsx'
 import MaintenanceSection from '../../../components/maintenance/MaintenanceSection.jsx'
-import PricingSection from '../../../components/pricing/PricingSection.jsx'
 import ToolsSection from '../../../components/tools/ToolsSection.jsx'
 import Footer from '../../../components/footer/Footer.jsx'
 
@@ -22,7 +21,6 @@ export default function WebDevelopmentPage() {
       <SetSailSection />
       <ProcessSection />
       <MaintenanceSection />
-      <PricingSection />
       <ToolsSection />
       <WebDevelopmentCta />
       <Footer />

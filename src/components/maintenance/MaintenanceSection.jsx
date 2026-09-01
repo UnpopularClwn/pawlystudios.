@@ -33,12 +33,6 @@ export default function MaintenanceSection() {
         <article className="maintenance-offer">
           <div className="maintenance-offer-heading">
             <h3>{offer.name}</h3>
-            <p
-              className="maintenance-price"
-              data-price-status={offer.isPricePlaceholder ? 'placeholder' : 'approved'}
-            >
-              {offer.pricingLabel}
-            </p>
           </div>
 
           <ul className="maintenance-features">

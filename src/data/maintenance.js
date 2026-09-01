@@ -1,4 +1,3 @@
-// Development placeholder only. Replace when production maintenance pricing is approved.
 export const maintenance = {
   eyebrow: 'Website Maintenance',
   heading: 'Keep me around after launch.',
@@ -6,8 +5,6 @@ export const maintenance = {
     'If you want ongoing help, I can stay involved and handle the updates, fixes, and new work that come up after your site is live.',
   offer: {
     name: 'Ongoing Website Support',
-    pricingLabel: 'Pricing available soon',
-    isPricePlaceholder: true,
     features: [
       'Content updates',
       'New pages',

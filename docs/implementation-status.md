@@ -60,8 +60,8 @@ form.
 - Six-step Process Roadmap.
 - Optional post-launch support positioning within the Web Development Process content.
 - Removal of the rejected diffuse Lime support-card glow.
-- Data-driven Starter, Pro, and Max Pricing cards with neutral pending-pricing labels that cannot be mistaken for
-  published dollar prices and remain explicitly marked as placeholders in code.
+- Web Development pricing and Website Maintenance price placeholders are intentionally absent until the commercial
+  offer is finalized.
 - Separate Website Maintenance offer with ownership messaging and a Contact CTA.
 - Tools I Use section with local logo assets, continuous marquee, and static reduced-motion fallback.
 - Contact section and inquiry form UI.
@@ -97,7 +97,7 @@ form.
   SetSail explanation, process, ownership, post-launch support, and project-start path clear without copy changes.
 - Production-style browser QA passed at 1440, 768, and 375 pixels plus `prefers-reduced-motion`: no horizontal
   overflow, console errors, hydration errors, broken rendered images, or missing anchor targets; Folder/dialog,
-  ProfileCard, Pricing, Maintenance, form validation, safe unconfigured response, Footer, and focus restoration passed.
+  ProfileCard, Maintenance, form validation, safe unconfigured response, Footer, and focus restoration passed.
 
 ## Current Contact Details
 
@@ -128,7 +128,7 @@ remains form-only.
 
 ### Commercial content
 
-- Approved Starter, Pro, Max, and Website Maintenance prices. Neutral non-price labels are live in the code meanwhile.
+- Approved Web Development and Website Maintenance prices. No pricing or placeholder labels are currently published.
 
 ### Final security and QA
 
