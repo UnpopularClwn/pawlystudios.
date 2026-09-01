@@ -1,6 +1,6 @@
 // AI Ad Creative: PM-approved service definition and copy.
 // Advertising-focused creative for e-commerce brands and service businesses.
-// Portfolio is intentionally empty/reserved: no fabricated pieces, thumbnails, or metrics.
+// Portfolio entries only include verified public facts. No fabricated clients, campaigns, or metrics.
 export const aiAdCreative = {
   eyebrow: 'AI Ad Creative',
   heading: 'Fully AI-generated ad creative.',
@@ -70,10 +70,14 @@ export const workingTogether = {
 
 export const portfolio = {
   eyebrow: 'Selected Creative',
-  heading: 'A place for the work.',
-  body:
-    'Selected creative will be added as the portfolio develops. Future video pieces can be embedded here when they are ready to share.',
-  reservedLabel: 'Reserved for selected creative',
+  heading: 'See the work.',
+  body: 'A first look at the kind of AI-generated advertising creative I’m building through pawlystudios.',
+  piece: {
+    label: 'Spec Creative',
+    title: 'AI Ad Creative spec piece by pawlystudios.',
+    embedUrl: 'https://www.youtube-nocookie.com/embed/y_VtTVarf5g?playsinline=1',
+    youtubeUrl: 'https://youtube.com/shorts/y_VtTVarf5g',
+  },
 }
 
 export const adCreativeCta = {

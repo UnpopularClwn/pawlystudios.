@@ -5,7 +5,7 @@ import CreativeStrategySection from '../../../components/services/ai-ad-creative
 import CreativePipeline from '../../../components/services/ai-ad-creative/CreativePipeline.jsx'
 import AudienceSection from '../../../components/services/ai-ad-creative/AudienceSection.jsx'
 import WorkingTogether from '../../../components/services/ai-ad-creative/WorkingTogether.jsx'
-import PortfolioReserved from '../../../components/services/ai-ad-creative/PortfolioReserved.jsx'
+import SelectedCreative from '../../../components/services/ai-ad-creative/SelectedCreative.jsx'
 import AiAdCreativeCta from '../../../components/services/ai-ad-creative/AiAdCreativeCta.jsx'
 import Footer from '../../../components/footer/Footer.jsx'
 
@@ -25,7 +25,7 @@ export default function AiAdCreativePage() {
       <CreativePipeline />
       <AudienceSection />
       <WorkingTogether />
-      <PortfolioReserved />
+      <SelectedCreative />
       <AiAdCreativeCta />
       <Footer />
     </>
