@@ -3,8 +3,8 @@ import { BRAND_NAME } from '../data/brand.js'
 // Central place for site-identity constants the Metadata API and future
 // JSON-LD (see lib/schema.js) both read from.
 //
-// SITE_IS_LAUNCHED gates indexing: flip to true once the full one-page site
-// (not just the hero) is ready for search engines. Do not flip this based on
+// SITE_IS_LAUNCHED gates indexing: flip to true once the full multi-page site
+// is ready for search engines. Do not flip this based on
 // NODE_ENV alone — `next build` sets NODE_ENV=production for local builds too.
 export const SITE_IS_LAUNCHED = false
 

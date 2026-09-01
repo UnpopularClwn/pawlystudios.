@@ -2,7 +2,7 @@
 
 ## Current Checkpoint
 
-The one-page `pawlystudios.` portfolio is at its launch-readiness checkpoint. The visible experience, first Vercel
+The multi-page `pawlystudios.` portfolio is at its architecture-integration checkpoint. The visible experience, first Vercel
 production deployment, social-preview artwork, neutral pending-pricing labels, and all useful QA that does not require
 a custom domain or inquiry provider are complete. Custom-domain work, inquiry delivery, approved commercial prices,
 and launch activation remain intentionally pending. This project folder is the only source of truth. Do not create a
@@ -13,7 +13,11 @@ Read `docs/implementation-status.md` before resuming. Older briefs, plans, and d
 
 ## Page Architecture
 
-Hero → SetSail Featured Build / Folder → Services → Process Roadmap → Ongoing Support → Pricing → Website Maintenance → Tools I Use → About / ProfileCard → Contact → Footer.
+Homepage: Brand Hero → Primary Services → Featured Work → About Preview → Final CTA → Footer.
+
+Detailed Web Development and AI Ad Creative content lives on their approved `/services/web-development` and
+`/services/ai-ad-creative` routes. Full Work, About, and Contact experiences live at `/work`, `/about`, and `/contact`.
+Shared navigation is Work, a Services disclosure for both service routes, About, Contact, and Start a Project.
 
 ## Brand and Contact Identity
 
@@ -35,8 +39,10 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
 
 ## Latest Approved Implementation
 
-- The Hero is a wide contained Pine panel with locked copy, a visible `pawlystudios.` logo plate, no unnecessary
-  right-side preview, and a Contact CTA.
+- The homepage uses a studio-level Brand Hero and equal Web Development and AI Ad Creative gateways. The approved
+  website-specific Hero and sales sections live on `/services/web-development`.
+- `/services/ai-ad-creative` presents the approved advertising-only offer and an honest reserved portfolio state.
+- Shared navigation exposes both service routes through an accessible Services disclosure.
 - The crawlable Featured Build pairs approved SetSail copy with an interactive Folder containing three real sanitized
   screenshots. Opening the Folder reveals the single Explore Project action.
 - Explore Project opens the reusable native-dialog SetSail experience with GSAP geometry animation, focus containment
@@ -45,8 +51,8 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
   explicitly marked as placeholders in code.
 - Website Maintenance is a separate optional ongoing offer after Pricing; it is not a fourth build tier.
 - Tools uses local logos in a continuous marquee with a static reduced-motion fallback.
-- About keeps its copy server-rendered and isolates its lightweight ProfileCard tilt and Contact action in a small
-  client component with reduced-motion support.
+- The homepage uses a lightweight About preview; `/about` keeps its copy server-rendered and isolates its ProfileCard
+  tilt and Contact action in a small client component with reduced-motion support.
 - Contact is form-only. Footer renders the alternate contact destinations as accessible icon-only links sourced from
   `src/data/contact.js`:
   - Email: `ninopaul.cabiles@gmail.com`
@@ -54,7 +60,8 @@ Hero → SetSail Featured Build / Folder → Services → Process Roadmap → On
   - LinkedIn: `https://www.linkedin.com/in/nino-paul-cabiles`
 - The inquiry form has client/server validation and a honeypot, but no delivery provider. It must continue to report
   `NOT_CONFIGURED`; never fake success.
-- Approved SEO title and meta description are configured through the native Metadata API.
+- The current global title, description, and gated schema remain Web Development-oriented; broadening them is a
+  future SEO/launch task, not an architecture-housekeeping change.
 - A branded 1200 × 630 social preview is generated at `/social-preview` with the approved logo and palette. It is not
   attached to Open Graph/Twitter metadata until a custom domain can provide truthful absolute URLs.
 - Server-rendered Person, WebSite, and Service schema architecture is prepared but remains gated off until a real

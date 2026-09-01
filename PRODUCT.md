@@ -6,11 +6,13 @@
 
 ## Users
 
-Roofing and home-service business owners checking `pawlystudios.` and Paul Cabiles after an introduction or cold call. They need quick proof that Paul is credible, practical, and capable of building useful websites and business systems.
+Business owners and teams considering web development or AI-generated advertising creative. They need quick proof
+that Paul is credible, practical, and capable of handling the work directly.
 
 ## Product Purpose
 
-Confirm Paul's credibility, show real work, explain the available project and support options, and make it easy to start a direct conversation without presenting Paul as an agency or full-time virtual assistant.
+Confirm Paul's credibility, show real work, introduce the two primary services, and make it easy to start a direct
+conversation without presenting Paul as a larger agency.
 
 ## Brand Personality
 
@@ -34,22 +36,20 @@ Preserve semantic HTML, keyboard access, visible focus, readable contrast, respo
 
 ## Approved Page Architecture
 
-1. Hero
-2. Featured Build / SetSail Folder
-3. Services
-4. Process Roadmap
-5. Ongoing Support
-6. Pricing
-7. Website Maintenance
-8. Tools I Use
-9. About / ProfileCard
-10. Contact
-11. Footer
+1. Brand Hero
+2. Primary Services: Web Development and AI Ad Creative
+3. Featured Work
+4. About Preview
+5. Final CTA
+6. Footer
 
-The SetSail Folder reveals one Explore Project action that opens the reusable SetSail dialog. Pricing contains the
-Starter, Pro, and Max initial-build tiers. Website Maintenance is a separate optional continuing relationship. The
-About section pairs server-rendered copy with Paul's ProfileCard. Contact is form-only; Footer contains accessible
-icon links for Email, WhatsApp, and LinkedIn.
+Approved routes are `/`, `/work`, `/services/web-development`, `/services/ai-ad-creative`, `/about`, and `/contact`.
+The shared navigation is Work, a Services disclosure for the two service routes, About, Contact, and Start a Project.
+
+Detailed Web Development content lives at `/services/web-development`. AI Ad Creative content lives at
+`/services/ai-ad-creative`. The homepage Featured Work links to the full SetSail project at `/work`; the full About
+experience lives at `/about`; the inquiry form lives at `/contact`. Footer contains accessible icon links for Email,
+WhatsApp, and LinkedIn.
 
 ## Approved Contact Details
 
@@ -69,11 +69,10 @@ is not a final custom domain. Hosted desktop, tablet, mobile, interaction, form,
 passed. The Lighthouse baseline is Performance 96, Accessibility 100, Best Practices 96, SEO 66 (expected while
 noindex is active), LCP 2.7 seconds, CLS 0, and TBT 90 milliseconds.
 
-The approved browser title is `Custom Website Development for Businesses | pawlystudios.` The approved meta
-description is `pawlystudios. builds responsive business websites, custom web experiences, and practical ongoing
-support, from planning through launch and handoff.` Person, WebSite, and Service schema are prepared server-side but
-must not render until the production URL exists and launch is approved. SetSail SoftwareApplication schema remains a
-separate launch decision.
+The current pre-launch global title, description, and gated schema remain Web Development-oriented. Broadening them
+for the studio architecture is deliberately deferred to the future SEO/launch phase. Person, WebSite, and Service
+schema must not render until the production URL exists and launch is approved. SetSail SoftwareApplication schema
+remains a separate launch decision.
 
 A branded 1200 × 630 preview is generated at `/social-preview` from the approved logo and Pine/Lime identity. It stays
 detached from Open Graph and Twitter metadata until a custom domain exists, preventing Next.js from publishing a

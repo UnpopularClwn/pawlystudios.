@@ -1,13 +1,15 @@
 import Image from 'next/image'
-import Container from '../shared/Container.jsx'
-import HeroMotion from './HeroMotion.jsx'
-import HeroCta from './HeroCta.jsx'
-import { logo, BRAND_NAME } from '../../data/brand.js'
-import './Hero.css'
+import Container from '../../shared/Container.jsx'
+import HeroMotion from '../../hero/HeroMotion.jsx'
+import HeroCta from '../../hero/HeroCta.jsx'
+import { logo, BRAND_NAME } from '../../../data/brand.js'
+import '../../hero/Hero.css'
 
-export default function Hero() {
+// Page-specific hero for /services/web-development. Reuses the approved
+// Web Development copy and Hero.css visual language.
+export default function WebDevelopmentHero() {
   return (
-    <section className="hero-section" aria-label="Introduction">
+    <section className="hero-section" aria-label="Web Development">
       <Container>
         <HeroMotion>
           <div className="hero-panel" data-hero="panel">

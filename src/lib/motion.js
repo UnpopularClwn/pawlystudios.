@@ -22,4 +22,4 @@ export const MOTION = {
   slow: { duration: 0.7, ease: 'power1.out', stagger: 0.12 },
 }
 
-export { gsap, ScrollTrigger }
+export { gsap }

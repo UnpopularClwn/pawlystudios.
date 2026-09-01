@@ -8,12 +8,10 @@ export const contact = {
 }
 
 export const projectTypes = [
-  'Business Website',
-  'Landing Page',
-  'Web Portal',
-  'Custom Build',
-  'Improve Existing Site',
-  'Not Sure Yet',
+  'Web Development',
+  'AI Ad Creative',
+  'Website Maintenance',
+  'Other / Not Sure Yet',
 ]
 
 export const contactFieldLimits = {

@@ -43,7 +43,7 @@ export async function submitContactForm(payload) {
   }
 
   if (typeof projectType !== 'string' || !projectTypes.includes(projectType)) {
-    errors.projectType = 'Select what you’re looking to build.'
+    errors.projectType = 'Select a project type.'
   }
 
   if (typeof details !== 'string' || !details.trim()) errors.details = 'Tell me a little about the project.'

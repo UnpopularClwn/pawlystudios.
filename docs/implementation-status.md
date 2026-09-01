@@ -1,36 +1,56 @@
 # Implementation Status
 
-Last updated: 2026-08-30 (launch-readiness checkpoint)
+Last updated: 2026-09-01 (multi-page architecture housekeeping checkpoint)
 
 Approved baseline commit: `beb1c883a39dd06647ce1509a9d7fb488dbdfd77`
 
 ## Current Page Architecture
 
-The one-page portfolio is rendered in this order:
+The homepage is rendered in this order:
 
-1. Hero
-2. Featured Build / SetSail Folder
-3. Services
-4. Process Roadmap
-5. Ongoing Support
-6. Pricing
-7. Website Maintenance
-8. Tools I Use
-9. About / ProfileCard
-10. Contact
-11. Footer
+1. Brand Hero
+2. Primary Services
+3. Featured Work
+4. About Preview
+5. Final CTA
+6. Footer
 
 The project uses the Next.js App Router, server components by default, and isolated client components only for
-browser behavior such as GSAP motion, anchor scrolling, the SetSail Folder/dialog, ProfileCard tilt, Footer navigation,
-and the inquiry form.
+browser behavior such as GSAP motion, the SetSail Folder/dialog, ProfileCard tilt, Header navigation, and the inquiry
+form.
+
+## Current Approved Routes
+
+- `/`, `/work`, `/services/web-development`, `/services/ai-ad-creative`, `/about`, and `/contact` are the approved
+  route architecture.
+- `/services/web-development` is the approved Web Development destination.
+- `/services/ai-ad-creative` presents the approved advertising-only offer for e-commerce brands and service
+  businesses, covering UGC-style ads, VSLs, animated ads, and static image ads.
+- The homepage now presents `pawlystudios.` at studio level and links equally to both approved service destinations.
+- The shared Header includes an accessible Services disclosure on desktop and inside the existing mobile navigation.
+- Footer navigation uses predictable route links for Work, both services, About, and Contact. Its umbrella tagline is
+  `Digital Experiences & Creative`.
+- Contact project types are now Web Development, AI Ad Creative, Website Maintenance, and Other / Not Sure Yet. The
+  client form and server action read the same allowlist, while delivery remains intentionally unconfigured.
+- The AI Ad Creative route uses the approved Concept, Creative Direction, Generation, Editing, and Post-Production
+  pipeline without publishing unapproved deliverable details or commercial terms.
+- Its portfolio area is an honest reserved state sized for a future video embed. No client relationship, result,
+  thumbnail, title, metric, or case study is fabricated.
+- The service routes reuse the existing design system, Footer, GSAP Reveal behavior, and reduced-motion handling. No
+  dependencies were added.
+- Production build and browser QA passed at 1440, 768, and 375 pixels across `/`, `/services/web-development`,
+  `/services/ai-ad-creative`, `/work`, `/about`, and `/contact`, with no overflow, failed assets, console errors, or
+  hydration errors.
 
 ## Complete
 
 - Next.js App Router migration.
 - Reusable design-system foundation with shared tokens, containers, sections, buttons, typography, and surfaces.
 - GSAP motion system with restrained reveal presets, animation cleanup, and reduced-motion handling.
-- Hero redesign with approved copy, `pawlystudios.` logo plate, wide contained Pine panel, Contact CTA, restrained
-  motif, and no unnecessary right-side preview.
+- Studio-level homepage Hero, two primary service gateways, Featured Work preview, About preview, and final Contact
+  CTA.
+- Dedicated Web Development Hero with approved copy, `pawlystudios.` logo plate, wide contained Pine panel, Contact
+  CTA, restrained motif, and no unnecessary right-side preview.
 - Crawlable SetSail Featured Build with approved project copy and an accessible Folder interaction containing three
   real sanitized screenshots.
 - Reusable SetSail project dialog using GSAP, native dialog semantics, focus containment and restoration,
@@ -38,7 +58,7 @@ and the inquiry form.
 - SetSail natural image ratios and responsive `next/image` sizing.
 - What I Build editorial services presentation without false click affordances.
 - Six-step Process Roadmap.
-- Ongoing Support section and optional post-launch support positioning.
+- Optional post-launch support positioning within the Web Development Process content.
 - Removal of the rejected diffuse Lime support-card glow.
 - Data-driven Starter, Pro, and Max Pricing cards with neutral pending-pricing labels that cannot be mistaken for
   published dollar prices and remain explicitly marked as placeholders in code.
@@ -52,9 +72,8 @@ and the inquiry form.
 - Contact form as the only primary Contact-section interaction; alternate destinations remain in Footer.
 - Accessibility fixes for muted-text contrast, dark-surface focus visibility, dialog interaction, keyboard operation,
   semantic structure, and responsive behavior.
-- Approved Metadata API title: `Custom Website Development for Businesses | pawlystudios.`
-- Approved meta description: `pawlystudios. builds responsive business websites, custom web experiences, and
-  practical ongoing support, from planning through launch and handoff.`
+- Current pre-launch global title, description, and gated schema remain Web Development-oriented. Broadening them for
+  the studio architecture is deliberately deferred to the future SEO/launch phase.
 - Branded 1200 × 630 social preview generated at `/social-preview` from the approved logo and Pine/Lime palette. The
   route is prepared but intentionally omitted from metadata until the custom domain supplies truthful absolute URLs.
 - Server-side Person, WebSite, and Service schema builder, gated until both production URL and launch approval exist.
@@ -134,7 +153,8 @@ remains form-only.
 - Keep server components as the default.
 - Keep GSAP as the main motion system.
 - Do not add Motion, Tailwind, shadcn/ui, or Motion Primitives as dependencies without a new approved requirement.
-- SetSail core proof and project copy stay crawlable on the homepage; the expandable dialog is secondary.
+- SetSail remains represented in the crawlable homepage Featured Work preview; the full project and expandable dialog
+  live at `/work`.
 - The client owns the finished website.
 - Ongoing support is optional.
 - Do not enable indexing without final launch approval.

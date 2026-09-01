@@ -81,7 +81,7 @@ function ProfileCardComponent({
           </span>
         )}
         <div className="profile-card-details" aria-hidden="true">
-          <h3>{name}</h3>
+          <p className="profile-card-name">{name}</p>
           <p>{title}</p>
         </div>
         <div className="profile-card-portrait">

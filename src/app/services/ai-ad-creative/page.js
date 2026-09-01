@@ -1,0 +1,27 @@
+import AiAdCreativeHero from '../../../components/services/ai-ad-creative/AiAdCreativeHero.jsx'
+import CreativeTypes from '../../../components/services/ai-ad-creative/CreativeTypes.jsx'
+import CreativePipeline from '../../../components/services/ai-ad-creative/CreativePipeline.jsx'
+import AudienceSection from '../../../components/services/ai-ad-creative/AudienceSection.jsx'
+import WorkingTogether from '../../../components/services/ai-ad-creative/WorkingTogether.jsx'
+import PortfolioReserved from '../../../components/services/ai-ad-creative/PortfolioReserved.jsx'
+import AiAdCreativeCta from '../../../components/services/ai-ad-creative/AiAdCreativeCta.jsx'
+import Footer from '../../../components/footer/Footer.jsx'
+
+export const metadata = {
+  title: 'AI Ad Creative',
+}
+
+export default function AiAdCreativePage() {
+  return (
+    <>
+      <AiAdCreativeHero />
+      <CreativeTypes />
+      <CreativePipeline />
+      <AudienceSection />
+      <WorkingTogether />
+      <PortfolioReserved />
+      <AiAdCreativeCta />
+      <Footer />
+    </>
+  )
+}

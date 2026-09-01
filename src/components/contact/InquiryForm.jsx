@@ -23,7 +23,7 @@ function validate(fields) {
   if (fields.company.length > contactFieldLimits.company) {
     errors.company = `Company must be ${contactFieldLimits.company} characters or fewer.`
   }
-  if (!fields.projectType) errors.projectType = 'Select what you’re looking to build.'
+  if (!projectTypes.includes(fields.projectType)) errors.projectType = 'Select a project type.'
   if (!fields.details.trim()) errors.details = 'Tell me a little about the project.'
   else if (fields.details.length > contactFieldLimits.details) {
     errors.details = `Project details must be ${contactFieldLimits.details} characters or fewer.`
@@ -174,7 +174,7 @@ export default function InquiryForm() {
       </div>
 
       <fieldset className="field-group chip-fieldset">
-        <legend>What are you looking to build?</legend>
+        <legend>What can I help with?</legend>
         <div className="chip-group">
           {projectTypes.map((type) => {
             const id = `pt-${type.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`

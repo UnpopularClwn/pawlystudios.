@@ -37,7 +37,7 @@ export default function Footer() {
               </span>
               <p className="footer-name">{BRAND_NAME}</p>
             </div>
-            <p className="footer-tagline">Website Development</p>
+            <p className="footer-tagline">Digital Experiences &amp; Creative</p>
           </div>
 
           <FooterNav />

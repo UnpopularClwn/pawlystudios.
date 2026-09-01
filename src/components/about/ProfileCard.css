@@ -78,10 +78,11 @@
   color: var(--color-white);
 }
 
-.profile-card-details h3 {
+.profile-card-name {
   margin: 0 0 2px;
   color: var(--color-white);
   font-size: 1.3rem;
+  font-weight: var(--weight-heading);
   line-height: 1.15;
 }
 

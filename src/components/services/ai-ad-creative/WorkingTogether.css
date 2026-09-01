@@ -1,0 +1,20 @@
+.working-together-panel {
+  max-width: 720px;
+}
+
+.working-together-heading {
+  margin-bottom: 20px;
+}
+
+.working-together-lead {
+  margin-bottom: 20px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.working-together-note {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-sage);
+}

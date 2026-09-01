@@ -1,0 +1,54 @@
+.creative-types-intro {
+  max-width: 620px;
+  margin-bottom: 56px;
+}
+
+.creative-types-heading {
+  margin-bottom: 16px;
+}
+
+.creative-types-lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.creative-types-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--card-border);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.creative-type-card {
+  padding: 40px;
+  background: var(--color-white);
+}
+
+.creative-type-title {
+  margin-bottom: 12px;
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.4375rem);
+}
+
+.creative-type-description {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 42ch;
+}
+
+@media (max-width: 720px) {
+  .creative-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .creative-type-card {
+    padding: 28px 24px;
+  }
+}

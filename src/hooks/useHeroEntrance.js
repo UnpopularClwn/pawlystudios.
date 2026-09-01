@@ -61,11 +61,11 @@ export default function useHeroEntrance() {
       }
 
       tl.fromTo(
-          eyebrow,
-          { opacity: 0.45, y: compact ? 5 : 8 },
-          { opacity: 1, y: 0, duration: compact ? 0.22 : 0.3 },
-          '<0.05',
-        )
+        eyebrow,
+        { opacity: 0.45, y: compact ? 5 : 8 },
+        { opacity: 1, y: 0, duration: compact ? 0.22 : 0.3 },
+        '<0.05',
+      )
         .fromTo(
           split.lines,
           { yPercent: compact ? 12 : 18 },
@@ -73,8 +73,12 @@ export default function useHeroEntrance() {
           '<0.02',
         )
         .fromTo(lead, { opacity: 0.4, y: 9 }, { opacity: 1, y: 0, duration: 0.32 }, '-=0.2')
-        .fromTo(support, { opacity: 0.35, y: 8 }, { opacity: 1, y: 0, duration: 0.32 }, '-=0.18')
-        .fromTo(cta, { opacity: 0.4, y: 7 }, { opacity: 1, y: 0, duration: 0.28 }, '-=0.16')
+
+      if (support) {
+        tl.fromTo(support, { opacity: 0.35, y: 8 }, { opacity: 1, y: 0, duration: 0.32 }, '-=0.18')
+      }
+
+      tl.fromTo(cta, { opacity: 0.4, y: 7 }, { opacity: 1, y: 0, duration: 0.28 }, '-=0.16')
 
       if (motif) {
         tl.fromTo(motif, { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.1')

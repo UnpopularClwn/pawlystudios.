@@ -1,0 +1,74 @@
+.portfolio-reserved-intro {
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+
+.portfolio-reserved-heading {
+  margin-bottom: 16px;
+}
+
+.portfolio-reserved-body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.portfolio-reserved-frame {
+  position: relative;
+  display: grid;
+  width: min(100%, 920px);
+  aspect-ratio: 16 / 9;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-sage);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.portfolio-reserved-frame > p {
+  position: absolute;
+  inset: auto 24px 20px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: var(--weight-body-medium);
+}
+
+.portfolio-reserved-mark {
+  display: grid;
+  grid-template-columns: 32px 44px 60px;
+  align-items: end;
+  gap: 8px;
+  transform: rotate(-4deg);
+}
+
+.portfolio-reserved-mark span {
+  display: block;
+  border: 1px solid var(--color-sage);
+  border-radius: var(--radius-sm);
+  background: var(--color-lime-wash);
+}
+
+.portfolio-reserved-mark span:nth-child(1) {
+  aspect-ratio: 9 / 16;
+}
+
+.portfolio-reserved-mark span:nth-child(2) {
+  aspect-ratio: 1;
+}
+
+.portfolio-reserved-mark span:nth-child(3) {
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 560px) {
+  .portfolio-reserved-frame > p {
+    inset: auto 16px 14px;
+    font-size: 12px;
+  }
+
+  .portfolio-reserved-mark {
+    grid-template-columns: 22px 30px 40px;
+    gap: 6px;
+  }
+}
