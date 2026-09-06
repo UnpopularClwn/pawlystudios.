@@ -102,6 +102,18 @@
   object-position: center 28%;
 }
 
+.profile-card-wrapper--about-portrait .profile-card {
+  aspect-ratio: 0.68;
+}
+
+.profile-card-wrapper--about-portrait .profile-card-portrait {
+  inset: 17% -5% -5%;
+}
+
+.profile-card-wrapper--about-portrait .profile-card-avatar {
+  object-position: center 42%;
+}
+
 .profile-card-footer {
   position: absolute;
   right: 16px;

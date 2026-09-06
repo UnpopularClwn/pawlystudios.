@@ -1,7 +1,7 @@
 import { logo } from '../../data/brand.js'
 import ProfileCard from './ProfileCard.jsx'
 
-export default function ProfileCardExperience() {
+export default function ProfileCardExperience({ avatarUrl = '/images/paul-headshot-about.png', portraitMode = false }) {
   return (
     <div className="about-profile-card">
       <ProfileCard
@@ -9,7 +9,8 @@ export default function ProfileCardExperience() {
         title="Web Developer"
         handle="pawlystudios"
         contactText="Start a Project"
-        avatarUrl="/images/paul-headshot-about.png"
+        avatarUrl={avatarUrl}
+        className={portraitMode ? 'profile-card-wrapper--about-portrait' : ''}
         iconUrl={logo.src}
         showUserInfo={false}
         enableTilt
