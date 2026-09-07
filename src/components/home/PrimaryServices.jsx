@@ -7,12 +7,14 @@ import './PrimaryServices.css'
 const primaryServices = [
   {
     name: 'Web Development',
-    description: 'Fast, functional websites built around how a business actually works.',
+    description:
+      'Websites, web applications, and digital tools built around real problems and how people actually use them.',
     href: '/services/web-development',
   },
   {
     name: 'AI Ad Creative',
-    description: 'Fully AI-generated advertising creative for e-commerce brands and service businesses.',
+    description:
+      'AI-generated advertising creative built through research, experimentation, creative direction, and production.',
     href: '/services/ai-ad-creative',
   },
 ]

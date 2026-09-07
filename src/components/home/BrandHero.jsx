@@ -27,18 +27,18 @@ export default function BrandHero() {
                 Independent Studio
               </p>
               <h1 className="brand-hero-heading" id="brand-hero-heading" data-hero="heading">
-                Digital experiences and creative for businesses.
+                I build things for the web, and sometimes beyond it.
               </h1>
               <p className="brand-hero-lead" data-hero="lead">
-                Web development and AI-generated ad creative, handled with a practical, hands-on approach from concept
-                through delivery.
+                I’m Paul, the person behind {BRAND_NAME} I work across web development, digital products, and
+                AI-generated ad creative, usually following an idea far enough to see what I can make from it.
               </p>
               <div className="brand-hero-actions" data-hero="cta">
-                <Button href="#services" arrow>
-                  Explore Services
+                <Button href="#work" arrow>
+                  View My Work
                 </Button>
-                <Button href="/contact" variant="secondary" className="brand-hero-secondary-cta">
-                  Start a Project
+                <Button href="/about" variant="secondary" className="brand-hero-secondary-cta">
+                  About Me
                 </Button>
               </div>
             </div>

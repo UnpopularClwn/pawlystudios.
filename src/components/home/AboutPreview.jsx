@@ -7,11 +7,13 @@ export default function AboutPreview() {
   return (
     <Section background="white" className="about-preview-section" aria-labelledby="about-preview-heading" id="about">
       <Reveal as="div" className="about-preview" preset="content" y={16}>
-        <h2 id="about-preview-heading">Paul is the person behind pawlystudios.</h2>
+        <h2 id="about-preview-heading">Curiosity usually gets me into things.</h2>
         <p>
-          I work directly across web development and AI ad creative, taking a practical, hands-on role from the first
-          idea through delivery.
+          I’m Paul. My career has taken me through executive support, operations, marketing, automation, and eventually
+          into building things for the web. Most of that happened the same way: I got curious, started experimenting,
+          and went further than I expected.
         </p>
+        <p>pawlystudios. is where a lot of that curiosity ends up.</p>
         <Button href="/about" variant="secondary" arrow>
           More About Me
         </Button>

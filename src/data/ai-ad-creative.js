@@ -5,7 +5,7 @@ export const aiAdCreative = {
   eyebrow: 'AI Ad Creative',
   heading: 'Fully AI-generated ad creative.',
   lead:
-    'For e-commerce brands and service businesses, handled from concept through post-production.',
+    'Advertising creative for e-commerce brands and service businesses. I research, direct, generate, edit, and finish each piece myself.',
 }
 
 export const creativeTypes = [
