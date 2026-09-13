@@ -6,9 +6,9 @@ export default function HomeCta() {
   return (
     <Section background="pine" className="home-cta-section" aria-labelledby="home-cta-heading">
       <div className="home-cta">
-        <h2 id="home-cta-heading">Have something in mind?</h2>
+        <h2 id="home-cta-heading">Have a project or an interesting problem in mind?</h2>
         <Button href="/contact" arrow>
-          Start a Project
+          Work Together
         </Button>
       </div>
     </Section>

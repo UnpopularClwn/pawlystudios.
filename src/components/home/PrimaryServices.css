@@ -1,6 +1,6 @@
 .primary-services-intro {
   max-width: 620px;
-  margin-bottom: 52px;
+  margin-bottom: 40px;
 }
 
 .service-gateways {
@@ -12,20 +12,20 @@
 
 .service-gateway {
   display: flex;
-  min-height: 300px;
   flex-direction: column;
   align-items: flex-start;
-  padding: clamp(32px, 5vw, 56px);
-  transition: background var(--duration-fast) var(--ease-standard);
+  padding: 36px clamp(24px, 4vw, 48px) 36px 0;
 }
 
 .service-gateway + .service-gateway {
+  padding-right: 0;
+  padding-left: clamp(24px, 4vw, 48px);
   border-left: 1px solid var(--color-sage);
 }
 
 .service-gateway h3 {
-  margin-bottom: 20px;
-  font-size: clamp(1.75rem, 1.35rem + 1.4vw, 2.5rem);
+  margin-bottom: 14px;
+  font-size: clamp(1.625rem, 1.35rem + 1vw, 2.125rem);
 }
 
 .service-gateway p {
@@ -40,8 +40,7 @@
   align-items: center;
   gap: 10px;
   min-height: 44px;
-  margin-top: auto;
-  padding-top: 28px;
+  margin-top: 20px;
   color: var(--color-pine);
   font-weight: var(--weight-body-medium);
 }
@@ -51,10 +50,6 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .service-gateway:hover {
-    background: var(--color-lime-wash);
-  }
-
   .service-gateway-link:hover span {
     transform: translateX(4px);
   }
@@ -66,11 +61,11 @@
   }
 
   .service-gateway {
-    min-height: 240px;
-    padding: 32px 24px;
+    padding: 28px 0;
   }
 
   .service-gateway + .service-gateway {
+    padding-left: 0;
     border-top: 1px solid var(--color-sage);
     border-left: 0;
   }

@@ -77,6 +77,8 @@ export const portfolio = {
     title: 'AI Ad Creative spec piece by pawlystudios.',
     embedUrl: 'https://www.youtube-nocookie.com/embed/y_VtTVarf5g?playsinline=1',
     youtubeUrl: 'https://youtube.com/shorts/y_VtTVarf5g',
+    thumbnailUrl: 'https://i.ytimg.com/vi/y_VtTVarf5g/maxresdefault.jpg',
+    thumbnailAlt: 'Still from the pawlystudios. AI ad Spec Creative showing a man in a kitchen.',
   },
 }
 

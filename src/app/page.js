@@ -9,8 +9,8 @@ export default function HomePage() {
   return (
     <>
       <BrandHero />
-      <PrimaryServices />
       <FeaturedWorkPreview />
+      <PrimaryServices />
       <AboutPreview />
       <HomeCta />
       <Footer />

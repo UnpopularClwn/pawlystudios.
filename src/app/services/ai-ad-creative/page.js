@@ -19,13 +19,13 @@ export default function AiAdCreativePage() {
   return (
     <>
       <AiAdCreativeHero />
+      <SelectedCreative />
       <CreativeTypes />
       <OrganicToPaidSection />
       <CreativeStrategySection />
       <CreativePipeline />
       <AudienceSection />
       <WorkingTogether />
-      <SelectedCreative />
       <AiAdCreativeCta />
       <Footer />
     </>

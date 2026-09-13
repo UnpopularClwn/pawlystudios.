@@ -10,21 +10,23 @@ const primaryServices = [
     description:
       'Websites, web applications, and digital tools built around real problems and how people actually use them.',
     href: '/services/web-development',
+    linkLabel: 'See Web Work',
   },
   {
     name: 'AI Ad Creative',
     description:
       'AI-generated advertising creative built through research, experimentation, creative direction, and production.',
     href: '/services/ai-ad-creative',
+    linkLabel: 'See AI Creative',
   },
 ]
 
 export default function PrimaryServices() {
   return (
-    <Section background="white" className="primary-services-section" aria-labelledby="primary-services-heading" id="services">
+    <Section background="white" className="primary-services-section" aria-labelledby="primary-services-heading" id="capabilities">
       <Reveal as="div" className="primary-services-intro" preset="content">
-        <SectionEyebrow>Primary Services</SectionEyebrow>
-        <h2 id="primary-services-heading">Two ways to work together.</h2>
+        <SectionEyebrow>What I Do</SectionEyebrow>
+        <h2 id="primary-services-heading">Two connected areas of practice.</h2>
       </Reveal>
 
       <Reveal
@@ -39,7 +41,7 @@ export default function PrimaryServices() {
             <h3>{service.name}</h3>
             <p>{service.description}</p>
             <Link href={service.href} className="service-gateway-link">
-              Explore {service.name}
+              {service.linkLabel}
               <span aria-hidden="true">→</span>
             </Link>
           </article>

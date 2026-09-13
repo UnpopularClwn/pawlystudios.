@@ -9,6 +9,10 @@
   gap: 32px;
 }
 
+.home-cta h2 {
+  max-width: 24ch;
+}
+
 @media (max-width: 640px) {
   .home-cta-section {
     padding: 56px 0;

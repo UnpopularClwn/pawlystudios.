@@ -17,8 +17,8 @@ export default function WebDevelopmentPage() {
   return (
     <>
       <WebDevelopmentHero />
-      <ServicesSection />
       <SetSailSection />
+      <ServicesSection />
       <ProcessSection />
       <MaintenanceSection />
       <ToolsSection />

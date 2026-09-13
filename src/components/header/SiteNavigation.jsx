@@ -8,57 +8,31 @@ import { BRAND_NAME, logo } from '../../data/brand.js'
 import Button from '../shared/Button.jsx'
 
 const NAV_LINKS = [
+  { label: 'Web', href: '/services/web-development' },
+  { label: 'AI Creative', href: '/services/ai-ad-creative' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
 
-const SERVICE_LINKS = [
-  { label: 'Web Development', href: '/services/web-development' },
-  { label: 'AI Ad Creative', href: '/services/ai-ad-creative' },
-]
-
 function NavigationState({ pathname }) {
   const [isOpen, setIsOpen] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const menuButtonRef = useRef(null)
-  const servicesButtonRef = useRef(null)
-  const servicesItemRef = useRef(null)
-  const isServicesActive = SERVICE_LINKS.some((link) => pathname === link.href)
 
   useEffect(() => {
-    if (!isOpen && !isServicesOpen) return undefined
+    if (!isOpen) return undefined
 
     function handleEscape(event) {
       if (event.key !== 'Escape') return
-
-      if (isServicesOpen) {
-        setIsServicesOpen(false)
-        servicesButtonRef.current?.focus()
-        return
-      }
-
       setIsOpen(false)
       menuButtonRef.current?.focus()
     }
 
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
-  }, [isOpen, isServicesOpen])
-
-  useEffect(() => {
-    if (!isServicesOpen) return undefined
-
-    function handleOutsidePointer(event) {
-      if (!servicesItemRef.current?.contains(event.target)) setIsServicesOpen(false)
-    }
-
-    document.addEventListener('pointerdown', handleOutsidePointer)
-    return () => document.removeEventListener('pointerdown', handleOutsidePointer)
-  }, [isServicesOpen])
+  }, [isOpen])
 
   function closeMenu() {
     setIsOpen(false)
-    setIsServicesOpen(false)
   }
 
   function toggleMenu() {
@@ -100,41 +74,6 @@ function NavigationState({ pathname }) {
         id="primary-navigation-menu"
       >
         <ul className="site-navigation-links">
-          <li className="site-navigation-services" ref={servicesItemRef}>
-            <button
-              ref={servicesButtonRef}
-              type="button"
-              className={`site-navigation-link site-navigation-services-trigger ${
-                isServicesActive ? 'site-navigation-services-trigger--active' : ''
-              }`.trim()}
-              aria-expanded={isServicesOpen}
-              aria-controls="services-navigation-links"
-              onClick={() => setIsServicesOpen((open) => !open)}
-            >
-              <span>Services</span>
-              <span className="site-navigation-services-chevron" aria-hidden="true" />
-            </button>
-
-            <ul
-              className={`site-navigation-services-links ${
-                isServicesOpen ? 'site-navigation-services-links--open' : ''
-              }`.trim()}
-              id="services-navigation-links"
-            >
-              {SERVICE_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    aria-current={pathname === link.href ? 'page' : undefined}
-                    onClick={closeMenu}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link

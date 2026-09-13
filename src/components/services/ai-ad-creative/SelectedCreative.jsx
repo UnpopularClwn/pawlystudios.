@@ -8,7 +8,12 @@ export default function SelectedCreative() {
   const { piece } = portfolio
 
   return (
-    <Section background="sand" className="selected-creative-section" aria-labelledby="selected-creative-heading">
+    <Section
+      background="sand"
+      className="selected-creative-section"
+      aria-labelledby="selected-creative-heading"
+      id="selected-creative"
+    >
       <div className="selected-creative-layout">
         <Reveal as="div" className="selected-creative-copy" preset="content">
           <SectionEyebrow>{portfolio.eyebrow}</SectionEyebrow>
