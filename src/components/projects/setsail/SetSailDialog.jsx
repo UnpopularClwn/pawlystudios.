@@ -26,7 +26,7 @@ const SetSailDialog = forwardRef(function SetSailDialog({ id = 'setsail-project-
   const closingRef = useRef(false)
   const sourceElRef = useRef(null)
   const returnFocusElRef = useRef(null)
-  const { primary, supporting } = setsail.screenshots
+  const { cover, primary, supporting, experience, build } = setsail.screenshots
   const { details } = setsail
 
   useEffect(
@@ -167,17 +167,17 @@ const SetSailDialog = forwardRef(function SetSailDialog({ id = 'setsail-project-
       onClick={handleBackdropClick}
       onKeyDown={handleDialogKeyDown}
     >
-      <article className="setsail-dialog-panel" ref={panelRef}>
-        <button
-          className="setsail-dialog-close"
-          type="button"
-          ref={closeRef}
-          aria-label="Close SetSail project"
-          onClick={closeProject}
-        >
-          <span aria-hidden="true">×</span>
-        </button>
+      <button
+        className="setsail-dialog-close"
+        type="button"
+        ref={closeRef}
+        aria-label="Close SetSail project"
+        onClick={closeProject}
+      >
+        <span aria-hidden="true">×</span>
+      </button>
 
+      <article className="setsail-dialog-panel" ref={panelRef}>
         <div className="setsail-dialog-content">
           <header className="setsail-dialog-header">
             <p className="setsail-dialog-eyebrow">Featured Build</p>
@@ -185,65 +185,127 @@ const SetSailDialog = forwardRef(function SetSailDialog({ id = 'setsail-project-
             <p id={`${id}-intro`}>{details.intro}</p>
           </header>
 
-          <figure className="setsail-dialog-primary-image">
-            <Image
-              src={primary.src}
-              alt={primary.alt}
-              width={primary.width}
-              height={primary.height}
-              sizes="(max-width: 720px) calc(100vw - 32px), 1120px"
-            />
+          <figure className="setsail-dialog-cover">
+            <div className="setsail-dialog-cover-viewport">
+              <Image
+                src={cover.src}
+                alt={cover.alt}
+                width={cover.width}
+                height={cover.height}
+                sizes="(max-width: 720px) 100vw, 1280px"
+                priority
+              />
+            </div>
+            <figcaption>{cover.label}</figcaption>
           </figure>
 
           <div className="setsail-dialog-story">
-            <section>
-              <h3>The Problem</h3>
-              <p>{details.problem}</p>
-            </section>
-            <section>
-              <h3>The Build</h3>
-              <p>{details.solution}</p>
-            </section>
-            <section>
-              <h3>What I Built</h3>
-              <p>{details.contribution}</p>
-            </section>
-          </div>
-
-          <div className="setsail-dialog-experience-grid">
-            <section>
-              <h3>Client Experience</h3>
-              <CapabilityList items={details.clientExperience} />
-            </section>
-            <section>
-              <h3>Agency Experience</h3>
-              <CapabilityList items={details.agencyExperience} />
-            </section>
-          </div>
-
-          <div className="setsail-dialog-gallery">
-            {supporting.map((shot) => (
-              <figure key={shot.id}>
-                <Image
-                  src={shot.src}
-                  alt={shot.alt}
-                  width={shot.width}
-                  height={shot.height}
-                  sizes="(max-width: 720px) calc(100vw - 32px), 540px"
-                />
-                <figcaption>{shot.label}</figcaption>
+            <section className="setsail-dialog-problem">
+              <div>
+                <p className="setsail-dialog-kicker">01 / Context</p>
+                <h3>The Problem</h3>
+                <p>{details.problem}</p>
+              </div>
+              <figure>
+                <div className="setsail-dialog-problem-viewport">
+                  <Image
+                    src={primary.src}
+                    alt={primary.alt}
+                    width={primary.width}
+                    height={primary.height}
+                    sizes="(max-width: 720px) calc(100vw - 32px), 720px"
+                  />
+                </div>
+                <figcaption>A focused “today” view replaced a general-purpose project board.</figcaption>
               </figure>
-            ))}
+            </section>
           </div>
 
-          <section className="setsail-dialog-stack">
-            <h3>Stack</h3>
+          <section className="setsail-dialog-experience">
+            <div className="setsail-dialog-experience-copy">
+              <p className="setsail-dialog-kicker">02 / Product</p>
+              <h3>The Experience</h3>
+              <p>{details.solution}</p>
+              <div className="setsail-dialog-experience-grid">
+                <div>
+                  <h4>For clients</h4>
+                  <CapabilityList items={details.clientExperience} />
+                </div>
+                <div>
+                  <h4>For the agency</h4>
+                  <CapabilityList items={details.agencyExperience} />
+                </div>
+              </div>
+            </div>
+            <figure className="setsail-dialog-phone">
+              <Image
+                src={experience.src}
+                alt={experience.alt}
+                width={experience.width}
+                height={experience.height}
+                sizes="(max-width: 720px) 72vw, 340px"
+              />
+              <figcaption>{experience.label}</figcaption>
+            </figure>
+          </section>
+
+          <section className="setsail-dialog-build">
+            <div>
+              <p className="setsail-dialog-kicker">03 / Delivery</p>
+              <h3>The Build</h3>
+              <p>{details.contribution}</p>
+            </div>
             <div className="setsail-dialog-stack-groups">
               {details.stack.map((group) => (
                 <div key={group.label}>
                   <h4>{group.label}</h4>
                   <p>{group.items.join(' · ')}</p>
                 </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="setsail-dialog-built">
+            <div className="setsail-dialog-section-heading">
+              <p className="setsail-dialog-kicker">04 / Scope</p>
+              <h3>What I Built</h3>
+            </div>
+            <div className="setsail-dialog-build-gallery">
+              {build.map((shot) => (
+                <figure key={shot.id}>
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    width={shot.width}
+                    height={shot.height}
+                    sizes="(max-width: 720px) 72vw, 300px"
+                  />
+                  <figcaption>{shot.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+
+          <section className="setsail-dialog-final">
+            <div className="setsail-dialog-section-heading">
+              <p className="setsail-dialog-kicker">05 / Outcome</p>
+              <h3>Final Product Moment</h3>
+              <p>Clients can review each post in context, approve it, or request a revision without learning the agency’s internal workflow.</p>
+            </div>
+            <div className="setsail-dialog-gallery">
+              {[supporting[0]].map((shot) => (
+                <figure key={shot.id}>
+                  <div className="setsail-dialog-final-viewport">
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={shot.width}
+                      height={shot.height}
+                      sizes="(max-width: 720px) calc(100vw - 32px), 1280px"
+                    />
+                  </div>
+                  <figcaption>{shot.label}</figcaption>
+                </figure>
               ))}
             </div>
           </section>

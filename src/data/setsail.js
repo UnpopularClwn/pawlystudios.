@@ -17,6 +17,14 @@ export const setsail = {
   },
 
   screenshots: {
+    cover: {
+      id: 'cover',
+      label: 'SetSail agency overview on desktop',
+      alt: 'SetSail agency overview screen showing client counts, onboarding status, pending approvals, intake, and upcoming work.',
+      src: '/images/SCR-20260819-pwkj.png',
+      width: 1920,
+      height: 968,
+    },
     primary: {
       id: 'primary',
       label: 'SetSail client dashboard',
@@ -41,6 +49,32 @@ export const setsail = {
         src: '/images/SCR-20260819-pwkj.png',
         width: 1920,
         height: 968,
+      },
+    ],
+    experience: {
+      id: 'experience',
+      label: 'Client dashboard on mobile',
+      alt: 'SetSail client dashboard on mobile showing content going live today, upcoming posts awaiting approval, and wins and highlights.',
+      src: '/images/iPhone-14-PRO-set-sail-mvp.vercel.app (11).png',
+      width: 816,
+      height: 1664,
+    },
+    build: [
+      {
+        id: 'client-workspace',
+        label: 'Client workspace on mobile',
+        alt: 'SetSail all-clients workspace on mobile showing searchable client cards, onboarding state, and pending actions.',
+        src: '/images/iPhone-14-PRO-set-sail-mvp.vercel.app (2).png',
+        width: 816,
+        height: 1664,
+      },
+      {
+        id: 'task-board',
+        label: 'Task board on mobile',
+        alt: 'SetSail task board on mobile showing task columns, assignees, and bottom navigation.',
+        src: '/images/iPhone-14-PRO-set-sail-mvp.vercel.app (3).png',
+        width: 816,
+        height: 1664,
       },
     ],
   },
