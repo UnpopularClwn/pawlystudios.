@@ -24,7 +24,7 @@ export default function BrandHero() {
                 />
               </span>
               <p className="brand-hero-eyebrow" data-hero="eyebrow">
-                Independent Studio
+                Paul Cabiles / {BRAND_NAME}
               </p>
               <h1 className="brand-hero-heading" id="brand-hero-heading" data-hero="heading">
                 I build things for the web, and sometimes beyond it.
