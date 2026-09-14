@@ -11,14 +11,57 @@ duplicate app or experimental copy.
 Read `docs/implementation-status.md` before resuming. Older briefs, plans, and decision records are preserved under
 `docs/archive/` for history; current code and the status document take precedence when they conflict.
 
-## Page Architecture
+## Repository State (read this before touching git)
 
-Homepage: Brand Hero → Primary Services → Featured Work → About Preview → Final CTA → Footer.
+`main` / `origin/main` are identical and are production, at commit `29219b3907a275afdbc221fe85540856a6cf6e6a`. The
+current branch (`portfolio-first-restructure`) is **4 commits ahead of `main`**, and all four are committed but
+unmerged — none of them are on production yet:
+
+1. **LIVE / PRODUCTION** — `main`/`origin/main` at `29219b3`. Service-first homepage structure, Services nav dropdown,
+   About portrait/story. This is what a visitor sees today.
+2. **COMMITTED BUT UNMERGED — portfolio-first content pass** — `8a4345e` (feat: shift site copy toward portfolio
+   positioning). Homepage Hero headline/CTA copy, Hero `line-height: 1.12`, homepage capability descriptions, About
+   Preview copy, and the AI Ad Creative hero lead.
+3. **COMMITTED BUT UNMERGED — site restructure** — `09fcb44` (feat: restructure site around portfolio work) and
+   `10ef7d2` (fix: align hero identity with portfolio positioning). Navigation simplification (Services dropdown →
+   direct Web/AI Creative links), homepage section reorder, the "Selected Work" Featured Work rebuild, "What I Do"
+   structural changes (id/heading/link-label rework), Web Development and AI Ad Creative section reorders, and Home
+   CTA copy changes. See **Current Branch Architecture** below for the resulting page structure.
+4. **COMMITTED BUT UNMERGED — SetSail redesign** — `5d67e0a` (feat: redesign SetSail case study). `SetSailDialog.jsx`/
+   `.css` and `src/data/setsail.js` rebuilt with cover/experience/build sections; three new screenshots
+   (`(2).png`, `(3).png`, `(11).png`) committed and referenced. See **Asset State** below.
+
+None of layers 2–4 are shipped, approved for production, merged, or deployed. Do not merge, push, or deploy
+`portfolio-first-restructure` until this work has its own explicit review/approval.
+
+## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
+
+This is what exists on the branch's 4 commits, not on production. Do not describe it as live until merged.
+
+- **Navigation**: Web, AI Creative, About, Contact, Start a Project (flat links, no Services dropdown).
+- **Homepage**: Hero → Selected Work → What I Do → About Preview → Final CTA → Footer.
+- **Web Development** (`/services/web-development`): Hero → SetSail case study → What I Build / Services → Process →
+  Maintenance → Tools → CTA.
+- **AI Ad Creative** (`/services/ai-ad-creative`): Hero → Selected Creative → remaining strategy/methodology content →
+  CTA.
+- **About** (`/about`): unchanged from the production About implementation.
+- **Contact** (`/contact`): unchanged.
+- **`/work`**: absent / intentionally 404.
+- **SetSail**: the redesigned case study (cover/experience/build sections) is committed in `5d67e0a`, not on
+  production.
+
+## Page Architecture (production, `main`)
+
+Homepage: Brand Hero → Primary Services → Featured Work (SetSail) → About Preview → Final CTA → Footer.
 
 Detailed Web Development and AI Ad Creative content lives on their approved `/services/web-development` and
 `/services/ai-ad-creative` routes. The Web Development route also contains the full SetSail showcase. About and
-Contact live at `/about` and `/contact`. Shared navigation is a Services disclosure for both service routes, About,
-Contact, and Start a Project.
+Contact live at `/about` and `/contact`. Shared navigation is a Services disclosure (Web Development, AI Ad Creative)
+alongside About, Contact, and Start a Project.
+
+The committed-but-unmerged branch work (see **Current Branch Architecture** above) changes this to: Hero → Selected
+Work → What I Do → About Preview → Final CTA → Footer, with flat Web/AI Creative/About/Contact navigation links. That
+layout is not live and is not the source of truth until it is merged into `main` and approved.
 
 ## Brand and Contact Identity
 
@@ -38,12 +81,11 @@ Contact, and Start a Project.
 - GSAP is the motion system. Motion, Tailwind, shadcn/ui, and Motion Primitives are not installed.
 - Static rendering is retained where possible.
 
-## Latest Approved Implementation
+## Latest Approved Implementation (live on production, `main`)
 
-- The homepage uses a studio-level Brand Hero and equal Web Development and AI Ad Creative gateways. The approved
-  website-specific Hero and sales sections live on `/services/web-development`.
-- `/services/ai-ad-creative` presents the approved advertising-only offer and an honest reserved portfolio state.
-- Shared navigation exposes both service routes through an accessible Services disclosure.
+- The homepage leads with a Brand Hero, then Primary Services (Web Development / AI Ad Creative gateways), then
+  Featured Work (SetSail only), then About Preview and the final CTA.
+- Shared navigation exposes a Services disclosure (Web Development, AI Ad Creative) alongside About and Contact.
 - The crawlable Featured Build pairs approved SetSail copy with an interactive Folder containing three real sanitized
   screenshots. Opening the Folder reveals the single Explore Project action.
 - Explore Project opens the reusable native-dialog SetSail experience with GSAP geometry animation, focus containment
@@ -73,6 +115,19 @@ Contact, and Start a Project.
 - Final visual, responsive, accessibility, motion, content, and implementation QA passed at 1920, 1440, 1024, 768,
   and 375 pixels. The latest launch-readiness pass covered 1440, 768, 375, and reduced-motion modes. Tests, lint,
   production build, production dependency audit, and whitespace validation passed.
+
+None of this list includes the portfolio-first content pass (`8a4345e`), the site restructure (`09fcb44`, `10ef7d2`),
+or the SetSail redesign (`5d67e0a`) — see **Repository State** and **Current Branch Architecture** above for what
+exists beyond production and where it lives.
+
+## Asset State
+
+- Three new SetSail screenshots are committed and referenced in `src/data/setsail.js`: `(2).png`, `(3).png`, and
+  `(11).png` (committed in `5d67e0a`).
+- The other 11 SetSail screenshots generated during the redesign were unused (not referenced anywhere in code) and
+  have been deleted from the working tree.
+- `qa/` holds local QA screenshots only, is not part of any deliverable, and is gitignored — it will not appear in
+  `git status` and should not be staged.
 
 ## Deployment Checkpoint
 

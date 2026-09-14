@@ -1,41 +1,86 @@
 # Implementation Status
 
-Last updated: 2026-09-01 (multi-page architecture housekeeping checkpoint)
+Last updated: 2026-09-14 (repository-state update after portfolio restructure and SetSail redesign committed)
 
-Approved baseline commit: `beb1c883a39dd06647ce1509a9d7fb488dbdfd77`
+Production baseline commit: `29219b3907a275afdbc221fe85540856a6cf6e6a` (this is also current `main` and `origin/main` —
+verified identical; production has not moved since this baseline).
 
-## Current Page Architecture
+## Repository State
+
+The current branch (`portfolio-first-restructure`) is **4 commits ahead of `main`**, and all four are committed but
+unmerged. Do not describe any of them as shipped, approved, or on production — none are merged.
+
+1. **LIVE / PRODUCTION** (`main` / `origin/main` @ `29219b3`) — service-first homepage structure, Services nav
+   dropdown, About page portrait/story. Everything in "Complete" below that isn't explicitly flagged otherwise
+   describes this state.
+2. **COMMITTED BUT UNMERGED — portfolio-first content pass** — `8a4345e` (feat: shift site copy toward portfolio
+   positioning). Homepage Hero copy, Hero `line-height: 1.12`, homepage capability descriptions, About Preview copy,
+   AI Ad Creative hero lead.
+3. **COMMITTED BUT UNMERGED — site restructure** — `09fcb44` (feat: restructure site around portfolio work) and
+   `10ef7d2` (fix: align hero identity with portfolio positioning). Navigation simplification, homepage section
+   reorder, Featured Work → "Selected Work" rebuild, "What I Do" structural changes, Web Development/AI Ad Creative
+   section reorders, and Home CTA copy changes. See **Current Branch Architecture** below.
+4. **COMMITTED BUT UNMERGED — SetSail redesign** — `5d67e0a` (feat: redesign SetSail case study). `SetSailDialog.jsx`/
+   `.css`, `src/data/setsail.js`, and three new committed screenshots (`(2).png`, `(3).png`, `(11).png`). See
+   **Asset State** below.
+
+`qa/` holds local QA screenshots only, is not part of any approved deliverable, and is now gitignored.
+
+## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
+
+This describes the branch's 4 commits, not production. Do not document it as live until merged into `main`.
+
+- **Navigation**: Web, AI Creative, About, Contact, Start a Project (flat links, no Services dropdown).
+- **Homepage**: Hero → Selected Work → What I Do → About Preview → Final CTA → Footer.
+- **Web Development** (`/services/web-development`): Hero → SetSail case study → What I Build / Services → Process →
+  Maintenance → Tools → CTA.
+- **AI Ad Creative** (`/services/ai-ad-creative`): Hero → Selected Creative → remaining strategy/methodology content →
+  CTA.
+- **About** (`/about`): unchanged from the production About implementation.
+- **Contact** (`/contact`): unchanged.
+- **`/work`**: absent / intentionally 404.
+- **SetSail**: the redesigned case study (cover/experience/build sections) is committed in `5d67e0a`, not on
+  production.
+
+## Current Page Architecture (production, `main`)
 
 The homepage is rendered in this order:
 
 1. Brand Hero
-2. Primary Services
-3. Featured Work
+2. Primary Services (Web Development / AI Ad Creative gateways)
+3. Featured Work (SetSail only)
 4. About Preview
 5. Final CTA
 6. Footer
+
+The committed-but-unmerged branch work (see **Current Branch Architecture** above) changes this to Hero → Selected
+Work → What I Do → About Preview → Final CTA → Footer. That order is not live and should not be documented as
+current until it is merged into `main` and approved.
 
 The project uses the Next.js App Router, server components by default, and isolated client components only for
 browser behavior such as GSAP motion, the SetSail Folder/dialog, ProfileCard tilt, Header navigation, and the inquiry
 form.
 
-## Current Approved Routes
+## Current Approved Routes (production, `main`)
 
 - `/`, `/services/web-development`, `/services/ai-ad-creative`, `/about`, and `/contact` are the approved route
   architecture.
 - `/services/web-development` is the approved Web Development destination and contains the full SetSail showcase.
 - `/services/ai-ad-creative` presents the approved advertising-only offer for e-commerce brands and service
   businesses, covering UGC-style ads, VSLs, animated ads, and static image ads.
-- The homepage now presents `pawlystudios.` at studio level and links equally to both approved service destinations.
-- The shared Header includes an accessible Services disclosure on desktop and inside the existing mobile navigation.
+- The homepage leads with a Brand Hero, then Primary Services, then Featured Work (SetSail only).
+- The shared Header uses a Services disclosure (Web Development, AI Ad Creative) alongside About and Contact, with
+  the existing accessible mobile navigation. (The committed-but-unmerged restructure branch changes this to direct
+  Web/AI Creative links — not live; see Repository State.)
 - Footer navigation uses predictable route links for both services, About, and Contact. Its umbrella tagline is
   `Digital Experiences & Creative`.
 - Contact project types are now Web Development, AI Ad Creative, Website Maintenance, and Other / Not Sure Yet. The
   client form and server action read the same allowlist, while delivery remains intentionally unconfigured.
 - The AI Ad Creative route uses the approved Concept, Creative Direction, Generation, Editing, and Post-Production
   pipeline without publishing unapproved deliverable details or commercial terms.
-- Its portfolio area is an honest reserved state sized for a future video embed. No client relationship, result,
-  thumbnail, title, metric, or case study is fabricated.
+- Its portfolio area contains the approved privacy-enhanced YouTube embed, labeled as Spec Creative without client or
+  performance claims. (Surfacing this YouTube thumbnail on the homepage is part of the committed-but-unmerged
+  "Selected Work" rebuild — not live on production; see Repository State.)
 - The service routes reuse the existing design system, Footer, GSAP Reveal behavior, and reduced-motion handling. No
   dependencies were added.
 - Production build and browser QA passed at 1440, 768, and 375 pixels across `/`, `/services/web-development`,
@@ -47,8 +92,11 @@ form.
 - Next.js App Router migration.
 - Reusable design-system foundation with shared tokens, containers, sections, buttons, typography, and surfaces.
 - GSAP motion system with restrained reveal presets, animation cleanup, and reduced-motion handling.
-- Studio-level homepage Hero, two primary service gateways, Featured Work preview, About preview, and final Contact
-  CTA.
+- Homepage Brand Hero, Primary Services capability section, Featured Work (SetSail) preview, About preview, and final
+  Contact CTA (production, `main`). The portfolio-first copy pass to this Hero and About Preview is committed on
+  `portfolio-first-restructure` at `8a4345e` but not yet merged. A further "Selected Work" rebuild adding an AI Spec
+  Creative preview to the homepage is committed on that same branch at `09fcb44`/`10ef7d2` but also not yet merged —
+  see Repository State.
 - Dedicated Web Development Hero with approved copy, `pawlystudios.` logo plate, wide contained Pine panel, Contact
   CTA, restrained motif, and no unnecessary right-side preview.
 - Crawlable SetSail Featured Build with approved project copy and an accessible Folder interaction containing three
@@ -98,6 +146,31 @@ form.
 - Production-style browser QA passed at 1440, 768, and 375 pixels plus `prefers-reduced-motion`: no horizontal
   overflow, console errors, hydration errors, broken rendered images, or missing anchor targets; Folder/dialog,
   ProfileCard, Maintenance, form validation, safe unconfigured response, Footer, and focus restoration passed.
+
+## Committed but Unmerged (not on production, not approved)
+
+Committed on branch `portfolio-first-restructure`, on top of `8a4345e`. None of this has been reviewed/approved as
+final and none of it should be described elsewhere in this document as complete or production-ready.
+
+**Site restructure (`09fcb44`, `10ef7d2`):**
+- Navigation simplification: Services dropdown → direct Web/AI Creative links.
+- Homepage section reorder (Featured Work before Primary Services) and renames (Primary Services → "What I Do",
+  `id="services"` → `id="capabilities"`, new `linkLabel` per service).
+- Featured Work rebuilt into a two-project "Selected Work" section showing both SetSail and the AI Spec Creative
+  (adds `thumbnailUrl`/`thumbnailAlt` to `src/data/ai-ad-creative.js` and a `next.config.js` remote image pattern for
+  `i.ytimg.com`).
+- Web Development page: SetSail section moved before the Services section.
+- AI Ad Creative page: Selected Creative section moved earlier, plus an added `id="selected-creative"` anchor.
+- Home CTA heading/button copy changed ("Work Together") — not part of the originally approved content pass.
+
+**SetSail redesign (`5d67e0a`):**
+- `SetSailDialog.jsx`/`.css` substantially rebuilt with new cover/experience/build sections and layout.
+- `src/data/setsail.js` adds `cover`, `experience`, and a `build[]` screenshot array.
+- 3 new SetSail screenshots committed and referenced in code: `(2).png`, `(3).png`, `(11).png`. The other 11
+  screenshots generated during the redesign were unused and have been deleted from the working tree.
+
+**Local-only, non-deliverable:**
+- `qa/` — QA screenshots from testing the above, not part of any approved deliverable; now gitignored.
 
 ## Current Contact Details
 
