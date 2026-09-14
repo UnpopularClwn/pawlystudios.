@@ -2,7 +2,6 @@ import Link from 'next/link'
 
 const FOOTER_NAV_LINKS = [
   { label: 'Web Development', href: '/services/web-development' },
-  { label: 'AI Ad Creative', href: '/services/ai-ad-creative' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]

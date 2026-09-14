@@ -3,7 +3,7 @@ import Footer from '../../components/footer/Footer.jsx'
 
 export const metadata = {
   title: 'Contact',
-  description: 'Start a web development or AI ad creative project with pawlystudios.',
+  description: 'Start a web development project with pawlystudios.',
 }
 
 export default function ContactPage() {

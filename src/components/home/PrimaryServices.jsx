@@ -12,13 +12,6 @@ const primaryServices = [
     href: '/services/web-development',
     linkLabel: 'See Web Work',
   },
-  {
-    name: 'AI Ad Creative',
-    description:
-      'AI-generated advertising creative built through research, experimentation, creative direction, and production.',
-    href: '/services/ai-ad-creative',
-    linkLabel: 'See AI Creative',
-  },
 ]
 
 export default function PrimaryServices() {
@@ -26,7 +19,7 @@ export default function PrimaryServices() {
     <Section background="white" className="primary-services-section" aria-labelledby="primary-services-heading" id="capabilities">
       <Reveal as="div" className="primary-services-intro" preset="content">
         <SectionEyebrow>What I Do</SectionEyebrow>
-        <h2 id="primary-services-heading">Two connected areas of practice.</h2>
+        <h2 id="primary-services-heading">Where I spend most of my time.</h2>
       </Reveal>
 
       <Reveal

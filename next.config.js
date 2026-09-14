@@ -15,15 +15,6 @@ const contentSecurityPolicyReportOnly = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'i.ytimg.com',
-        pathname: '/vi/y_VtTVarf5g/maxresdefault.jpg',
-      },
-    ],
-  },
   async headers() {
     return [
       {

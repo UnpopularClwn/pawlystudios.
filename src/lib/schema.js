@@ -10,7 +10,6 @@ export function buildLaunchSchema({ siteUrl, isLaunched }) {
   const businessId = new URL('#pawlystudios', rootUrl).toString()
   const websiteId = new URL('#website', rootUrl).toString()
   const webDevelopmentId = new URL('#web-development', rootUrl).toString()
-  const aiAdCreativeId = new URL('#ai-ad-creative', rootUrl).toString()
 
   return {
     '@context': 'https://schema.org',
@@ -47,16 +46,6 @@ export function buildLaunchSchema({ siteUrl, isLaunched }) {
         serviceType: 'Web Development',
         url: new URL('/services/web-development', rootUrl).toString(),
         description: 'Custom business websites, landing pages, web portals, and ongoing website support.',
-        provider: { '@id': businessId },
-      },
-      {
-        '@type': 'Service',
-        '@id': aiAdCreativeId,
-        name: 'AI Ad Creative',
-        serviceType: 'AI-generated advertising creative',
-        url: new URL('/services/ai-ad-creative', rootUrl).toString(),
-        description:
-          'Fully AI-generated advertising creative for e-commerce brands and service businesses, from concept through post-production.',
         provider: { '@id': businessId },
       },
     ],

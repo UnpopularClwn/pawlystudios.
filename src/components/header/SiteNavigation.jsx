@@ -9,7 +9,6 @@ import Button from '../shared/Button.jsx'
 
 const NAV_LINKS = [
   { label: 'Web', href: '/services/web-development' },
-  { label: 'AI Creative', href: '/services/ai-ad-creative' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]

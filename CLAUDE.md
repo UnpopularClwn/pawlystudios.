@@ -30,25 +30,55 @@ unmerged — none of them are on production yet:
 4. **COMMITTED BUT UNMERGED — SetSail redesign** — `5d67e0a` (feat: redesign SetSail case study). `SetSailDialog.jsx`/
    `.css` and `src/data/setsail.js` rebuilt with cover/experience/build sections; three new screenshots
    (`(2).png`, `(3).png`, `(11).png`) committed and referenced. See **Asset State** below.
+5. **UNCOMMITTED — public scope narrowed to Web Development only** — working tree only, on top of `5d67e0a`. Removes
+   AI Ad Creative from public navigation, the homepage Selected Work and What I Do sections, Contact project types,
+   and public SEO copy. Does not delete the AI Ad Creative implementation. See **Public Launch Scope** below.
 
-None of layers 2–4 are shipped, approved for production, merged, or deployed. Do not merge, push, or deploy
+None of layers 2–5 are shipped, approved for production, merged, or deployed. Do not merge, push, or deploy
 `portfolio-first-restructure` until this work has its own explicit review/approval.
 
-## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
+## Current Branch Architecture (committed + uncommitted, unmerged — `portfolio-first-restructure`)
 
-This is what exists on the branch's 4 commits, not on production. Do not describe it as live until merged.
+This is the current working-tree state on the branch (4 commits plus the uncommitted AI-parking layer), not on
+production. Do not describe it as live until merged.
 
-- **Navigation**: Web, AI Creative, About, Contact, Start a Project (flat links, no Services dropdown).
-- **Homepage**: Hero → Selected Work → What I Do → About Preview → Final CTA → Footer.
+- **Navigation**: Web, About, Contact, Start a Project (flat links, no Services dropdown, no AI Creative link).
+- **Homepage**: Hero → Selected Work (SetSail only) → What I Do (Web Development only) → About Preview → Final CTA →
+  Footer.
 - **Web Development** (`/services/web-development`): Hero → SetSail case study → What I Build / Services → Process →
   Maintenance → Tools → CTA.
 - **AI Ad Creative** (`/services/ai-ad-creative`): Hero → Selected Creative → remaining strategy/methodology content →
-  CTA.
-- **About** (`/about`): unchanged from the production About implementation.
-- **Contact** (`/contact`): unchanged.
+  CTA. Implementation intact; parked with no public navigation path. See **Public Launch Scope** below.
+- **About** (`/about`): unchanged from the production About implementation, aside from the metadata description no
+  longer mentioning AI ad creative work.
+- **Contact** (`/contact`): unchanged aside from the project-type options (AI Ad Creative removed).
 - **`/work`**: absent / intentionally 404.
 - **SetSail**: the redesigned case study (cover/experience/build sections) is committed in `5d67e0a`, not on
   production.
+
+## Public Launch Scope
+
+The upcoming public launch is narrowed to **Web Development only**. AI Ad Creative is intentionally parked, not
+deleted:
+
+- Public navigation (header `SiteNavigation.jsx`, footer `FooterNav.jsx`), the homepage Selected Work and What I Do
+  sections, and the Contact project-type options no longer reference or link to AI Ad Creative.
+- The `/services/ai-ad-creative` route, its page, all of its section components (`AiAdCreativeHero`,
+  `SelectedCreative`, `CreativeTypes`, `CreativePipeline`, `AudienceSection`, `WorkingTogether`, `AiAdCreativeCta`),
+  and its data (`src/data/ai-ad-creative.js`, including the YouTube spec-creative embed and thumbnail fields) remain
+  fully intact and unchanged. The route is not redirected and has no "Coming Soon" placeholder — it is a parked draft
+  reachable only by direct URL.
+- `next.config.js`'s `images.remotePatterns` entry for `i.ytimg.com` was removed: it existed only to let `next/image`
+  optimize the AI Ad Creative thumbnail on the homepage card, and that card no longer renders. The AI page's own
+  `SelectedCreative` component embeds the YouTube player directly via `embedUrl` (an iframe), not `next/image`, so
+  nothing in the current runtime needs that remote pattern. If AI Ad Creative content is ever restored to a page that
+  renders `thumbnailUrl` through `next/image`, re-add this remote pattern.
+- Restoring AI Ad Creative to the public site later should not require rebuilding the feature — it means re-adding
+  the nav links, the homepage cards, and the Contact project-type option, and (if needed) the `next.config.js` remote
+  pattern.
+- `src/lib/schema.js` still models `AI Ad Creative` as a `Service` inside the JSON-LD `@graph`, but the whole graph is
+  gated off by `SITE_IS_LAUNCHED` (currently `false`) and was intentionally left unchanged here — it isn't live and
+  its launch-time scope is a separate decision from this parking change.
 
 ## Page Architecture (production, `main`)
 
@@ -59,9 +89,10 @@ Detailed Web Development and AI Ad Creative content lives on their approved `/se
 Contact live at `/about` and `/contact`. Shared navigation is a Services disclosure (Web Development, AI Ad Creative)
 alongside About, Contact, and Start a Project.
 
-The committed-but-unmerged branch work (see **Current Branch Architecture** above) changes this to: Hero → Selected
-Work → What I Do → About Preview → Final CTA → Footer, with flat Web/AI Creative/About/Contact navigation links. That
-layout is not live and is not the source of truth until it is merged into `main` and approved.
+The branch work in its current state (see **Current Branch Architecture** above) changes this to: Hero → Selected
+Work (SetSail only) → What I Do (Web Development only) → About Preview → Final CTA → Footer, with flat
+Web/About/Contact navigation links and no AI Ad Creative exposure. That layout is not live and is not the source of
+truth until it is merged into `main` and approved.
 
 ## Brand and Contact Identity
 
@@ -128,6 +159,9 @@ exists beyond production and where it lives.
   have been deleted from the working tree.
 - `qa/` holds local QA screenshots only, is not part of any deliverable, and is gitignored — it will not appear in
   `git status` and should not be staged.
+- The AI Ad Creative thumbnail asset (`thumbnailUrl`/`thumbnailAlt` in `src/data/ai-ad-creative.js`, hosted at
+  `i.ytimg.com`) is preserved as data but is no longer rendered anywhere in the current runtime; see **Public Launch
+  Scope** above for why its `next.config.js` remote-image pattern was removed.
 
 ## Deployment Checkpoint
 

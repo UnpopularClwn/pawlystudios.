@@ -9,7 +9,6 @@ export const contact = {
 
 export const projectTypes = [
   'Web Development',
-  'AI Ad Creative',
   'Website Maintenance',
   'Other / Not Sure Yet',
 ]

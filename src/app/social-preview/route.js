@@ -78,10 +78,10 @@ export async function GET() {
             letterSpacing: '-0.035em',
           }}
         >
-          Web Development &amp; AI Ad Creative
+          Web Development
         </div>
         <div style={{ display: 'flex', fontSize: '28px', color: '#c6e79e' }}>
-          An independent studio for businesses.
+          Paul Cabiles / pawlystudios.
         </div>
       </div>
     </div>,

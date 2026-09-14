@@ -4,12 +4,10 @@ import SectionEyebrow from '../shared/SectionEyebrow.jsx'
 import Reveal from '../shared/Reveal.jsx'
 import Button from '../shared/Button.jsx'
 import { setsail } from '../../data/setsail.js'
-import { portfolio } from '../../data/ai-ad-creative.js'
 import './FeaturedWorkPreview.css'
 
 export default function FeaturedWorkPreview() {
   const screenshot = setsail.screenshots.primary
-  const specCreative = portfolio.piece
 
   return (
     <Section
@@ -45,30 +43,6 @@ export default function FeaturedWorkPreview() {
             sizes="(max-width: 960px) calc(100vw - 48px), 680px"
           />
           <figcaption>{screenshot.label}</figcaption>
-        </Reveal>
-      </article>
-
-      <article className="selected-work-project selected-work-project--creative" aria-labelledby="creative-preview-heading">
-        <Reveal as="div" className="selected-work-copy selected-work-copy--creative" preset="content" y={16}>
-          <p className="selected-work-kind">AI Ad Creative</p>
-          <h3 id="creative-preview-heading">{specCreative.label}</h3>
-          <p>{portfolio.body}</p>
-          <Button href="/services/ai-ad-creative#selected-creative" variant="secondary" arrow>
-            View AI Creative
-          </Button>
-        </Reveal>
-
-        <Reveal as="figure" className="selected-work-creative-preview" preset="content" y={20}>
-          <div className="selected-work-creative-frame">
-            <Image
-              src={specCreative.thumbnailUrl}
-              alt={specCreative.thumbnailAlt}
-              fill
-              className="selected-work-creative-media"
-              sizes="(max-width: 720px) 200px, (max-width: 960px) 220px, 260px"
-            />
-          </div>
-          <figcaption>{specCreative.label} / YouTube Short</figcaption>
         </Reveal>
       </article>
     </Section>

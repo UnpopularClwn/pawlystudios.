@@ -9,15 +9,15 @@ test('launch schema stays unpublished until launch and uses approved entities af
   const schema = buildLaunchSchema({ siteUrl: 'https://example.com', isLaunched: true })
   assert.deepEqual(
     schema['@graph'].map((entity) => entity['@type']),
-    ['Person', 'ProfessionalService', 'WebSite', 'Service', 'Service'],
+    ['Person', 'ProfessionalService', 'WebSite', 'Service'],
   )
   assert.equal(schema['@graph'][0].name, 'Paul Cabiles')
   assert.equal(schema['@graph'][1].name, 'pawlystudios.')
   assert.deepEqual(
     schema['@graph'].filter((entity) => entity['@type'] === 'Service').map((entity) => entity.name),
-    ['Web Development', 'AI Ad Creative'],
+    ['Web Development'],
   )
   assert.equal(schema['@graph'][3].provider['@id'], 'https://example.com/#pawlystudios')
-  assert.equal(schema['@graph'][4].url, 'https://example.com/services/ai-ad-creative')
+  assert.equal(schema['@graph'][3].url, 'https://example.com/services/web-development')
   assert.equal(serializeJsonLd({ value: '</script>' }).includes('</script>'), false)
 })

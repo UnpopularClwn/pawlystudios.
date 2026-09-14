@@ -17,7 +17,7 @@ const allow = async () => true
 const send = async () => true
 
 test('contact validation covers approved project types and field boundaries', async () => {
-  assert.deepEqual(projectTypes, ['Web Development', 'AI Ad Creative', 'Website Maintenance', 'Other / Not Sure Yet'])
+  assert.deepEqual(projectTypes, ['Web Development', 'Website Maintenance', 'Other / Not Sure Yet'])
   for (const projectType of projectTypes) {
     assert.equal((await processContactForm({ ...validPayload, projectType }, { deliveryConfig, sendEmail: send })).code, 'SUCCESS')
   }

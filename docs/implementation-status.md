@@ -1,6 +1,6 @@
 # Implementation Status
 
-Last updated: 2026-09-14 (repository-state update after portfolio restructure and SetSail redesign committed)
+Last updated: 2026-09-14 (public launch scope narrowed to Web Development; AI Ad Creative parked, not deleted)
 
 Production baseline commit: `29219b3907a275afdbc221fe85540856a6cf6e6a` (this is also current `main` and `origin/main` —
 verified identical; production has not moved since this baseline).
@@ -23,24 +23,54 @@ unmerged. Do not describe any of them as shipped, approved, or on production —
 4. **COMMITTED BUT UNMERGED — SetSail redesign** — `5d67e0a` (feat: redesign SetSail case study). `SetSailDialog.jsx`/
    `.css`, `src/data/setsail.js`, and three new committed screenshots (`(2).png`, `(3).png`, `(11).png`). See
    **Asset State** below.
+5. **UNCOMMITTED — public scope narrowed to Web Development only** — working tree only, on top of `5d67e0a`. Removes
+   AI Ad Creative from public navigation, the homepage Selected Work and What I Do sections, Contact project types,
+   and public SEO copy. Does not delete the AI Ad Creative implementation. See **Public Launch Scope** below.
 
 `qa/` holds local QA screenshots only, is not part of any approved deliverable, and is now gitignored.
 
-## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
+## Current Branch Architecture (committed + uncommitted, unmerged — `portfolio-first-restructure`)
 
-This describes the branch's 4 commits, not production. Do not document it as live until merged into `main`.
+This describes the current working-tree state on the branch (4 commits plus the uncommitted AI-parking layer), not
+production. Do not document it as live until merged into `main`.
 
-- **Navigation**: Web, AI Creative, About, Contact, Start a Project (flat links, no Services dropdown).
-- **Homepage**: Hero → Selected Work → What I Do → About Preview → Final CTA → Footer.
+- **Navigation**: Web, About, Contact, Start a Project (flat links, no Services dropdown, no AI Creative link).
+- **Homepage**: Hero → Selected Work (SetSail only) → What I Do (Web Development only) → About Preview → Final CTA →
+  Footer.
 - **Web Development** (`/services/web-development`): Hero → SetSail case study → What I Build / Services → Process →
   Maintenance → Tools → CTA.
 - **AI Ad Creative** (`/services/ai-ad-creative`): Hero → Selected Creative → remaining strategy/methodology content →
-  CTA.
-- **About** (`/about`): unchanged from the production About implementation.
-- **Contact** (`/contact`): unchanged.
+  CTA. Implementation intact; parked with no public navigation path. See **Public Launch Scope** below.
+- **About** (`/about`): unchanged from the production About implementation, aside from the metadata description no
+  longer mentioning AI ad creative work.
+- **Contact** (`/contact`): unchanged aside from the project-type options (AI Ad Creative removed).
 - **`/work`**: absent / intentionally 404.
 - **SetSail**: the redesigned case study (cover/experience/build sections) is committed in `5d67e0a`, not on
   production.
+
+## Public Launch Scope
+
+The upcoming public launch is narrowed to **Web Development only**. AI Ad Creative is intentionally parked, not
+deleted:
+
+- Public navigation (header `SiteNavigation.jsx`, footer `FooterNav.jsx`), the homepage Selected Work and What I Do
+  sections, and the Contact project-type options no longer reference or link to AI Ad Creative.
+- The `/services/ai-ad-creative` route, its page, all of its section components (`AiAdCreativeHero`,
+  `SelectedCreative`, `CreativeTypes`, `CreativePipeline`, `AudienceSection`, `WorkingTogether`, `AiAdCreativeCta`),
+  and its data (`src/data/ai-ad-creative.js`, including the YouTube spec-creative embed and thumbnail fields) remain
+  fully intact and unchanged. The route is not redirected and has no "Coming Soon" placeholder — it is a parked draft
+  reachable only by direct URL.
+- `next.config.js`'s `images.remotePatterns` entry for `i.ytimg.com` was removed: it existed only to let `next/image`
+  optimize the AI Ad Creative thumbnail on the (now removed) homepage card. The AI page's own `SelectedCreative`
+  component embeds the YouTube player directly via `embedUrl` (an iframe), not `next/image`, so nothing in the
+  current runtime needs that remote pattern. Re-add it if AI Ad Creative content is ever restored to a page that
+  renders `thumbnailUrl` through `next/image`.
+- Restoring AI Ad Creative to the public site later should not require rebuilding the feature — it means re-adding
+  the nav links, the homepage cards, and the Contact project-type option, and (if needed) the `next.config.js` remote
+  pattern.
+- `src/lib/schema.js` still models `AI Ad Creative` as a `Service` inside the JSON-LD `@graph`, but the whole graph is
+  gated off by `SITE_IS_LAUNCHED` (currently `false`) and was intentionally left unchanged here — it isn't live and
+  its launch-time scope is a separate decision from this parking change.
 
 ## Current Page Architecture (production, `main`)
 
@@ -53,9 +83,10 @@ The homepage is rendered in this order:
 5. Final CTA
 6. Footer
 
-The committed-but-unmerged branch work (see **Current Branch Architecture** above) changes this to Hero → Selected
-Work → What I Do → About Preview → Final CTA → Footer. That order is not live and should not be documented as
-current until it is merged into `main` and approved.
+The branch work in its current state (see **Current Branch Architecture** above) changes this to Hero → Selected Work
+(SetSail only) → What I Do (Web Development only) → About Preview → Final CTA → Footer, with no AI Ad Creative
+exposure. That order is not live and should not be documented as current until it is merged into `main` and
+approved.
 
 The project uses the Next.js App Router, server components by default, and isolated client components only for
 browser behavior such as GSAP motion, the SetSail Folder/dialog, ProfileCard tilt, Header navigation, and the inquiry
@@ -70,17 +101,20 @@ form.
   businesses, covering UGC-style ads, VSLs, animated ads, and static image ads.
 - The homepage leads with a Brand Hero, then Primary Services, then Featured Work (SetSail only).
 - The shared Header uses a Services disclosure (Web Development, AI Ad Creative) alongside About and Contact, with
-  the existing accessible mobile navigation. (The committed-but-unmerged restructure branch changes this to direct
-  Web/AI Creative links — not live; see Repository State.)
+  the existing accessible mobile navigation. (The branch's current working-tree state changes this to a direct Web
+  link only, with no AI Creative link — not live; see Repository State.)
 - Footer navigation uses predictable route links for both services, About, and Contact. Its umbrella tagline is
   `Digital Experiences & Creative`.
 - Contact project types are now Web Development, AI Ad Creative, Website Maintenance, and Other / Not Sure Yet. The
-  client form and server action read the same allowlist, while delivery remains intentionally unconfigured.
+  client form and server action read the same allowlist, while delivery remains intentionally unconfigured. (The
+  branch's current working-tree state removes the AI Ad Creative option — not live; see Repository State and Public
+  Launch Scope.)
 - The AI Ad Creative route uses the approved Concept, Creative Direction, Generation, Editing, and Post-Production
   pipeline without publishing unapproved deliverable details or commercial terms.
 - Its portfolio area contains the approved privacy-enhanced YouTube embed, labeled as Spec Creative without client or
-  performance claims. (Surfacing this YouTube thumbnail on the homepage is part of the committed-but-unmerged
-  "Selected Work" rebuild — not live on production; see Repository State.)
+  performance claims. (This was briefly surfaced as a homepage thumbnail card by the uncommitted "Selected Work"
+  rebuild on the branch, then removed again by the uncommitted AI-parking layer on top of it — never live on
+  production; see Repository State and Public Launch Scope.)
 - The service routes reuse the existing design system, Footer, GSAP Reveal behavior, and reduced-motion handling. No
   dependencies were added.
 - Production build and browser QA passed at 1440, 768, and 375 pixels across `/`, `/services/web-development`,
@@ -157,8 +191,9 @@ final and none of it should be described elsewhere in this document as complete 
 - Homepage section reorder (Featured Work before Primary Services) and renames (Primary Services → "What I Do",
   `id="services"` → `id="capabilities"`, new `linkLabel` per service).
 - Featured Work rebuilt into a two-project "Selected Work" section showing both SetSail and the AI Spec Creative
-  (adds `thumbnailUrl`/`thumbnailAlt` to `src/data/ai-ad-creative.js` and a `next.config.js` remote image pattern for
-  `i.ytimg.com`).
+  (added `thumbnailUrl`/`thumbnailAlt` to `src/data/ai-ad-creative.js` and a `next.config.js` remote image pattern for
+  `i.ytimg.com`). The AI Spec Creative card and the now-unused `i.ytimg.com` remote pattern were subsequently removed
+  by the uncommitted AI-parking layer — see below.
 - Web Development page: SetSail section moved before the Services section.
 - AI Ad Creative page: Selected Creative section moved earlier, plus an added `id="selected-creative"` anchor.
 - Home CTA heading/button copy changed ("Work Together") — not part of the originally approved content pass.
@@ -168,6 +203,10 @@ final and none of it should be described elsewhere in this document as complete 
 - `src/data/setsail.js` adds `cover`, `experience`, and a `build[]` screenshot array.
 - 3 new SetSail screenshots committed and referenced in code: `(2).png`, `(3).png`, `(11).png`. The other 11
   screenshots generated during the redesign were unused and have been deleted from the working tree.
+
+**AI Ad Creative parked (uncommitted, on top of `5d67e0a`):**
+- Public navigation, homepage Selected Work/What I Do exposure, and the Contact project-type option for AI Ad
+  Creative removed. Implementation, data, and route left intact — see **Public Launch Scope** above.
 
 **Local-only, non-deliverable:**
 - `qa/` — QA screenshots from testing the above, not part of any approved deliverable; now gitignored.

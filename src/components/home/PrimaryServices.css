@@ -5,7 +5,8 @@
 
 .service-gateways {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 620px;
   border-top: 1px solid var(--color-sage);
   border-bottom: 1px solid var(--color-sage);
 }
@@ -14,13 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 36px clamp(24px, 4vw, 48px) 36px 0;
-}
-
-.service-gateway + .service-gateway {
-  padding-right: 0;
-  padding-left: clamp(24px, 4vw, 48px);
-  border-left: 1px solid var(--color-sage);
+  padding: 36px 0;
 }
 
 .service-gateway h3 {
@@ -56,17 +51,7 @@
 }
 
 @media (max-width: 720px) {
-  .service-gateways {
-    grid-template-columns: 1fr;
-  }
-
   .service-gateway {
     padding: 28px 0;
-  }
-
-  .service-gateway + .service-gateway {
-    padding-left: 0;
-    border-top: 1px solid var(--color-sage);
-    border-left: 0;
   }
 }

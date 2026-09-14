@@ -30,8 +30,8 @@ export default function BrandHero() {
                 I build things for the web, and sometimes beyond it.
               </h1>
               <p className="brand-hero-lead" data-hero="lead">
-                I’m Paul, the person behind {BRAND_NAME} I work across web development, digital products, and
-                AI-generated ad creative, usually following an idea far enough to see what I can make from it.
+                I’m Paul, the person behind {BRAND_NAME} I work across web development and digital products, usually
+                following an idea far enough to see what I can make from it.
               </p>
               <div className="brand-hero-actions" data-hero="cta">
                 <Button href="#work" arrow>
