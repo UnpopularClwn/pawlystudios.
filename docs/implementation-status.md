@@ -1,14 +1,16 @@
 # Implementation Status
 
-Last updated: 2026-09-14 (public launch scope narrowed to Web Development; AI Ad Creative parked, not deleted)
+Last updated: 2026-09-14 (pre-launch checkpoint: web-only public scope, Next.js security patch, and
+`NEXT_PUBLIC_SITE_URL` configured for Production)
 
 Production baseline commit: `29219b3907a275afdbc221fe85540856a6cf6e6a` (this is also current `main` and `origin/main` —
 verified identical; production has not moved since this baseline).
 
 ## Repository State
 
-The current branch (`portfolio-first-restructure`) is **4 commits ahead of `main`**, and all four are committed but
-unmerged. Do not describe any of them as shipped, approved, or on production — none are merged.
+The current branch (`portfolio-first-restructure`) is **7 commits ahead of `main`, 0 behind**, and all seven are
+committed but unmerged. Working tree is clean; nothing has been pushed or deployed. Do not describe any of them as
+shipped, approved, or on production — none are merged.
 
 1. **LIVE / PRODUCTION** (`main` / `origin/main` @ `29219b3`) — service-first homepage structure, Services nav
    dropdown, About page portrait/story. Everything in "Complete" below that isn't explicitly flagged otherwise
@@ -23,16 +25,21 @@ unmerged. Do not describe any of them as shipped, approved, or on production —
 4. **COMMITTED BUT UNMERGED — SetSail redesign** — `5d67e0a` (feat: redesign SetSail case study). `SetSailDialog.jsx`/
    `.css`, `src/data/setsail.js`, and three new committed screenshots (`(2).png`, `(3).png`, `(11).png`). See
    **Asset State** below.
-5. **UNCOMMITTED — public scope narrowed to Web Development only** — working tree only, on top of `5d67e0a`. Removes
-   AI Ad Creative from public navigation, the homepage Selected Work and What I Do sections, Contact project types,
-   and public SEO copy. Does not delete the AI Ad Creative implementation. See **Public Launch Scope** below.
+5. **COMMITTED BUT UNMERGED — docs checkpoint** — `3906e07` (docs: update repository state after portfolio
+   restructure). Documentation-only.
+6. **COMMITTED BUT UNMERGED — web-only public scope** — `baa2a19` (refactor: narrow public portfolio to web
+   development). Removes AI Ad Creative from public navigation, the homepage Selected Work and What I Do sections,
+   Contact project types, public SEO/social-preview copy, and the launch-gated JSON-LD schema. Does not delete the AI
+   Ad Creative implementation. See **Public Launch Scope** below.
+7. **COMMITTED BUT UNMERGED — Next.js security patch** — `a96da75` (chore: patch Next.js security vulnerability).
+   See **Next.js Security State** below.
 
 `qa/` holds local QA screenshots only, is not part of any approved deliverable, and is now gitignored.
 
-## Current Branch Architecture (committed + uncommitted, unmerged — `portfolio-first-restructure`)
+## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
 
-This describes the current working-tree state on the branch (4 commits plus the uncommitted AI-parking layer), not
-production. Do not document it as live until merged into `main`.
+This describes the current state on the branch's 7 commits, not production. Do not document it as live until merged
+into `main`.
 
 - **Navigation**: Web, About, Contact, Start a Project (flat links, no Services dropdown, no AI Creative link).
 - **Homepage**: Hero → Selected Work (SetSail only) → What I Do (Web Development only) → About Preview → Final CTA →
@@ -204,12 +211,57 @@ final and none of it should be described elsewhere in this document as complete 
 - 3 new SetSail screenshots committed and referenced in code: `(2).png`, `(3).png`, `(11).png`. The other 11
   screenshots generated during the redesign were unused and have been deleted from the working tree.
 
-**AI Ad Creative parked (uncommitted, on top of `5d67e0a`):**
-- Public navigation, homepage Selected Work/What I Do exposure, and the Contact project-type option for AI Ad
-  Creative removed. Implementation, data, and route left intact — see **Public Launch Scope** above.
+**AI Ad Creative parked (`baa2a19`):**
+- Public navigation, homepage Selected Work/What I Do exposure, Contact project-type option, public SEO/social-preview
+  copy, and the launch-gated JSON-LD schema entry for AI Ad Creative removed. Implementation, data, and route left
+  intact — see **Public Launch Scope** above. `next.config.js`'s now-unused `i.ytimg.com` remote-image pattern also
+  removed (see **Public Launch Scope**).
+
+**Next.js security patch (`a96da75`):**
+- `next` `16.3.1` → `16.3.3`, resolving a critical unauthenticated-RCE advisory. `react`/`react-dom` unchanged. See
+  **Next.js Security State** below.
 
 **Local-only, non-deliverable:**
 - `qa/` — QA screenshots from testing the above, not part of any approved deliverable; now gitignored.
+
+## Next.js Security State
+
+- Runtime versions: `next@16.3.3`, `react@19.2.8`, `react-dom@19.2.8` (patched in `a96da75`).
+- Critical Next.js unauthenticated-RCE advisories (`GHSA-p293-qw3h-jr36`, `GHSA-2xp9-vwfh-vxw4`, affecting `next`
+  `16.0.0–16.3.2`) are resolved.
+- Remaining `npm audit --omit=dev` findings, both transitive through `next` (not direct dependencies): `sharp
+  <0.35.4` (HIGH, libheif) and `baseline-browser-mapping >=2.0.0 <2.11.0` (MODERATE, DoS). Do not manually
+  pin/override without a separate reviewed dependency task.
+
+## Vercel / Environment State
+
+- Vercel project: `pawlystudios`. Initial-launch production URL: `https://pawlystudios.vercel.app` (custom domain
+  intentionally deferred, not required for this launch).
+- `NEXT_PUBLIC_SITE_URL=https://pawlystudios.vercel.app` is configured in Vercel, scoped **Production only**;
+  Preview and Development are intentionally unset (a preview deployment inheriting the production origin for
+  `metadataBase`/canonical would be incorrect). Setting it has not triggered a deployment — it takes effect on the
+  next Production build.
+- No other environment variables exist yet in any environment: `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`,
+  `CONTACT_TO_EMAIL`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` are all absent. See **Form delivery**
+  under Intentionally Pending.
+- `SITE_IS_LAUNCHED` remains `false`. Nothing on `portfolio-first-restructure` has been pushed or deployed.
+
+## Remaining Launch Order
+
+1. Configure Resend contact delivery (`RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`, Production only).
+2. Test a real contact submission end to end.
+3. Add a sitemap.
+4. Attach `/social-preview` to Open Graph/Twitter metadata.
+5. Review final launch configuration.
+6. Set `SITE_IS_LAUNCHED` to `true` (only after explicit approval).
+7. Run final test/lint/build/security audit.
+8. Final desktop/tablet/mobile smoke test.
+9. Merge/push/deploy (only after explicit approval).
+10. Verify the actual Vercel production deployment.
+11. Verify canonical, robots, schema, social metadata, and contact delivery in production.
+
+Deferred, not required for this launch: custom domain, Upstash rate limiting (safe to add later), final commercial
+pricing, HSTS/CSP hardening beyond the current baseline, SetSail `SoftwareApplication` schema.
 
 ## Current Contact Details
 
@@ -224,19 +276,23 @@ remains form-only.
 
 ### Launch and domain
 
-- Custom domain; the PM does not currently have one.
-- `metadataBase`, absolute canonical, sitemap, absolute JSON-LD IDs, and final schema publication.
-- Attaching `/social-preview` to Open Graph/Twitter metadata after the custom domain exists.
-- SoftwareApplication schema decision for SetSail. It is semantically defensible for the actual client portal, but
-  publication should wait for a canonical project URL plus confirmed application category and browser/platform data.
+- Custom domain is intentionally deferred, not required for the initial launch — `https://pawlystudios.vercel.app`
+  is the launch production URL. `NEXT_PUBLIC_SITE_URL` is already configured for Production (see **Vercel /
+  Environment State**); `metadataBase`/canonical will activate on the next Production deployment.
+- Sitemap, absolute JSON-LD IDs, and final schema publication remain unset until `SITE_IS_LAUNCHED` is flipped.
+- Attaching `/social-preview` to Open Graph/Twitter metadata — still pending, no longer blocked on a custom domain
+  since `NEXT_PUBLIC_SITE_URL` now provides a truthful absolute origin.
+- SoftwareApplication schema decision for SetSail remains deferred (semantically defensible, but publication should
+  wait for confirmed application category and browser/platform data).
 
 ### Form delivery
 
-- Inquiry provider and server-only credentials.
-- Sender, recipient, and reply-to configuration.
-- Provider delivery call and rate limiting.
-- Retention/spam policy.
-- Success, failure, rejection, and throttling tests.
+Architecture is complete and tested (see **Contact Form State**-equivalent detail above and `Complete`); only
+credentials are missing. Required before launch: `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` (Resend
+is already installed and wired — see the delivery flow described under **Repository State** item 6 and
+`src/lib/submitContactForm.js`/`contactSubmission.js`). Optional, safe to defer: `UPSTASH_REDIS_REST_URL` +
+`UPSTASH_REDIS_REST_TOKEN` (rate limiting fails open / skips cleanly when absent). After configuring, test success,
+failure, rejection, and throttling against the real provider.
 
 ### Commercial content
 

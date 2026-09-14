@@ -14,8 +14,8 @@ Read `docs/implementation-status.md` before resuming. Older briefs, plans, and d
 ## Repository State (read this before touching git)
 
 `main` / `origin/main` are identical and are production, at commit `29219b3907a275afdbc221fe85540856a6cf6e6a`. The
-current branch (`portfolio-first-restructure`) is **4 commits ahead of `main`**, and all four are committed but
-unmerged — none of them are on production yet:
+current branch (`portfolio-first-restructure`) is **7 commits ahead of `main`, 0 behind**, and all seven are
+committed but unmerged — none of them are on production yet, and nothing has been pushed or deployed:
 
 1. **LIVE / PRODUCTION** — `main`/`origin/main` at `29219b3`. Service-first homepage structure, Services nav dropdown,
    About portrait/story. This is what a visitor sees today.
@@ -30,17 +30,22 @@ unmerged — none of them are on production yet:
 4. **COMMITTED BUT UNMERGED — SetSail redesign** — `5d67e0a` (feat: redesign SetSail case study). `SetSailDialog.jsx`/
    `.css` and `src/data/setsail.js` rebuilt with cover/experience/build sections; three new screenshots
    (`(2).png`, `(3).png`, `(11).png`) committed and referenced. See **Asset State** below.
-5. **UNCOMMITTED — public scope narrowed to Web Development only** — working tree only, on top of `5d67e0a`. Removes
-   AI Ad Creative from public navigation, the homepage Selected Work and What I Do sections, Contact project types,
-   and public SEO copy. Does not delete the AI Ad Creative implementation. See **Public Launch Scope** below.
+5. **COMMITTED BUT UNMERGED — docs checkpoint** — `3906e07` (docs: update repository state after portfolio
+   restructure). Documentation-only, no application code.
+6. **COMMITTED BUT UNMERGED — web-only public scope** — `baa2a19` (refactor: narrow public portfolio to web
+   development). Removes AI Ad Creative from public navigation, the homepage Selected Work and What I Do sections,
+   Contact project types, public SEO/social-preview copy, and the launch-gated JSON-LD schema. Does not delete the AI
+   Ad Creative implementation. See **Public Launch Scope** below.
+7. **COMMITTED BUT UNMERGED — Next.js security patch** — `a96da75` (chore: patch Next.js security vulnerability).
+   `next` `16.3.1` → `16.3.3`, resolving a critical unauthenticated-RCE advisory. `react`/`react-dom` unchanged. See
+   **Next.js Security State** below.
 
-None of layers 2–5 are shipped, approved for production, merged, or deployed. Do not merge, push, or deploy
+None of layers 2–7 are shipped, approved for production, merged, or deployed. Do not merge, push, or deploy
 `portfolio-first-restructure` until this work has its own explicit review/approval.
 
-## Current Branch Architecture (committed + uncommitted, unmerged — `portfolio-first-restructure`)
+## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
 
-This is the current working-tree state on the branch (4 commits plus the uncommitted AI-parking layer), not on
-production. Do not describe it as live until merged.
+This is the current state on the branch's 7 commits, not on production. Do not describe it as live until merged.
 
 - **Navigation**: Web, About, Contact, Start a Project (flat links, no Services dropdown, no AI Creative link).
 - **Homepage**: Hero → Selected Work (SetSail only) → What I Do (Web Development only) → About Preview → Final CTA →
@@ -148,8 +153,9 @@ truth until it is merged into `main` and approved.
   production build, production dependency audit, and whitespace validation passed.
 
 None of this list includes the portfolio-first content pass (`8a4345e`), the site restructure (`09fcb44`, `10ef7d2`),
-or the SetSail redesign (`5d67e0a`) — see **Repository State** and **Current Branch Architecture** above for what
-exists beyond production and where it lives.
+the SetSail redesign (`5d67e0a`), the web-only public scope narrowing (`baa2a19`), or the Next.js security patch
+(`a96da75`) — see **Repository State** and **Current Branch Architecture** above for what exists beyond production
+and where it lives.
 
 ## Asset State
 
@@ -163,6 +169,45 @@ exists beyond production and where it lives.
   `i.ytimg.com`) is preserved as data but is no longer rendered anywhere in the current runtime; see **Public Launch
   Scope** above for why its `next.config.js` remote-image pattern was removed.
 
+## Next.js Security State
+
+- Runtime versions: `next@16.3.3`, `react@19.2.8`, `react-dom@19.2.8` (committed in `a96da75`).
+- The critical Next.js unauthenticated-RCE advisories (`GHSA-p293-qw3h-jr36`, `GHSA-2xp9-vwfh-vxw4`), which affected
+  `next` `16.0.0–16.3.2`, are resolved by this patch.
+- Remaining `npm audit --omit=dev` findings, both transitive through `next` itself (not direct dependencies):
+  - `sharp <0.35.4` — HIGH (libheif vulnerabilities).
+  - `baseline-browser-mapping >=2.0.0 <2.11.0` — MODERATE (DoS).
+  Do not manually pin/override either without a separate, reviewed dependency task — they follow whatever versions
+  `next` itself declares.
+
+## Vercel / Environment State
+
+- Vercel project: `pawlystudios`. Production URL for the initial launch: `https://pawlystudios.vercel.app` (custom
+  domain intentionally deferred).
+- Configured Vercel environment variable: `NEXT_PUBLIC_SITE_URL=https://pawlystudios.vercel.app`, scoped
+  **Production only**. Preview and Development are intentionally left unset (a preview deployment's own unique URL
+  would be wrong if it inherited the production origin for `metadataBase`/canonical).
+- Setting this variable has **not** triggered a new deployment — it only takes effect on the next Production build.
+- No other environment variables are configured yet: `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`,
+  `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` are all absent from every Vercel environment. See **Contact
+  Form State** below.
+- `SITE_IS_LAUNCHED` remains `false`. Nothing from `portfolio-first-restructure` has been pushed or deployed.
+
+## Contact Form State
+
+- Flow: `InquiryForm.jsx` (client) → `submitContactForm.js` (`'use server'` Server Action) → server validation +
+  honeypot → optional rate limiting → `contactSubmission.js`'s `processContactForm` → Resend delivery.
+- Project types: `Web Development`, `Website Maintenance`, `Other / Not Sure Yet` (AI Ad Creative removed, see
+  **Public Launch Scope**).
+- **Required** for real delivery (currently unset — see **Vercel / Environment State**): `RESEND_API_KEY`,
+  `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`. Missing any one of these makes `getDelivery()` return `null`, and
+  `processContactForm` returns `NOT_CONFIGURED` — the honest, non-fake-success state currently shown to visitors.
+- **Optional**, safe to defer: `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` (sliding-window rate limit, 5
+  requests/10 minutes, IP-hash keyed). Absent config skips rate limiting entirely; a runtime failure fails open
+  (still delivers, logs a warning). Neither absence nor failure blocks or misleads a legitimate visitor.
+- Never fake successful delivery. Do not configure credentials without an approved provider and real server-side
+  values — do not store real credentials in this file or any repository documentation.
+
 ## Deployment Checkpoint
 
 - GitHub: `https://github.com/UnpopularClwn/pawlystudios..git`
@@ -175,8 +220,10 @@ exists beyond production and where it lives.
   errors. Security headers and the honest unconfigured-form response were verified.
 - Lighthouse baseline: Performance 96, Accessibility 100, Best Practices 96, SEO 66 (expected while noindex is
   active), LCP 2.7 s, CLS 0, and TBT 90 ms.
-- No custom domain or delivery environment variables are configured. `metadataBase`, absolute canonical metadata,
-  sitemap, and JSON-LD publication remain unset. The page emits `noindex, nofollow` and schema remains unpublished.
+- `NEXT_PUBLIC_SITE_URL` is now configured in Vercel (Production only — see **Vercel / Environment State**), but no
+  new Production deployment has run yet, so `metadataBase`/canonical are not active in the live site today. No
+  delivery environment variables are configured. Sitemap and JSON-LD publication remain unset. The page emits
+  `noindex, nofollow` and schema remains unpublished.
 
 ## Resume Rules
 
@@ -188,21 +235,35 @@ exists beyond production and where it lives.
 - The client owns the finished website. Ongoing support is optional.
 - Update `docs/implementation-status.md` after future implementation sessions.
 
-## Pending Launch Work
+**Do not, without explicit approval:**
+- Restore AI Ad Creative to public launch scope, or expose it in nav/homepage/contact/schema — the parked
+  implementation stays in code (see **Public Launch Scope**), not deleted.
+- Restore `/work` (intentionally absent / 404).
+- Redesign the approved About page.
+- Modify SetSail unless a genuine bug is found.
+- Flip `SITE_IS_LAUNCHED` or otherwise enable indexing.
+- Push directly to `main` — pushes to `main` trigger a Vercel production deployment.
+- Add pricing content (none is approved yet).
 
-- Domain and metadata: obtain/approve a custom domain, then configure `metadataBase`, the absolute canonical, sitemap,
-  absolute JSON-LD IDs, final schema publication, and attach `/social-preview` to Open Graph/Twitter metadata. Do not
-  use the Vercel URL as the permanent canonical. SetSail SoftwareApplication schema remains deferred.
-- Form delivery: select a provider; add server-only credentials; configure sender, recipient, and reply-to; implement
-  the provider call and rate limiting; define retention/spam policy; and test success, failure, rejection, and
-  throttling. Until then, keep `NOT_CONFIGURED`.
-- Commercial content: add Web Development and Website Maintenance pricing only when real prices are approved.
-- Final security: verify HSTS with the final HTTPS/custom-domain behavior, preserve the current headers, and review CSP
-  with report-only testing first where practical.
-- Final QA: after domain/provider configuration, rerun Lighthouse and the domain-dependent metadata, robots, sitemap,
-  schema, social-card crawler, and delivered-inquiry checks.
-- Final launch: only after explicit approval, switch `SITE_IS_LAUNCHED` to `true`, remove `noindex, nofollow`, publish
-  the sitemap and final schema, enable indexing, and verify the live search directives.
+## Remaining Launch Order
+
+Initial launch uses `https://pawlystudios.vercel.app` — a custom domain is intentionally deferred, not required for
+launch.
+
+1. Configure Resend contact delivery (`RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`, Production only).
+2. Test a real contact submission end to end.
+3. Add a sitemap.
+4. Attach `/social-preview` to Open Graph/Twitter metadata.
+5. Review final launch configuration.
+6. Set `SITE_IS_LAUNCHED` to `true` (only after explicit approval).
+7. Run final test/lint/build/security audit.
+8. Final desktop/tablet/mobile smoke test.
+9. Merge/push/deploy (only after explicit approval — pushes to `main` trigger a Vercel production deployment).
+10. Verify the actual Vercel production deployment.
+11. Verify canonical, robots, schema, social metadata, and contact delivery in production.
+
+Deferred, not required for this launch: custom domain, Upstash rate limiting (safe to add later), final commercial
+pricing, HSTS/CSP hardening beyond the current baseline, SetSail `SoftwareApplication` schema.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
