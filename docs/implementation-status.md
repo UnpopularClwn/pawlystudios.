@@ -1,16 +1,18 @@
 # Implementation Status
 
-Last updated: 2026-09-14 (pre-launch checkpoint: web-only public scope, Next.js security patch, and
-`NEXT_PUBLIC_SITE_URL` configured for Production)
+Last updated: 2026-09-20 (housekeeping pause: no code changes since the 2026-09-14 pre-launch checkpoint; branch
+paused at 8 commits ahead of `main`, resume with **Remaining Launch Order** below)
 
 Production baseline commit: `29219b3907a275afdbc221fe85540856a6cf6e6a` (this is also current `main` and `origin/main` —
 verified identical; production has not moved since this baseline).
 
 ## Repository State
 
-The current branch (`portfolio-first-restructure`) is **7 commits ahead of `main`, 0 behind**, and all seven are
-committed but unmerged. Working tree is clean; nothing has been pushed or deployed. Do not describe any of them as
-shipped, approved, or on production — none are merged.
+The current branch (`portfolio-first-restructure`) is **8 commits ahead of `main`, 0 behind**, and all eight are
+committed but unmerged. Working tree is clean aside from two unrelated untracked logo files at the repo root
+(`portfolio logo transparent.svg`, `portfolio logo.png` — not referenced by any code, not staged, not part of this
+checkpoint). Nothing has been pushed or deployed. Do not describe any of them as shipped, approved, or on
+production — none are merged.
 
 1. **LIVE / PRODUCTION** (`main` / `origin/main` @ `29219b3`) — service-first homepage structure, Services nav
    dropdown, About page portrait/story. Everything in "Complete" below that isn't explicitly flagged otherwise
@@ -33,13 +35,15 @@ shipped, approved, or on production — none are merged.
    Ad Creative implementation. See **Public Launch Scope** below.
 7. **COMMITTED BUT UNMERGED — Next.js security patch** — `a96da75` (chore: patch Next.js security vulnerability).
    See **Next.js Security State** below.
+8. **COMMITTED BUT UNMERGED — pre-launch checkpoint** — `a274a76` (docs: save pre-launch project checkpoint),
+   followed by this 2026-09-20 housekeeping documentation pass. Documentation-only.
 
 `qa/` holds local QA screenshots only, is not part of any approved deliverable, and is now gitignored.
 
 ## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
 
-This describes the current state on the branch's 7 commits, not production. Do not document it as live until merged
-into `main`.
+This describes the current state on the branch's first 7 commits (layer 8 is documentation-only), not production.
+Do not document it as live until merged into `main`.
 
 - **Navigation**: Web, About, Contact, Start a Project (flat links, no Services dropdown, no AI Creative link).
 - **Homepage**: Hero → Selected Work (SetSail only) → What I Do (Web Development only) → About Preview → Final CTA →

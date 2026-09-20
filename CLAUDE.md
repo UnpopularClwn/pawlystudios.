@@ -14,7 +14,7 @@ Read `docs/implementation-status.md` before resuming. Older briefs, plans, and d
 ## Repository State (read this before touching git)
 
 `main` / `origin/main` are identical and are production, at commit `29219b3907a275afdbc221fe85540856a6cf6e6a`. The
-current branch (`portfolio-first-restructure`) is **7 commits ahead of `main`, 0 behind**, and all seven are
+current branch (`portfolio-first-restructure`) is **8 commits ahead of `main`, 0 behind**, and all eight are
 committed but unmerged — none of them are on production yet, and nothing has been pushed or deployed:
 
 1. **LIVE / PRODUCTION** — `main`/`origin/main` at `29219b3`. Service-first homepage structure, Services nav dropdown,
@@ -39,13 +39,17 @@ committed but unmerged — none of them are on production yet, and nothing has b
 7. **COMMITTED BUT UNMERGED — Next.js security patch** — `a96da75` (chore: patch Next.js security vulnerability).
    `next` `16.3.1` → `16.3.3`, resolving a critical unauthenticated-RCE advisory. `react`/`react-dom` unchanged. See
    **Next.js Security State** below.
+8. **COMMITTED BUT UNMERGED — pre-launch checkpoint (this housekeeping pause)** — `a274a76` (docs: save pre-launch
+   project checkpoint), the prior documentation-only checkpoint commit, plus this current housekeeping pass.
+   Documentation-only, no application code.
 
-None of layers 2–7 are shipped, approved for production, merged, or deployed. Do not merge, push, or deploy
+None of layers 2–8 are shipped, approved for production, merged, or deployed. Do not merge, push, or deploy
 `portfolio-first-restructure` until this work has its own explicit review/approval.
 
 ## Current Branch Architecture (committed, unmerged — `portfolio-first-restructure`)
 
-This is the current state on the branch's 7 commits, not on production. Do not describe it as live until merged.
+This is the current state on the branch's first 7 commits (layer 8 is documentation-only), not on production. Do not
+describe it as live until merged.
 
 - **Navigation**: Web, About, Contact, Start a Project (flat links, no Services dropdown, no AI Creative link).
 - **Homepage**: Hero → Selected Work (SetSail only) → What I Do (Web Development only) → About Preview → Final CTA →
